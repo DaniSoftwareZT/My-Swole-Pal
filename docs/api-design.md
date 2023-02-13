@@ -61,6 +61,34 @@
     ```
 
 
+### Exercises List
+
+* Endpoint path: /exercises
+* Endpoint method: GET
+
+* Headers:
+  * Authorization: Bearer token
+
+* Response: List of exercises you've created
+
+* Response shape (JSON):
+    ```json
+    {
+        "exercises": [
+            {
+                "name": "",
+                "image_url": "", //optional
+                "exercises": [{
+                    "difficulty level": "",
+                    "muscle group": "",
+                    "type": "",
+
+                }]
+            }
+        ]
+    }
+    ```
+
 ### Workout List
 
 * Endpoint path: /workouts
@@ -77,10 +105,11 @@
         "workouts": [
             {
                 "name": "",
-                "image_url": "",
-                "description": "",
+                "image_url": "", //optional
                 "exercises": [{
-                    "name": "",
+                    "difficulty level": "",
+                    "muscle group": "",
+                    "type": "",
 
                 }]
             }
@@ -101,13 +130,13 @@
     ```json
     {
         "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": "",
-        }, "..."]
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
     }
-    ```
 
 * Response: True
 
@@ -115,89 +144,18 @@
     ```json
     {
         "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": "",
-        }, "..."]
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
     }
-    ```
 
 
-### Planner
+### Exercise details
 
-* Endpoint path: /planner
-* Endpoint method: GET
-
-* Headers:
-  * Authorization: Bearer token
-
-* Response: List of workouts for the week
-
-* Response shape (JSON):
-    ```json
-    {
-        "workouts": [
-            {
-                "date": date object,
-                "name": "",
-                "image_url": "",
-                "description": "",
-                "exercises": [{
-                    "name": "",
-
-                }]
-            }
-        ]
-    }
-    ```
-
-
-### Planner
-
-* Endpoint path: /planner
-* Endpoint method: POST
-
-* Headers:
-  * Authorization: Bearer token
-
-* Request shape (JSON):
-    ```json
-    {
-        "date": date object,
-        "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": "",
-        }, "..."]
-    }
-    ```
-
-* Response: Add workout to planner
-
-* Response shape (JSON):
-    ```json
-    {
-        "workouts": [
-            {
-                "date": date object,
-                "name": "",
-                "image_url": "",
-                "description": "",
-                "exercises": [{
-                    "name": "",
-
-                }]
-            }
-        ]
-    }
-    ```
-
-
-### Exercise results
-
-* Endpoint path: /exercise/search
+* Endpoint path: /exercises/{id}
 * Endpoint method: GET
 * Query parameters:
   * q: the exercise(s) to search for
@@ -205,19 +163,18 @@
 * Headers:
   * Authorization: Bearer token
 
-* Response: List of exercises that meet filter parameters
+* Response:  Exercises details that meet filter parameters
 
 * Response shape (JSON):
     ```json
     {
         "exercises": [
             {
-                "name": "",
-                "type": "",
-                "muscle": "",
-                "equipment": "",
-                "difficulty": "",
-                "instructions": "",
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+            "equipment": "",
+            "instructions": "",
             }
         ]
     }
@@ -226,7 +183,7 @@
 
 ### Workout instance get
 
-* Endpoint path: /workouts/{id}/
+* Endpoint path: /workouts/{id}
 * Endpoint method: GET
 
 
@@ -239,22 +196,18 @@
     ```json
     {
         "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": "",
-            "weight": "",
-            "sets": "",
-            "reps": "",
-            "completed": "",
-        }, "..."]
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
     }
-    ```
 
 
 ### Workout instance create
 
-* Endpoint path: /workouts/{id}/
+* Endpoint path: /workouts/{id}/exercises
 * Endpoint method: POST
 
 
@@ -265,174 +218,123 @@
     ```json
     {
         "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": "",
-            "weight": "",
-            "sets": "",
-            "reps": "",
-            "completed": "",
-        }, "..."],
-        "completed": "",
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
     }
-    ```
 
-* Response: Add workout to log
+* Response: Add exercise to workout
 
 * Response shape (JSON):
     ```json
     {
         "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": "",
-            "weight": "",
-            "sets": "",
-            "reps": "",
-            "completed": "",
-        }, "..."],
-        "completed": "",
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
     }
-    ```
 
+
+### Workout instance put
+
+* Endpoint path: /workouts/{id}
+* Endpoint method: PUT
+
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request shape (JSON):
+    ```json
+    {
+        "name": "",
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
+    }
+
+* Response: Change details to workout
+
+* Response shape (JSON):
+    ```json
+    {
+        "name": "",
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
+    }`
 
 ### Workout instance delete
 
-* Endpoint path: /workouts/{id}/
-* Endpoint method: GET
-
-
-* Headers:
-  * Authorization: Bearer token
-
-* Response: Workout instance
-
-* Response shape (JSON):
-    ```json
-    {
-        "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": "",
-            "weight": "",
-            "sets": "",
-            "reps": "",
-            "completed": "",
-        }, "..."]
-    }
-    ```
-
-
-### Workout template get
-
-* Endpoint path: /workouts/templates/{id}/
-* Endpoint method: GET
-
-
-* Headers:
-  * Authorization: Bearer token
-
-* Response: Workout template
-
-* Response shape (JSON):
-    ```json
-    {
-        "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": ""
-        }, "..."]
-    }
-    ```
-
-
-### Workout template create
-
-* Endpoint path: /workouts/templates/{id}/
-* Endpoint method: POST
-
-* Headers:
-  * Authorization: Bearer token
-
-* Request shape (JSON):
-    ```json
-    {
-        "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": ""
-        }, "..."]
-    }
-    ```
-* Response: Add workout template
-
-* Response shape (JSON):
-    ```json
-    {
-        "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": ""
-        }, "..."]
-    }
-    ```
-
-
-### Workout template delete
-
-* Endpoint path: /workouts/templates/{id}/
+* Endpoint path: /workouts/{id}/exercises
 * Endpoint method: DELETE
 
 
 * Headers:
   * Authorization: Bearer token
 
-* Response: Workout template
+* Response: Workout instance
 
 * Response shape (JSON):
     ```json
     {
         "name": "",
-        "image_url": "",
-        "description": "",
-        "exercises": [{
-            "name": ""
-        }, "..."]
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        },
     }
     ```
 
-
-### Workout log
-
-* Endpoint path: /workouts/log/
-* Endpoint method: GET
-* Query parameters:
-  * completed: true
-
-* Headers:
-  * Authorization: Bearer token
-
-* Response: Workout log
+* Response: Remove exercise from workout
 
 * Response shape (JSON):
     ```json
     {
-        "workouts": [
-            {
-                "date": date object,
-                "name": "",
-                "description": "",
-                "exercises": [{
-                    "name": "",
+        "name": "",
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        }
+    }
 
-                }]
-            }
-        ]
+
+### Workout instance delete
+
+* Endpoint path: /workouts/{id}
+* Endpoint method: DELETE
+
+
+* Headers:
+  * Authorization: Bearer token
+
+* Response: Workout instance
+
+* Response shape (JSON):
+    ```json
+    {
+        "name": "",
+        "image_url": "", //optional
+        "exercises": {
+            "difficulty level": "",
+            "muscle group": "",
+            "type": "",
+        },
     }
     ```
