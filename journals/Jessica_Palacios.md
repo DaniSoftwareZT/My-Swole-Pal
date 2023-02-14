@@ -11,3 +11,6 @@ Our team worked on the api-design and wireframes to restructure our project afte
 
 ## Monday, February 13, 2023
 Removed the planner aspect from our API design and wireframes to restructure our project to make it so that users can simply filter exercises to add to a workout. Finished wireframes and api-design file.
+
+## Tuesday, February 14, 2023
+Our team worked through the fastapi tutorial to create our database using fastapi and postgres. We learned a lot about pydantic and psychopg.
