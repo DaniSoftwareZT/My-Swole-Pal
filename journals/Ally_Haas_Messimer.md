@@ -9,7 +9,7 @@
 
 ## Februrary 8 2023
 
-    Today Jessica forked and cloned the repo from HR. We all git cloned to our local computers. 
+    Today Jessica forked and cloned the repo from HR. We all git cloned to our local computers.
 
 ## Februrary 10 2023
 
@@ -21,3 +21,6 @@
 
 ## Februrary 14 2023
     As a group we went through the fast api database video tutorials to set up the account table, queries, and endpoints for creating accounts. Edwin was our coder on this day.
+
+## Februrary 15 2023
+    As a group we went through the JWTdown for FastAPI video tutorial to set up authentication. Adrian was our coder on this day.
