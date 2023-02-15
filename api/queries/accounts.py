@@ -3,40 +3,44 @@ from typing import Optional, List, Union
 from queries.pool import pool
 
 
-# class DuplicateAccountError(ValueError):
-#   pass
+class DuplicateAccountError(ValueError):
+  pass
+
 class Error(BaseModel):
   message: str
 
 class AccountIn(BaseModel):
   username: str
   email:str
-  hashed_password: str
-
+  password: str
 
 class AccountOut(BaseModel):
   id: str
   email: str
   username: str
 
+class AccountOutWithPassword(AccountOut):
+  hashed_password: str
 
-class AccountRepository:
-  def get_one(self, account_id:int) -> Optional[AccountOut]:
+
+class AccountQueries:
+  def get_one(self, account_email:str) -> Optional[AccountOutWithPassword]:
     try:
       with pool.connection() as conn:
         with conn.cursor() as db:
           result = db.execute(
             """
-            SELECT id, username, email
+            SELECT id, username, email, hashed_password
             FROM accounts
-            WHERE id = %s
+            WHERE email = %s
             """,
-            [account_id]
+            [account_email]
           )
           record = result.fetchone()
+          print("record", record)
           if record is None:
             return None
-
+          #print("self.record", self.record_to_account_out(record))
           return self.record_to_account_out(record)
     except Exception as e:
       print(e)
@@ -58,7 +62,7 @@ class AccountRepository:
       print(e)
       return False
 
-  def update(self, account_id: int, account: AccountIn) -> Union[AccountOut, Error]:
+  def update(self, account_id: int, account: AccountIn, hashed_password: str) -> Union[AccountOutWithPassword, Error]:
     try:
       with pool.connection() as conn:
         with conn.cursor() as db:
@@ -73,7 +77,7 @@ class AccountRepository:
             [
               account.username,
               account.email,
-              account.hashed_password,
+              hashed_password,
               account_id
             ]
           )
@@ -83,7 +87,7 @@ class AccountRepository:
       return {"message": "Could not update account"}
 
 
-  def get_all(self) -> Union[Error, List[AccountOut]]:
+  def get_all(self) -> Union[Error, List[AccountOutWithPassword]]:
     try:
       with pool.connection() as conn:
         with conn.cursor() as db:
@@ -104,7 +108,7 @@ class AccountRepository:
       return {"message": "Could not get all accounts"}
 
 
-  def create(self, account: AccountIn) -> AccountOut:
+  def create(self, account: AccountIn, hashed_password: str) -> AccountOutWithPassword:
     # connec to the database
     with pool.connection() as conn:
       # get a cursor (something to run sql with)
@@ -121,22 +125,27 @@ class AccountRepository:
           [
             account.username,
             account.email,
-            account.hashed_password
+            hashed_password
           ]
         )
         id = result.fetchone()[0]
+        old_data = account.dict()
+        print("ID", id)
+        print(old_data)
+        return AccountOutWithPassword(id=id, hashed_password=hashed_password, email = account.email, username = account.username)
         # return new data
-        return self.account_in_to_out(id, account)
+        #return self.account_in_to_out(id, account)
 
   def account_in_to_out(self, id:int, account: AccountIn):
     old_data = account.dict()
-    return AccountOut(id=id, **old_data)
+    return AccountOutWithPassword(id=id, **old_data)
 
   def record_to_account_out(self, record):
-    return AccountOut(
+    return AccountOutWithPassword(
       id=record[0],
       username=record[1],
-      email=record[2]
+      email=record[2],
+      hashed_password=record[3]
       )
 
 
