@@ -9,24 +9,28 @@ services:
       context: ./relational-data
       dockerfile: ./Dockerfile.dev
     volumes:
-        - swole:/var/lib/postgresql/data
+      - swole:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: swole
       POSTGRES_USER: swole
       POSTGRES_DB: swole
     ports:
-        - 15432:5432
+      - 15432:5432
   api:
     build:
-        context: ./api
-        dockerfile: ./Dockerfile.dev
+      context: ./api
+      dockerfile: ./Dockerfile.dev
     ports:
-        - "8000:8000"
+      - "8000:8000"
     volumes:
-        - ./api:/app
+      - ./api:/app
     environment:
       DATABASE_URL: postgresql://swole:swole@postgres/swole
       WAIT_HOSTS: postgres:5432
+
+      SIGNING_KEY:
+      WAIT_BEFORE:
+      WAIT_TIMEOUT:
   ghi:
     image: node:lts-bullseye
     command: /bin/bash run.sh
