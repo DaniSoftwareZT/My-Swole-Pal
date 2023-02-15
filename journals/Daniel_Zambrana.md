@@ -6,4 +6,7 @@ Today I felt like I couln't do much, power is out at the house and everything is
 Felt useless due to lack of electricity at my house. Could only talk to my team through slack and had to change some things about the project. Still doing a fitness app but had to change some things in the wireframing that were considered too complicated.
 
 ## Monday, February 13, 2023
-Today has been a looooooong day. Contributed to the team by making some api-desings and modifying what they have previously done which made me feel useful. Still trying to get around the fastapi stuff and everything else. The idea for the project now seems do-able and the idea has been modified from having a log and template, to making it more simple and leaving the log and template for the stretch goals. 
+Today has been a looooooong day. Contributed to the team by making some api-desings and modifying what they have previously done which made me feel useful. Still trying to get around the fastapi stuff and everything else. The idea for the project now seems do-able and the idea has been modified from having a log and template, to making it more simple and leaving the log and template for the stretch goals.
+
+## Tuesday, February 14, 2023
+Today the team made huge progress! Watching the fastapi videos and keeping up with them following every single step. Had some up and downs on where some certain code will be placed and how. A SEIR was able to help us out and shine a light on us. 
