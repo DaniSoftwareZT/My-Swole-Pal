@@ -15,8 +15,6 @@ Today the team made progress! Watching the fastapi videos and keeping up with th
 Today we have been watching JWTdown videos all day and just following everything the video is doing. So far the progress has been good and the questions we've had have been answered. We got stuck on some hashed_password stuff when creating an account. Luckily for us a SEIR managed to help us as well as the team.
 
 ## Thursay, February 16, 2023
-Finishing the backend of the project was a real test. Added some files and documents to our routers and queries which will be the finishing touches to this step. Got stuck in the fastapi trying to create a workout but managed to get it solved!
+Finishing the backend of the project was a real test. Added some files and documents to our routers and queries which will be the finishing touches to this step. Got stuck in the fastapi trying to create a workout but managed to get it solved! All of our endpoints are close to done!
 
 ## Tuesday, February 21, 2023
-
-
