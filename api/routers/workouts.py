@@ -69,4 +69,4 @@ def update_workout(
   account_data:dict = Depends(authenticator.get_current_account_data),
   repo:WorkoutQueries = Depends(),
 ) -> WorkoutOut:
-  return repo.update(id, workout)
+  return repo.update_workout(account_id=account_data['id'], id=id, workout=workout)

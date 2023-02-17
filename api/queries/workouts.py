@@ -72,13 +72,6 @@ class WorkoutQueries:
             print(e)
             return {"message": "Could not get all accounts"}
 
-    def record_to_workout_out(self, record):
-        return WorkoutOut(
-        id=record[0],
-        name=record[1],
-        image_url=record[2],
-        account_id=record[3],
-        )
 
     def get_one_workout(self, account_id: int, id:int) -> Optional[WorkoutOut]:
         try:
@@ -119,14 +112,32 @@ class WorkoutQueries:
                     workout.name,
                     workout.image_url,
                     account_id,
-                    id
+                    id,
+                    account_id
                 ]
             )
-                return self.workout_in_to_out(account_id, )
+                print(workout)
+                # old_data = workout.dict()
+                # print("ID", id)
+                # print(old_data)
+                # return WorkoutOut(id=id, account_id=account_id, **old_data)
+                return self.workout_in_to_out(id, workout, account_id)
         except Exception as e:
             print(e)
             return {"message": "Could not update workout"}
 
-    def workout_in_to_out(self, id:int, account: WorkoutIn):
-        old_data = account.dict()
-        return WorkoutOut(id=id, **old_data)
+    def workout_in_to_out(self, id:int, workout: WorkoutIn, account_id: int):
+        old_data = workout.dict()
+        print(old_data)
+        result= (WorkoutOut(id=id, **old_data, account_id=account_id))
+        print(result)
+        return WorkoutOut(id=id, **old_data, account_id=account_id)
+
+
+    def record_to_workout_out(self, record):
+        return WorkoutOut(
+        id=record[0],
+        name=record[1],
+        image_url=record[2],
+        account_id=record[3],
+        )
