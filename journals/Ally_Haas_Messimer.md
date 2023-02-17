@@ -24,3 +24,6 @@
 
 ## Februrary 15 2023
     As a group we went through the JWTdown for FastAPI video tutorial to set up authentication. Adrian was our coder on this day.
+
+## Februrary 16 2023
+    As a group we started making our fast api routes. We were able to get a list of workouts, post a workout, and update a workout. Daniel was our coder on this day.
