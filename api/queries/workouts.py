@@ -47,8 +47,7 @@ class WorkoutQueries:
                 print("ID", id)
                 print(old_data)
                 return WorkoutOut(id=id, account_id=account_id, **old_data)
-                # return new data
-                #return self.account_in_to_out(id, account)
+
 
     def get_all(self, account_id: int) -> Union[Error, List[WorkoutOut]]:
         try:
@@ -63,7 +62,6 @@ class WorkoutQueries:
                     """,
                     [account_id],
                 )
-
                     return [
                         self.record_to_workout_out(record)
                         for record in result
@@ -90,11 +88,11 @@ class WorkoutQueries:
                     print("record", record)
                     if record is None:
                         return None
-                    #print("self.record", self.record_to_account_out(record))
                     return self.record_to_workout_out(record)
         except Exception as e:
             print(e)
             return {"message": "Could not get workout"}
+
 
     def update_workout(self, account_id: int, id: int, workout: WorkoutIn) -> Optional[WorkoutOut]:
         try:
@@ -121,6 +119,7 @@ class WorkoutQueries:
             print(e)
             return {"message": "Could not update workout"}
 
+
     def workout_in_to_out(self, id:int, workout: WorkoutIn, account_id: int):
         old_data = workout.dict()
         return WorkoutOut(id=id, **old_data, account_id=account_id)
@@ -133,6 +132,7 @@ class WorkoutQueries:
         image_url=record[2],
         account_id=record[3],
         )
+
 
     def delete_workout(self, account_id:int, id: int) -> bool:
         try:
