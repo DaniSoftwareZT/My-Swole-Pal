@@ -32,7 +32,7 @@ router = APIRouter()
 #       response.status_code = 400
 #   return repo.create(workout)
 
-@router.post("/api/workouts")
+@router.post("/api/workouts", tags=["workouts"])
 async def create_workout(
     workout_in: WorkoutIn,
     account_data: dict= Depends(authenticator.get_current_account_data),
@@ -42,7 +42,7 @@ async def create_workout(
     return repo.create(workout=workout_in, account_id = account_data['id'])
 
 
-@router.get("/api/workouts")
+@router.get("/api/workouts", tags=["workouts"])
 async def get_workouts(
     account_data:dict = Depends(authenticator.get_current_account_data),
     repo: WorkoutQueries = Depends()
@@ -50,7 +50,7 @@ async def get_workouts(
     return repo.get_all(account_id=account_data['id'])
 
 
-@router.get("/api/workouts/{id}", response_model = Optional[WorkoutOut])
+@router.get("/api/workouts/{id}", response_model = Optional[WorkoutOut], tags=["workouts"])
 async def get_one_workout(
     id:int,
     response: Response,
@@ -62,7 +62,7 @@ async def get_one_workout(
     response.status_code = 404
   return workout
 
-@router.put("/workouts/{id}", response_model = Optional[WorkoutOut])
+@router.put("/workouts/{id}", response_model = Optional[WorkoutOut], tags=["workouts"])
 def update_workout(
   id: int,
   workout: WorkoutIn,
@@ -70,3 +70,12 @@ def update_workout(
   repo:WorkoutQueries = Depends(),
 ) -> WorkoutOut:
   return repo.update_workout(account_id=account_data['id'], id=id, workout=workout)
+
+@router.delete("/workouts/{id}", response_model = bool, tags=["workouts"])
+def delete_workout(
+  id: int,
+  # workout: WorkoutIn,
+  account_data:dict = Depends(authenticator.get_current_account_data),
+  repo:WorkoutQueries = Depends(),
+) -> bool:
+  return repo.delete_workout(account_id=account_data['id'], id=id)

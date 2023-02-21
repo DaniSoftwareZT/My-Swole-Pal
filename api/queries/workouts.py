@@ -116,11 +116,6 @@ class WorkoutQueries:
                     account_id
                 ]
             )
-                print(workout)
-                # old_data = workout.dict()
-                # print("ID", id)
-                # print(old_data)
-                # return WorkoutOut(id=id, account_id=account_id, **old_data)
                 return self.workout_in_to_out(id, workout, account_id)
         except Exception as e:
             print(e)
@@ -128,9 +123,6 @@ class WorkoutQueries:
 
     def workout_in_to_out(self, id:int, workout: WorkoutIn, account_id: int):
         old_data = workout.dict()
-        print(old_data)
-        result= (WorkoutOut(id=id, **old_data, account_id=account_id))
-        print(result)
         return WorkoutOut(id=id, **old_data, account_id=account_id)
 
 
@@ -141,3 +133,19 @@ class WorkoutQueries:
         image_url=record[2],
         account_id=record[3],
         )
+
+    def delete_workout(self, account_id:int, id: int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM workouts
+                        WHERE id=%s AND account_id=%s
+                        """,
+                        [id, account_id]
+                    )
+                return True
+        except Exception as e:
+            print(e)
+            return False

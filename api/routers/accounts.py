@@ -31,13 +31,13 @@ class HttpError(BaseModel):
 
 router = APIRouter()
 
-@router.get("/api/protected", response_model=bool)
+@router.get("/api/protected", response_model=bool, tags=["accounts"])
 async def get_protected(
   account_data: dict = Depends(authenticator.get_current_account_data),
 ):
   return True
 
-@router.get("/token", response_model=AccountToken | None)
+@router.get("/token", response_model=AccountToken | None, tags=["accounts"])
 async def get_token(
     request: Request,
     account: AccountOut = Depends(authenticator.try_get_current_account_data)
@@ -49,7 +49,7 @@ async def get_token(
             "account": account,
         }
 
-@router.post("/api/accounts", response_model=AccountToken | HttpError)
+@router.post("/api/accounts", response_model=AccountToken | HttpError, tags=["accounts"])
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -72,25 +72,14 @@ async def create_account(
     #the login here calls the get_account_data in authenticator.py. Magic. which starts the auth process.
     return AccountToken(account=account, **token.dict())
 
-# @router.post("/accounts", response_model = Union[AccountOut, Error])
-# def create_account(
-#   account: AccountIn,
-#   response: Response,
-#   repo: AccountQueries = Depends()
-# ):
-#   if account is None:
-#       response.status_code = 400
-#   return repo.create(account)
-
-
-@router.get("/accounts", response_model = Union[List[AccountOut], Error])
+@router.get("/accounts", response_model = Union[List[AccountOut], Error], tags=["accounts"])
 def get_all(
   repo: AccountQueries = Depends(),
 ):
   return repo.get_all()
 
 
-@router.put("/accounts/{account_id}", response_model = Union[AccountOut, Error])
+@router.put("/accounts/{account_id}", response_model = Union[AccountOut, Error], tags=["accounts"])
 def update_account(
   account_id: int,
   account: AccountIn,
@@ -99,7 +88,7 @@ def update_account(
   return repo.update(account_id, account)
 
 
-@router.delete("/accounts/{account_id}", response_model = bool)
+@router.delete("/accounts/{account_id}", response_model = bool, tags=["accounts"])
 def delete_account(
   account_id: int,
   repo:AccountQueries = Depends(),
@@ -107,7 +96,7 @@ def delete_account(
   return repo.delete(account_id)
 
 
-@router.get("/accounts/{account_id}", response_model = Optional[AccountOut])
+@router.get("/accounts/{account_id}", response_model = Optional[AccountOut], tags=["accounts"])
 def get_one_account(
   account_email: str,
   response: Response,
