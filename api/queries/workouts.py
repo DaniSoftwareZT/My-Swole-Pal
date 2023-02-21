@@ -44,8 +44,6 @@ class WorkoutQueries:
                 )
                 id = result.fetchone()[0]
                 old_data = workout.dict()
-                print("ID", id)
-                print(old_data)
                 return WorkoutOut(id=id, account_id=account_id, **old_data)
 
 
