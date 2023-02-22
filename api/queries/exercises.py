@@ -16,6 +16,7 @@ import os
 class ExerciseIn(BaseModel):
     name: str
 
+
 class ExerciseOut(BaseModel):
     id: int
     name: str
@@ -23,7 +24,7 @@ class ExerciseOut(BaseModel):
 
 
 class ExerciseQueries:
-    def create(self, exercise: ExerciseIn, workout_id: int):
+    def create_exercise(self, exercise: ExerciseIn, account_id: int, workout_id: int):
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -36,7 +37,7 @@ class ExerciseQueries:
                     """,
                     [
                     exercise.name,
-                    exercise.workout_id,
+                    workout_id,
                     ]
                 )
                 id = result.fetchone()[0]
@@ -44,7 +45,54 @@ class ExerciseQueries:
                 return ExerciseOut(id=id, workout_id=workout_id, **old_data)
 
 
-    def get_all_exercises(self):
-        result = requests.get('https://api.api-ninjas.com/v1/exercises', headers={"X-Api-Key": os.environ["NINJA_KEY"]})
-        data = result.json()
-        return data
+    def get_all_exercises(self, account_id: int, workout_id: int) -> Union[Error, List[ExerciseOut]]:
+            try:
+                with pool.connection() as conn:
+                    with conn.cursor() as db:
+                        result = db.execute(
+                        """
+                        SELECT e.id, e.name, e.workout_id
+                        FROM exercises AS e
+                        INNER JOIN workouts w ON e.workout_id = w.id
+                        WHERE e.workout_id = %s AND w.account_id = %s
+                        ORDER BY e.name
+                        """,
+                        [workout_id, account_id],
+
+                    )
+                        return [
+                            self.record_to_exercise_out(record)
+                            for record in result
+                        ]
+            except Exception as e:
+                print(e)
+                return {"message": "Could not get all exercises"}
+
+    def delete_exercise(self, account_id:int, exercise_id:int, workout_id:int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM exercises
+                        WHERE id = %s
+                        AND workout_id = %s
+                        AND workout_id IN (
+                        SELECT id
+                        FROM workouts
+                        WHERE account_id = %s
+                        );
+                        """,
+                        [exercise_id, workout_id, account_id]
+                    )
+                return True
+        except Exception as e:
+            print(e)
+            return False
+
+    def record_to_exercise_out(self, record):
+        return ExerciseOut(
+        id=record[0],
+        name=record[1],
+        workout_id=record[2],
+        )

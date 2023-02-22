@@ -49,7 +49,7 @@ async def get_one_workout(
   return workout
 
 
-@router.put("/workouts/{id}", response_model = Optional[WorkoutOut], tags=["workouts"])
+@router.put("/api/workouts/{id}", response_model = Optional[WorkoutOut], tags=["workouts"])
 def update_workout(
   id: int,
   workout: WorkoutIn,
@@ -59,7 +59,7 @@ def update_workout(
   return repo.update_workout(account_id=account_data['id'], id=id, workout=workout)
 
 
-@router.delete("/workouts/{id}", response_model = bool, tags=["workouts"])
+@router.delete("/api/workouts/{id}", response_model = bool, tags=["workouts"])
 def delete_workout(
   id: int,
   # workout: WorkoutIn,

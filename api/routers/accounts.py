@@ -37,7 +37,7 @@ async def get_protected(
 ):
   return True
 
-@router.get("/token", response_model=AccountToken | None, tags=["accounts"])
+@router.get("/api/token", response_model=AccountToken | None, tags=["accounts"])
 async def get_token(
     request: Request,
     account: AccountOut = Depends(authenticator.try_get_current_account_data)
@@ -72,14 +72,14 @@ async def create_account(
     #the login here calls the get_account_data in authenticator.py. Magic. which starts the auth process.
     return AccountToken(account=account, **token.dict())
 
-@router.get("/accounts", response_model = Union[List[AccountOut], Error], tags=["accounts"])
+@router.get("/api/accounts", response_model = Union[List[AccountOut], Error], tags=["accounts"])
 def get_all(
   repo: AccountQueries = Depends(),
 ):
   return repo.get_all()
 
 
-@router.put("/accounts/{account_id}", response_model = Union[AccountOut, Error], tags=["accounts"])
+@router.put("/api/accounts/{account_id}", response_model = Union[AccountOut, Error], tags=["accounts"])
 def update_account(
   account_id: int,
   account: AccountIn,
@@ -88,7 +88,7 @@ def update_account(
   return repo.update(account_id, account)
 
 
-@router.delete("/accounts/{account_id}", response_model = bool, tags=["accounts"])
+@router.delete("/api/accounts/{account_id}", response_model = bool, tags=["accounts"])
 def delete_account(
   account_id: int,
   repo:AccountQueries = Depends(),
@@ -96,7 +96,7 @@ def delete_account(
   return repo.delete(account_id)
 
 
-@router.get("/accounts/{account_id}", response_model = Optional[AccountOut], tags=["accounts"])
+@router.get("/api/accounts/{account_id}", response_model = Optional[AccountOut], tags=["accounts"])
 def get_one_account(
   account_email: str,
   response: Response,
