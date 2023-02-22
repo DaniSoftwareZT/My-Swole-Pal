@@ -30,3 +30,6 @@
 
 ## Februrary 21 2023
     As a group we worked on incorperating our 3rd party api into our fast api routes and queries. We were able to get a couple of the routes done successfully. Jessica was our coder on this day.
+
+## Februrary 22 2023
+    Today we finished our backend. We were able to make our api routes and queries. Now, on docs, we are able to get, post, update, and delete workouts. We are also able to search for a list of exercises and add them to a workout. We can also delete an exercise from a workout. I was our coder on this day.
