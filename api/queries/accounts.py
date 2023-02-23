@@ -109,11 +109,8 @@ class AccountQueries:
 
 
   def create(self, account: AccountIn, hashed_password: str) -> AccountOutWithPassword:
-    # connec to the database
     with pool.connection() as conn:
-      # get a cursor (something to run sql with)
       with conn.cursor() as db:
-        # run our insert statement
         result = db.execute(
           """
           INSERT INTO accounts
@@ -130,8 +127,6 @@ class AccountQueries:
         )
         id = result.fetchone()[0]
         old_data = account.dict()
-        print("ID", id)
-        print(old_data)
         return AccountOutWithPassword(id=id, hashed_password=hashed_password, email = account.email, username = account.username)
         # return new data
         #return self.account_in_to_out(id, account)

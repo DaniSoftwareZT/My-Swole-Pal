@@ -15,3 +15,12 @@ On this day Riley made us realize that we should simplify certain aspects of our
 ## February 14, 2023
 
 It was my turn to code today and we went through the fast api database video tutorials to set up the account table, queries, and endpoints for creating accounts. We learned a lot today about how to use fast api and incorporate pydantic and psycopg to connect to our database and make our models.
+
+## Februrary 15 2023
+  Today we went through the authentication process for creating a user account, logging in a user, logging out the user. We then started going through the endpoints for our exercises and workouts
+
+## Februrary 16 2023
+
+
+## Februrary 121 2023
+  
