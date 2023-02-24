@@ -1,45 +1,24 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+//import ErrorNotification from '../../ErrorNotification';
+import { useCreateAccountsMutation } from './store/Api.js'
 
 function SignupForm() {
-	const [formData, setFormData] = useState({
-		username: "",
-		email: "",
-		password: "",
-	});
+	const navigate = useNavigate();
+	const [username, setUserName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [createAccount, result] = useCreateAccountsMutation();
 
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-
-		const signupUrl = `${process.env.REACT_APP_API_API_HOST}/accounts`;
-
-		const fetchConfig = {
-			method: "post",
-			body: JSON.stringify(formData),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		};
-
-		const response = await fetch(signupUrl, fetchConfig);
-		if (response.ok) {
-			setFormData({
-				username: "",
-				email: "",
-				password: "",
-			});
-			// setTimeout(navigate("/"), 100)
-		}
-	};
-
-	const handleFormChange = (event) => {
-		const inputName = event.target.name;
-		const value = event.target.value;
-
-		setFormData({
-			...formData,
-			[inputName]: value,
-		});
-	};
+	function handleSubmit(e) {
+		e.preventDefault();
+		createAccount({username, email, password});
+	}
+	if (result.isSuccess) {
+		console.log("Signup Successful")
+		setTimeout(navigate('/'), 1000)
+		window.location.reload()
+	}
 
 	return (
 		<div className="row">
@@ -49,22 +28,22 @@ function SignupForm() {
 					<form onSubmit={handleSubmit} id="create-location-form">
 						<div className="form-floating mb-3">
 							<input
-								value={formData.username}
+								value={username}
 								placeholder="username"
-								onChange={handleFormChange}
+								onChange={e => setUserName(e.target.value)}
 								required
 								type="text"
 								name="username"
 								id="username"
 								className="form-control"
 							/>
-							<label htmlFor="username">userName</label>
+							<label htmlFor="username">Username</label>
 						</div>
 						<div className="form-floating mb-3">
 							<input
-								value={formData.email}
+								value={email}
 								placeholder="Email"
-								onChange={handleFormChange}
+								onChange={e => setEmail(e.target.value)}
 								required
 								type="email"
 								name="email"
@@ -75,9 +54,9 @@ function SignupForm() {
 						</div>
 						<div className="form-floating mb-3">
 							<input
-								value={formData.password}
+								value={password}
 								placeholder="Password"
-								onChange={handleFormChange}
+								onChange={e => setPassword(e.target.value)}
 								required
 								type="password"
 								name="password"
@@ -86,7 +65,7 @@ function SignupForm() {
 							/>
 							<label htmlFor="password">Password</label>
 						</div>
-						<button className="btn btn-primary">GET SWOLE!</button>
+						<button className="btn btn-primary">GET SWOLE!!!</button>
 					</form>
 				</div>
 			</div>

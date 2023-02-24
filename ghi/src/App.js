@@ -49,9 +49,9 @@ function App() {
 					<Route path="signup">
 						<Route path="new" element={<SignupForm />} />
 					</Route>
-					<Route path="login">
+					{/* <Route path="login">
 						<Route path="new" element={<LoginForm />} />
-					</Route>
+					</Route> */}
 				</Routes>
 			</div>
 		</BrowserRouter>

@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const Api = createApi({
 	reducerPath: "api",
@@ -27,4 +27,4 @@ export const Api = createApi({
 	}),
 });
 
-export const { UseCreateAccountsMutation } = Api;
+export const { useCreateAccountsMutation } = Api;
