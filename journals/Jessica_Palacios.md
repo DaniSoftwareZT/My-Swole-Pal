@@ -22,4 +22,10 @@ I'm really sick, I had a fever but was able to continue working with team and le
 I'm still sick and have has a fever since yesterday. Our team continued to work on our project and did part of the workouts endpoints.
 
 ## Tuesday, February 21, 2023
-Today I coded for the team and I finished the workouts endpoint. We also did the excercises and searches endpoints to ensure we were pulling data from the third party api.
+Today I coded for the team and I finished the workouts endpoint. We also did the exercises and searches endpoints to ensure we were pulling data from the third party api.
+
+## Wednesday, February 22, 2023
+Our team worked on finishing the backend, Ally was the coder for the team today.
+
+## Thursday, February 23, 2023
+Today Edwin coded for the team and we worked on getting the frontend signup form to work but once it started working we decided to add in redux. Redux is a learning curve for the whole team but we're slowly putting it together.
