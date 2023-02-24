@@ -1,22 +1,23 @@
-from pydantic import BaseModel
+# from pydantic import BaseModel
 from fastapi import (
     Depends,
-    HTTPException,
-    status,
-    Response,
+    # HTTPException,
+    # status,
+    # Response,
     APIRouter,
-    Request,
+    # Request,
 )
-from typing import Union, List, Optional
-from authenticator import authenticator
+# from typing import Union, List, Optional
+# from authenticator import authenticator
 from queries.searches import (
     SearchIn,
-    SearchOut,
+    # SearchOut,
     SearchQueries,
 
 )
 
 router = APIRouter()
+
 
 @router.post("/api/exercises", tags=["searches"])
 async def get_search(
