@@ -17,10 +17,21 @@ On this day Riley made us realize that we should simplify certain aspects of our
 It was my turn to code today and we went through the fast api database video tutorials to set up the account table, queries, and endpoints for creating accounts. We learned a lot today about how to use fast api and incorporate pydantic and psycopg to connect to our database and make our models.
 
 ## Februrary 15 2023
-  Today we went through the authentication process for creating a user account, logging in a user, logging out the user. We then started going through the endpoints for our exercises and workouts
+
+Today we went through the authentication process for creating a user account, logging in a user, logging out the user. We then started going through the endpoints for our exercises and workouts
 
 ## Februrary 16 2023
 
+With Daniel as the coder for today, we created our fast API routes for workouts and their respective queries. These routes were for getting a list of all workouts for the logged in user, creating a workout for the user, and udpating a workout for a user.
 
-## Februrary 121 2023
-  
+## Februrary 21 2023
+
+Jessica was the coder and we used our experience making the workout routes to incorporate our third party API into our application. We can now successfully use the API to get a list of exercises depending on what the user adds as the filter parameters. We made it using a post request to our backend, but we may need to change it to a get and use queries to have it follow more traditional CRUD templates.
+
+## Februrary 22 2023
+
+Ally was the coder for today and we completed all of our routes for accounts, workouts, and exercies, as well as using the third party API. We can do all necessary CRUD methods for each aspect of our database.
+
+## Februrary 23 2023
+
+I was our coder for today. We began working on the front end by creating the layout for the landing page, and a sign up form. We created the sign up form in React, and then we worked on updating it to work with Redux toolkit. We did get the front end to sucessfully create a user, and now we will work on having the user sign in using their authentication token and ensuring that all necessary endpoints are protected.
