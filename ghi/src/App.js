@@ -6,7 +6,7 @@ import "./App.css";
 import {Routes, Route} from "react-router-dom"
 import MainPage from "./MainPage"
 import SignupForm from "./SignupForm"
-
+import LoginForm from "./LoginForm"
 
 function App() {
 	return (
@@ -18,9 +18,9 @@ function App() {
 					<Route path="signup">
 						<Route path="new" element={<SignupForm />} />
 					</Route>
-					{/* <Route path="login">
+					<Route path="login">
 						<Route path="new" element={<LoginForm />} />
-					</Route> */}
+					</Route>
 				</Routes>
 			</div>
 			</>
