@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { clearForm } from './accountSlice';
 
-export const Api = createApi({
+export const apiSlice = createApi({
 	reducerPath: "api",
 	baseQuery: fetchBaseQuery({
 		baseUrl: process.env.REACT_APP_API_API_HOST,
 		prepareHeaders: (headers, { getState }) => {
-			const selector = Api.endpoints.getToken.select();
+			const selector = apiSlice.endpoints.getToken.select();
 			const { data: tokenData } = selector(getState());
 			if (tokenData && tokenData.access_token) {
 				headers.set("Authorization", `Bearer ${tokenData.access_token}`);
@@ -15,16 +16,73 @@ export const Api = createApi({
 	}),
 	tagTypes: ["Account"],
 	endpoints: (builder) => ({
-		createAccounts: builder.mutation({
+		signUp: builder.mutation({
 			query: (data) => ({
-				url: "accounts",
-				body: data,
-				method: "POST",
-				credentials: "include",
-			}),
-			invalidataeTags: ["Account"],
-		}),
-	}),
+			  url: '/accounts',
+        method: 'post',
+        body: data,
+        credentials: 'include',
+      }),
+			providesTags: ['Account'],
+      invalidatesTags: result => {
+        return (result && ['Token']) || [];
+		},
+		async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(clearForm());
+        } catch (err) {}
+      },
+    }),
+    logIn: builder.mutation({
+      query: info => {
+        let formData = null;
+        if (info instanceof HTMLElement) {
+          formData = new FormData(info);
+        } else {
+          formData = new FormData();
+          formData.append('username', info.email);
+          formData.append('password', info.password);
+        }
+        return {
+          url: '/token',
+          method: 'post',
+          body: formData,
+          credentials: 'include',
+        };
+      },
+      providesTags: ['Account'],
+      invalidatesTags: result => {
+        return (result && ['Token']) || [];
+      },
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(clearForm());
+        } catch (err) {}
+      },
+    }),
+    logOut: builder.mutation({
+      query: () => ({
+        url: '/token',
+        method: 'delete',
+        credentials: 'include',
+      }),
+      invalidatesTags: ['Account', 'Token'],
+    }),
+    getToken: builder.query({
+      query: () => ({
+        url: '/token',
+        credentials: 'include',
+      }),
+      providesTags: ['Token'],
+    }),
+  }),
 });
 
-export const { useCreateAccountsMutation } = Api;
+export const {
+  useGetTokenQuery,
+  useLogInMutation,
+  useLogOutMutation,
+  useSignUpMutation,
+} = apiSlice;
