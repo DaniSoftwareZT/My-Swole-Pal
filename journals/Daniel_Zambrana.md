@@ -21,4 +21,10 @@ Finishing the backend of the project was a real test. Added some files and docum
 We finished the back-end of the project. Probably we will have to go back to make a few tweaks and changes, but for the most part all of our endpoints are done.
 
 ## Thursday, February 23, 2023
-Learning Redux has been a struggle since it is something new for the whole team. Starting to do some stuff of the frontend and some authentication. 
+Learning Redux has been a struggle since it is something new for the whole team. Created a new branch to start working and doing some stuff of the frontend and some authentication.
+
+## Friday, February 24, 2023
+We setup the caprover and got it properly working so thats a plus! Also continued to work on Redux and some more front-end of the application.
+
+## Monday, February 27, 2023
+
