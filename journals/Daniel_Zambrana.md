@@ -30,4 +30,4 @@ We setup the caprover and got it properly working so thats a plus! Also continue
 We continued to work on the front-end of the project. We got the signup to work and we attempted to add some modals for signup and login which have been a pain. Added some fixes to the main project and to the loginform.js
 
 ## Tuesday, February 28, 2023
-
+So we abandoned the Modal idea, and we just finished the signup, login and logout on the frontend of the project and it WORKS! So we merged this branch with the main since everything seems to be good!
