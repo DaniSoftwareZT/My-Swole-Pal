@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { useGetTokenQuery, useLogOutMutation } from './store/api';
-import LoginForm from './LoginForm';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from './store/accountSlice';
+import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import { useEffect } from 'react';
 
@@ -81,7 +81,7 @@ function Nav() {
 						</li>
 						<li className="nav-item">
 							<NavLink className="nav-link" aria-current="page" to="/login/new">
-								Log in 
+								Log in
 							</NavLink>
 						</li>
 					</ul>
@@ -103,6 +103,7 @@ function Nav() {
 			</div>
 		</nav>
 		<LoginForm/>
+		
 		</>
 	);
 }

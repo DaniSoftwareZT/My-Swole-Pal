@@ -96,17 +96,15 @@ class AccountQueries:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    result = db.execute(
+                    db.execute(
                         """
-            SELECT id, username, email
-            FROM accounts
-            ORDER BY username
-            """
+                        SELECT id, username, email
+                        FROM accounts
+                        ORDER BY username
+                        """
                     )
-
-                    return [
-                        self.record_to_account_out(record) for record in result
-                    ]
+                    results = db.fetchall()
+                    return [self.record_to_account_out(record) for record in results]
         except Exception as e:
             print(e)
             return {"message": "Could not get all accounts"}
@@ -118,12 +116,12 @@ class AccountQueries:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-          INSERT INTO accounts
-            (username, email, hashed_password)
-          VALUES
-            (%s, %s, %s)
-          RETURNING id;
-          """,
+                    INSERT INTO accounts
+                        (username, email, hashed_password)
+                    VALUES
+                        (%s, %s, %s)
+                    RETURNING id;
+                    """,
                     [account.username, account.email, hashed_password],
                 )
                 id = result.fetchone()[0]
@@ -141,12 +139,19 @@ class AccountQueries:
         return AccountOutWithPassword(id=id, **old_data)
 
     def record_to_account_out(self, record):
-        return AccountOutWithPassword(
-            id=record[0],
-            username=record[1],
-            email=record[2],
-            hashed_password=record[3],
-        )
+        if len(record) >= 4:
+            return AccountOutWithPassword(
+                id=record[0],
+                username=record[1],
+                email=record[2],
+                hashed_password=record[3],
+            )
+        else:
+            return AccountOut(
+                id=record[0],
+                username=record[1],
+                email=record[2],
+            )
 
 
 # class AccountQueries(Queries):
