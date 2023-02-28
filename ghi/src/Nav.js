@@ -8,16 +8,27 @@ import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import { useEffect } from 'react';
 
+
 function LoginButton(props) {
 	const dispatch = useDispatch();
 	const classNames = `buttons ${props.show ? '' : 'is-hidden'}`;
+	let navigate = useNavigate();
+	const SignupRoute = () => {
+		let path = "/signup/new";
+		navigate(path);
+    };
+	const LoginRoute = () => {
+		let path = "/login/new";
+		navigate(path);
+    };
 
 	return (
 		<div className={classNames}>
-			<button onClick={() => dispatch(showModal(SIGN_UP_MODAL))} className="button is-primary">
+			<button onClick={SignupRoute} className="button is-primary">
 				<strong>Sign up</strong>
 			</button>
-			<button onClick={() => dispatch(showModal(LOG_IN_MODAL))} className="button is-light">
+
+			<button onClick={LoginRoute} className="button is-light">
 				Log in
 			</button>
 		</div>
@@ -71,26 +82,11 @@ function Nav() {
 								Home
 							</NavLink>
 						</li>
-						<li className="nav-item">
-							<NavLink
-								className="nav-link"
-								aria-current="page"
-								to="/signup/new"
-							>
-								Sign up
-							</NavLink>
-						</li>
-						<li className="nav-item">
-							<NavLink className="nav-link" aria-current="page" to="/login/new">
-								Log in
-							</NavLink>
-						</li>
+
 					</ul>
 				</div>
 				<div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-start">
-            <NavLink className="navbar-item" to="/">Gym Library</NavLink>
-          </div>
+
           <div className="navbar-end">
             <div className="navbar-item">
               {tokenLoading
