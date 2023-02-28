@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 //import ErrorNotification from '../../ErrorNotification';
-import { useCreateAccountsMutation } from './store/Api.js'
+import { useSignUpMutation } from './store/api.js'
 
 function SignupForm() {
 	const navigate = useNavigate();
 	const [username, setUserName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [createAccount, result] = useCreateAccountsMutation();
+	const [signUp, result] = useSignUpMutation();
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		createAccount({username, email, password});
+		signUp({username, email, password});
 	}
 	if (result.isSuccess) {
 		console.log("Signup Successful")
