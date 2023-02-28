@@ -29,3 +29,9 @@ Our team worked on finishing the backend, Ally was the coder for the team today.
 
 ## Thursday, February 23, 2023
 Today Edwin coded for the team and we worked on getting the frontend signup form to work but once it started working we decided to add in redux. Redux is a learning curve for the whole team but we're slowly putting it together.
+
+## Friday, February 24, 2023
+We struggled a lot with redux, we're not sure if we'll continue working with it. Adrian was the coder for the team.
+
+## Monday, February 27, 2023
+Today our team got the signup form to work with redux. We were trying to format things with modals but were having a lot of issues with it. Daniel was our typer for the day.
