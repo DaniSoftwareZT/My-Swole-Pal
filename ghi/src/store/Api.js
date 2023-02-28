@@ -14,7 +14,7 @@ export const apiSlice = createApi({
 			return headers;
 		},
 	}),
-	tagTypes: ["Account"],
+	tagTypes: ["Account", "Exercises"],
 	endpoints: (builder) => ({
 		signUp: builder.mutation({
 			query: (data) => ({
@@ -77,10 +77,24 @@ export const apiSlice = createApi({
       }),
       providesTags: ['Token'],
     }),
+    getExercise: builder.query({
+      query: () => `/api/exercises`,
+      providesTags: data => {
+        const tags = [{type: 'Exercises', id: 'LIST'}];
+        if (!data || !data.exercises) return tags;
+
+        const { exercises } = data;
+        if (exercises) {
+          tags.concat(...exercises.map(({ id }) => ({type: 'exercises', id})));
+        }
+        return tags;
+      }
+    }),
   }),
 });
 
 export const {
+  useGetExerciseQuery,
   useGetTokenQuery,
   useLogInMutation,
   useLogOutMutation,

@@ -36,22 +36,22 @@ function LoginButton(props) {
 }
 
 function LogoutButton() {
-  const navigate = useNavigate();
-  const [logOut, { data }] = useLogOutMutation();
+	const navigate = useNavigate();
+	const [logOut, { data }] = useLogOutMutation();
 
-  useEffect(() => {
+	useEffect(() => {
     if (data) {
-      navigate('/');
+    	navigate('/');
     }
-  }, [data, navigate]);
+}, [data, navigate]);
 
-  return (
+return (
     <div className="buttons">
-      <button onClick={logOut} className="button is-light">
+    	<button onClick={logOut} className="button is-light">
         Log out
-      </button>
+    	</button>
     </div>
-  );
+	);
 }
 
 function Nav() {
@@ -82,21 +82,26 @@ function Nav() {
 								Home
 							</NavLink>
 						</li>
+						<li className="nav-item">
+							<NavLink className="nav-link" to="/exercises">
+								Exercises
+							</NavLink>
+						</li>
 
 					</ul>
 				</div>
 				<div id="navbarBasicExample" className="navbar-menu">
 
-          <div className="navbar-end">
-            <div className="navbar-item">
-              {tokenLoading
-                ? <LoginButton show={false} />
-                : token
-                  ? <LogoutButton />
-                  : <LoginButton show={true} />}
-            </div>
-          </div>
-        </div>
+        		<div className="navbar-end">
+            		<div className="navbar-item">
+						{tokenLoading
+						? <LoginButton show={false} />
+						: token
+						? <LogoutButton />
+						: <LoginButton show={true} />}
+            		</div>
+        		</div>
+        		</div>
 			</div>
 		</nav>
 

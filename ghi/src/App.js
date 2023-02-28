@@ -29,6 +29,7 @@ function App() {
 					<Route path="login">
 						<Route path="new" element={<LoginForm />} />
 					</Route>
+					<Route path="exercises" element={<ExerciseSearch/>} />
 				</Routes>
 			</div>
 			</Provider>
