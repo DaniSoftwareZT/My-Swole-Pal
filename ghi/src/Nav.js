@@ -9,7 +9,9 @@ import SignupForm from "./SignupForm";
 import { useEffect } from "react";
 
 
+
 function LoginButton(props) {
+<<<<<<< HEAD
   const dispatch = useDispatch();
   const classNames = `buttons ${props.show ? "" : "is-hidden"}`;
   let navigate = useNavigate();
@@ -33,79 +35,110 @@ function LoginButton(props) {
       </button>
     </div>
   );
+=======
+	const dispatch = useDispatch();
+	const classNames = `buttons ${props.show ? '' : 'is-hidden'}`;
+	let navigate = useNavigate();
+	const SignupRoute = () => {
+		let path = "/signup/new";
+		navigate(path);
+    };
+	const LoginRoute = () => {
+		let path = "/login/new";
+		navigate(path);
+    };
+
+	return (
+		<div className={classNames}>
+			<button onClick={SignupRoute} className="button is-primary">
+				<strong>Sign up</strong>
+			</button>
+
+			<button onClick={LoginRoute} className="button is-light">
+				Log in
+			</button>
+		</div>
+	);
+>>>>>>> d6713e7a494aa9cc8b977b84202008451fac6998
 }
 
 function LogoutButton() {
-  const navigate = useNavigate();
-  const [logOut, { data }] = useLogOutMutation();
+	const navigate = useNavigate();
+	const [logOut, { data }] = useLogOutMutation();
 
-  useEffect(() => {
+	useEffect(() => {
     if (data) {
+<<<<<<< HEAD
       navigate("/");
+=======
+    	navigate('/');
+>>>>>>> d6713e7a494aa9cc8b977b84202008451fac6998
     }
-  }, [data, navigate]);
+}, [data, navigate]);
 
-  return (
+return (
     <div className="buttons">
-      <button onClick={logOut} className="button is-light">
+    	<button onClick={logOut} className="button is-light">
         Log out
-      </button>
+    	</button>
     </div>
-  );
+	);
 }
 
 function Nav() {
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
-  return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-        <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
-            MySwolePal
-          </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/exercises">
-                  Exercises
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          <div id="navbarBasicExample" className="navbar-menu">
-            <div className="navbar-end">
-              <div className="navbar-item">
-                {tokenLoading ? (
-                  <LoginButton show={false} />
-                ) : token ? (
-                  <LogoutButton />
-                ) : (
-                  <LoginButton show={true} />
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </>
-  );
+	return (
+		<>
+		<nav className="navbar navbar-expand-lg navbar-dark bg-info">
+			<div className="container-fluid">
+				<NavLink className="navbar-brand" to="/">
+					MySwolePal
+				</NavLink>
+				<button
+					className="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span className="navbar-toggler-icon"></span>
+				</button>
+				<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+						<li className="nav-item">
+							<NavLink className="nav-link active" aria-current="page" to="/">
+								Home
+							</NavLink>
+						</li>
+						<li className="nav-item">
+							<NavLink className="nav-link" to="/exercises">
+								Exercises
+							</NavLink>
+						</li>
+
+					</ul>
+				</div>
+				<div id="navbarBasicExample" className="navbar-menu">
+
+        		<div className="navbar-end">
+            		<div className="navbar-item">
+						{tokenLoading
+						? <LoginButton show={false} />
+						: token
+						? <LogoutButton />
+						: <LoginButton show={true} />}
+            		</div>
+        		</div>
+        		</div>
+			</div>
+		</nav>
+
+
+		</>
+	);
 }
 
 export default Nav;
