@@ -1,58 +1,49 @@
-import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLogInMutation } from './store/api';
-import { eventTargetSelector as target, preventDefault } from './store/utils';
-import { showModal, updateField, LOG_IN_MODAL } from './store/accountSlice';
-import Notification from './Notification';
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "./store/auth";
+import { useToken } from "./store/auth";
 
 function LoginForm() {
-  const dispatch = useDispatch();
-  const {show, email, password } = useSelector(state => {
-    console.log(state.account)
-    return state.account});
-  const modalClass = `modal ${show === LOG_IN_MODAL ? 'is-active' : ''}`;
-  const [logIn, { error, isLoading: logInLoading }] = useLogInMutation();
-  const field = useCallback(
-    e => dispatch(updateField({field: e.target.name, value: e.target.value})),
-    [dispatch],
-  );
+  const { token, login } = useToken();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      await login(username, password);
+      console.log("you did it")
+    } catch (error) {
+      setError("Invalid username or password.");
+    }
+  };
+
 
   return (
-    <div className={modalClass} key="login-modal">
-      <div className="modal-background"></div>
-      <div className="modal-content">
-        <div className="box content">
-          <h3>Log In</h3>
-          { error ? <Notification type="danger">{error.data.detail}</Notification> : null }
-          <form method="POST" onSubmit={preventDefault(logIn, target)}>
-            <div className="field">
-              <label className="label" htmlFor="email">Email</label>
-              <div className="control">
-                <input required onChange={field} value={email} name="username" className="input" type="email" placeholder="you@example.com" />
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input required onChange={field} value={password} name="password" className="input" type="password" placeholder="secret..." />
-              </div>
-            </div>
-            <div className="field is-grouped">
-              <div className="control">
-                <button disabled={logInLoading} className="button is-primary">Submit</button>
-              </div>
-              <div className="control">
-                <button
-                  type="button"
-                  onClick={() => dispatch(showModal(null))}
-                  className="button">Cancel</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div>
+      <h1>Login</h1>
+      {error && <div className="error">{error}</div>}
+      <form onSubmit={handleLogin}>
+        <label>
+          Email:
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+        <button type="submit">Log In</button>
+      </form>
     </div>
   );
 }
-
-export default LoginForm;
+export default LoginForm

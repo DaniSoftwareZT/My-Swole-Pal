@@ -3,6 +3,7 @@ import { useGetTokenQuery, useLogOutMutation } from './store/api';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from './store/accountSlice';
+import LoginFormModal from './LoginFormModal';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import { useEffect } from 'react';
@@ -102,8 +103,8 @@ function Nav() {
         </div>
 			</div>
 		</nav>
-		<LoginForm/>
 		
+
 		</>
 	);
 }
