@@ -13,12 +13,12 @@ function SignupForm() {
 	function handleSubmit(e) {
 		e.preventDefault();
 		signUp({username, email, password});
-	}
-	if (result.isSuccess) {
+		navigate('/')
 		console.log("Signup Successful")
-		setTimeout(navigate('/'), 1000)
-		window.location.reload()
+
 	}
+
+	
 
 	return (
 		<div className="row">

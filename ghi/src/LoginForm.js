@@ -1,49 +1,62 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "./store/auth";
-import { useToken } from "./store/auth";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+//import ErrorNotification from '../../ErrorNotification';
+import { useLogInMutation } from './store/api.js'
 
 function LoginForm() {
-  const { token, login } = useToken();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+	const navigate = useNavigate();
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    try {
-      await login(username, password);
-      console.log("you did it")
-    } catch (error) {
-      setError("Invalid username or password.");
-    }
-  };
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [logIn, result] = useLogInMutation();
+
+	function handleSubmit(e) {
+		e.preventDefault();
+		logIn({email, password});
+		navigate('/')
+		console.log("Login Successful")
+	}
 
 
-  return (
-    <div>
-      <h1>Login</h1>
-      {error && <div className="error">{error}</div>}
-      <form onSubmit={handleLogin}>
-        <label>
-          Email:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
-    </div>
-  );
+	return (
+		<div className="row">
+			<div className="offset-3 col-6">
+				<div className="shadow p-4 mt-4">
+					<h1>Login</h1>
+					<form onSubmit={handleSubmit} id="create-location-form">
+
+						<div className="form-floating mb-3">
+							<input
+								value={email}
+								placeholder="Email"
+								onChange={e => setEmail(e.target.value)}
+								required
+								type="email"
+								name="email"
+								id="email"
+								className="form-control"
+							/>
+							<label htmlFor="email">Email</label>
+						</div>
+						<div className="form-floating mb-3">
+							<input
+								value={password}
+								placeholder="Password"
+								onChange={e => setPassword(e.target.value)}
+								required
+								type="password"
+								name="password"
+								id="password"
+								className="form-control"
+							/>
+							<label htmlFor="password">Password</label>
+						</div>
+						<button className="btn btn-primary">GET SWOLE!!!</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	);
 }
-export default LoginForm
+
+export default LoginForm;

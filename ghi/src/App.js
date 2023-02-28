@@ -7,10 +7,18 @@ import {Routes, Route} from "react-router-dom"
 import MainPage from "./MainPage"
 import SignupForm from "./SignupForm"
 import LoginForm from "./LoginForm"
+import { store } from "./store/store";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import Logout from "./Logout";
+
+
 
 function App() {
 	return (
-			<>
+
+			<BrowserRouter>
+   			<Provider store={store}>
 			<Nav />
 			<div className="container">
 				<Routes>
@@ -23,7 +31,8 @@ function App() {
 					</Route>
 				</Routes>
 			</div>
-			</>
+			</Provider>
+			</BrowserRouter>
 	);
 }
 
