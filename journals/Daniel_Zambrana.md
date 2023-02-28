@@ -17,4 +17,17 @@ Today we have been watching JWTdown videos all day and just following everything
 ## Thursay, February 16, 2023
 Finishing the backend of the project was a real test. Added some files and documents to our routers and queries which will be the finishing touches to this step. Got stuck in the fastapi trying to create a workout but managed to get it solved! All of our endpoints are close to done!
 
-## Tuesday, February 21, 2023
+## Wednesday, February 22, 2023
+We finished the back-end of the project. Probably we will have to go back to make a few tweaks and changes, but for the most part all of our endpoints are done.
+
+## Thursday, February 23, 2023
+Learning Redux has been a struggle since it is something new for the whole team. Created a new branch to start working and doing some stuff of the frontend and some authentication.
+
+## Friday, February 24, 2023
+We setup the caprover and got it properly working so thats a plus! Also continued to work on Redux and some more front-end of the application.
+
+## Monday, February 27, 2023
+We continued to work on the front-end of the project. We got the signup to work and we attempted to add some modals for signup and login which have been a pain. Added some fixes to the main project and to the loginform.js
+
+## Tuesday, February 28, 2023
+
