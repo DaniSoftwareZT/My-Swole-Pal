@@ -35,3 +35,6 @@ We struggled a lot with redux, we're not sure if we'll continue working with it.
 
 ## Monday, February 27, 2023
 Today our team got the signup form to work with redux. We were trying to format things with modals but were having a lot of issues with it. Daniel was our typer for the day.
+
+## Tuesday, February 28, 2023
+I coded for the team today. We were able to finish the front end authentication, sing-up and login forms are working now. We started creating the exercise search page including exercise cards so users can search based on difficulty, muscle, and type.
