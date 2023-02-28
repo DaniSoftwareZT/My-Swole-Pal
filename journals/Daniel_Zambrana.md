@@ -27,4 +27,7 @@ Learning Redux has been a struggle since it is something new for the whole team.
 We setup the caprover and got it properly working so thats a plus! Also continued to work on Redux and some more front-end of the application.
 
 ## Monday, February 27, 2023
+We continued to work on the front-end of the project. We got the signup to work and we attempted to add some modals for signup and login which have been a pain. Added some fixes to the main project and to the loginform.js
+
+## Tuesday, February 28, 2023
 
