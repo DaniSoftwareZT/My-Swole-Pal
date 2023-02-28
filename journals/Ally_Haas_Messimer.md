@@ -36,3 +36,6 @@
 
 ## Februrary 23 2023
     Today we started working on our front end. We were able to have a sign in form that worked! We wanted to use redux so we created a store. we are pretty confused about what to do next with the redux store. Edwin was our coder on this day.
+
+## Februrary 27th 2023
+    Today we continued working on redux/react. We were able to get our sign up page working with authentication. Then we worked on a login/sign up modal but did not get it working yet. Our coder on this day was Daniel.
