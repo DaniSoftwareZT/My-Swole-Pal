@@ -11,31 +11,6 @@ import { useEffect } from "react";
 
 
 function LoginButton(props) {
-<<<<<<< HEAD
-  const dispatch = useDispatch();
-  const classNames = `buttons ${props.show ? "" : "is-hidden"}`;
-  let navigate = useNavigate();
-  const SignupRoute = () => {
-    let path = "/signup/new";
-    navigate(path);
-  };
-  const LoginRoute = () => {
-    let path = "/login/new";
-    navigate(path);
-  };
-
-  return (
-    <div className={classNames}>
-      <button onClick={SignupRoute} className="button is-primary">
-        <strong>Sign up</strong>
-      </button>
-
-      <button onClick={LoginRoute} className="button is-light">
-        Log in
-      </button>
-    </div>
-  );
-=======
 	const dispatch = useDispatch();
 	const classNames = `buttons ${props.show ? '' : 'is-hidden'}`;
 	let navigate = useNavigate();
@@ -59,7 +34,6 @@ function LoginButton(props) {
 			</button>
 		</div>
 	);
->>>>>>> d6713e7a494aa9cc8b977b84202008451fac6998
 }
 
 function LogoutButton() {
@@ -68,11 +42,7 @@ function LogoutButton() {
 
 	useEffect(() => {
     if (data) {
-<<<<<<< HEAD
-      navigate("/");
-=======
     	navigate('/');
->>>>>>> d6713e7a494aa9cc8b977b84202008451fac6998
     }
 }, [data, navigate]);
 
