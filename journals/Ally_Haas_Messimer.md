@@ -39,3 +39,6 @@
 
 ## Februrary 27th 2023
     Today we continued working on redux/react. We were able to get our sign up page working with authentication. Then we worked on a login/sign up modal but did not get it working yet. Our coder on this day was Daniel.
+
+## Februrary 28th 2023
+    Today we got all of our frontend authentication done. Now our login, logout, and sign up forms work. When someone is logged in the "logout" button appears. Then, we got started on the page to show exercises and to search. Jessica was our coder on this day. 
