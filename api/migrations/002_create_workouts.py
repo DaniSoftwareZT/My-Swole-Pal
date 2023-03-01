@@ -1,4 +1,4 @@
-steps=[
+steps = [
   [
     """
     CREATE TABLE workouts(

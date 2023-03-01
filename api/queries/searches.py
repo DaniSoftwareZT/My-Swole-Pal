@@ -1,23 +1,25 @@
 from pydantic import BaseModel
-from typing import List, Union, Optional
-from queries.pool import pool
-from queries.accounts import Error
-from fastapi import (
-    Depends,
-    HTTPException,
-    status,
-    Response,
-    APIRouter,
-    Request,
-)
+# from typing import List, Union, Optional
+# from queries.pool import pool
+# from queries.accounts import Error
+# from fastapi import (
+#     Depends,
+#     HTTPException,
+#     status,
+#     Response,
+#     APIRouter,
+#     Request,
+# )
 import requests
 import os
+
 
 class SearchIn(BaseModel):
     name: str | None = None
     type: str | None = None
     muscle: str | None = None
     difficulty: str | None = None
+
 
 class SearchOut(SearchIn):
     id: str
@@ -29,8 +31,10 @@ class SearchQueries:
         url = 'https://api.api-ninjas.com/v1/exercises?'
         for key, value in search.dict().items():
             if value is not None:
-                url+= f"{key}={value}&"
+                url += f"{key}={value}&"
         url = url[:-1]
-        result = requests.get(url, headers={"X-Api-Key": os.environ["NINJA_KEY"]})
+        result = requests.get(
+            url,
+            headers={"X-Api-Key": os.environ["NINJA_KEY"]})
         data = result.json()
         return data
