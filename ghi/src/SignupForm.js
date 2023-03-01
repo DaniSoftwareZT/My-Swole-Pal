@@ -1,24 +1,21 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 //import ErrorNotification from '../../ErrorNotification';
-import { useSignUpMutation } from './store/api.js'
+import { useSignUpMutation } from "./store/api.js";
 
 function SignupForm() {
 	const navigate = useNavigate();
-	const [username, setUserName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [username, setUserName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 	const [signUp, result] = useSignUpMutation();
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		signUp({username, email, password});
-		navigate('/')
-		console.log("Signup Successful")
-
+		signUp({ username, email, password });
+		navigate("/");
+		console.log("Signup Successful");
 	}
-
-	
 
 	return (
 		<div className="row">
@@ -30,7 +27,7 @@ function SignupForm() {
 							<input
 								value={username}
 								placeholder="username"
-								onChange={e => setUserName(e.target.value)}
+								onChange={(e) => setUserName(e.target.value)}
 								required
 								type="text"
 								name="username"
@@ -43,7 +40,7 @@ function SignupForm() {
 							<input
 								value={email}
 								placeholder="Email"
-								onChange={e => setEmail(e.target.value)}
+								onChange={(e) => setEmail(e.target.value)}
 								required
 								type="email"
 								name="email"
@@ -56,7 +53,7 @@ function SignupForm() {
 							<input
 								value={password}
 								placeholder="Password"
-								onChange={e => setPassword(e.target.value)}
+								onChange={(e) => setPassword(e.target.value)}
 								required
 								type="password"
 								name="password"

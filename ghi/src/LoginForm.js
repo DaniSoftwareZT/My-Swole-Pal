@@ -1,22 +1,21 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 //import ErrorNotification from '../../ErrorNotification';
-import { useLogInMutation } from './store/api.js'
+import { useLogInMutation } from "./store/api.js";
 
 function LoginForm() {
 	const navigate = useNavigate();
 
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 	const [logIn, result] = useLogInMutation();
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		logIn({email, password});
-		navigate('/')
-		console.log("Login Successful")
+		logIn({ email, password });
+		navigate("/");
+		console.log("Login Successful");
 	}
-
 
 	return (
 		<div className="row">
@@ -24,12 +23,11 @@ function LoginForm() {
 				<div className="shadow p-4 mt-4">
 					<h1>Login</h1>
 					<form onSubmit={handleSubmit} id="create-location-form">
-
 						<div className="form-floating mb-3">
 							<input
 								value={email}
 								placeholder="Email"
-								onChange={e => setEmail(e.target.value)}
+								onChange={(e) => setEmail(e.target.value)}
 								required
 								type="email"
 								name="email"
@@ -42,7 +40,7 @@ function LoginForm() {
 							<input
 								value={password}
 								placeholder="Password"
-								onChange={e => setPassword(e.target.value)}
+								onChange={(e) => setPassword(e.target.value)}
 								required
 								type="password"
 								name="password"

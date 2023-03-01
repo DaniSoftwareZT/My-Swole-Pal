@@ -12,3 +12,8 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.gradient{
+  background: linear-gradient(to right, #000 0%, #211694 100%)
+}
+

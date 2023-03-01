@@ -1,48 +1,44 @@
 import { useEffect, useState } from "react";
-import { useGetTokenQuery } from './store/api';
+import { useGetTokenQuery } from "./store/api";
 import Notification from "./Notification";
 import Nav from "./Nav";
 import "./App.css";
-import {Routes, Route} from "react-router-dom"
-import MainPage from "./MainPage"
-import SignupForm from "./SignupForm"
-import LoginForm from "./LoginForm"
+import { Routes, Route } from "react-router-dom";
+import MainPage from "./MainPage";
+import SignupForm from "./SignupForm";
+import LoginForm from "./LoginForm";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import Logout from "./Logout";
-
-
+import ExerciseSearch from "./ExerciseSearch";
 
 function App() {
 	return (
-
-			<BrowserRouter>
-   			<Provider store={store}>
-			<Nav />
-			<div className="container">
-				<Routes>
-					<Route path="/" element={<MainPage />} />
-					<Route path="signup">
-						<Route path="new" element={<SignupForm />} />
-					</Route>
-					<Route path="login">
-						<Route path="new" element={<LoginForm />} />
-					</Route>
-					<Route path="exercises" element={<ExerciseSearch/>} />
-				</Routes>
-			</div>
+		<BrowserRouter>
+			<Provider store={store}>
+				<Nav />
+				<div className="container">
+					<Routes>
+						<Route path="/" element={<MainPage />} />
+						<Route path="signup">
+							<Route path="new" element={<SignupForm />} />
+						</Route>
+						<Route path="login">
+							<Route path="new" element={<LoginForm />} />
+						</Route>
+						<Route path="exercises" element={<ExerciseSearch />} />
+					</Routes>
+				</div>
 			</Provider>
-			</BrowserRouter>
+		</BrowserRouter>
 	);
 }
 
-
-
 // function App() {
 //   const { data: tokenData } = useGetTokenQuery();
-  // const isPatron = tokenData && tokenData.account && tokenData.account.roles.includes('patron');
-  // const accountId = tokenData && tokenData.account && tokenData.account.id;
+// const isPatron = tokenData && tokenData.account && tokenData.account.roles.includes('patron');
+// const accountId = tokenData && tokenData.account && tokenData.account.id;
 
 //   return (
 //     <div className="container my-4">
