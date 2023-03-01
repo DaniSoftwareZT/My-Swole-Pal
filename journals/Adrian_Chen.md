@@ -1,5 +1,5 @@
 ## February 22, 2023
-we finished our backend. We finished get, post, update, and delete workouts. In addition, we created search for an exercise based on various parameters and add them to workout. We can also delete an exercise from a workout.
+we finished our backend. We finished get, post, update, and delete workouts. In addition, we created search for an exercise based on various parameters and add them to workout. We can also delete an exercise from a workout.g
 
 ## February 21, 2023
 Jessica was the driver today. We incorporated the ninja api routes to our backend queries and fastAPI routes. Close to be done with the backend.
