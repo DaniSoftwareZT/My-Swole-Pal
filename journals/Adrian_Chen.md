@@ -1,3 +1,15 @@
+## February 22, 2023
+we finished our backend. We finished get, post, update, and delete workouts. In addition, we created search for an exercise based on various parameters and add them to workout. We can also delete an exercise from a workout.g
+
+## February 21, 2023
+Jessica was the driver today. We incorporated the ninja api routes to our backend queries and fastAPI routes. Close to be done with the backend.
+
+## February 16, 2023
+Started working on the workouts fastapi routes -- get list, post and upadte. Daniel was the driver for today.
+
+## February 15, 2023
+I am the driver today -- we got a lot of work done, basically all of the backend authentification. Finished the authenticator.py and created the remaining routes for the accounts. Went over how data flows with Louise, which was very informative and helpful
+
 ## February 14, 2023
 Started on the account service. With Edwin typing, we as a group started working on the account part of our project. We watched the relevant fastAPI videos from curtis and finished the routers and queries for accounts.
 

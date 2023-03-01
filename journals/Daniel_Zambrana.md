@@ -31,3 +31,6 @@ We continued to work on the front-end of the project. We got the signup to work 
 
 ## Tuesday, February 28, 2023
 So we abandoned the Modal idea, and we just finished the signup, login and logout on the frontend of the project and it WORKS! So we merged this branch with the main since everything seems to be good!
+
+## Wednesday, March 1, 2023
+So we got the modal working and Instructor Candace helped us A LOT!! We were stuck the past two days and now everything is good and we got the workout list working! Everything is good and now on to the next step and make it look nice!
