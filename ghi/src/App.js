@@ -12,8 +12,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import Logout from "./Logout";
 import ExerciseSearch from "./ExerciseSearch";
+import WorkoutsList from "./WorkoutsList"
 
 function App() {
+	
 	return (
 		<BrowserRouter>
 			<Provider store={store}>
@@ -27,7 +29,11 @@ function App() {
 						<Route path="login">
 							<Route path="new" element={<LoginForm />} />
 						</Route>
-						<Route path="exercises" element={<ExerciseSearch />} />
+						<Route path="exercises" element={<WorkoutsList />} />
+						<Route path="workouts">
+							<Route path="" element={<WorkoutsList />} />
+							{/* <Route path="new" element={<LoginForm />} /> */}
+						</Route>
 					</Routes>
 				</div>
 			</Provider>

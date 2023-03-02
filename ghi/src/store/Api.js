@@ -99,6 +99,25 @@ export const apiSlice = createApi({
 				return tags;
 			},
 		}),
+		getWorkouts: builder.query({
+			query: () => {
+				return {
+					method: "get",
+					url: "/api/workouts",
+					credentials: "include",
+				};
+			},
+			providesTags: data => {
+				const tags = [{ type: "Workouts", id: "LIST" }];
+				if (!data || !data.workouts) return tags;
+
+				const { workouts } = data;
+				if (workouts) {
+					tags.concat(...workouts.map(({ id }) => ({ type: "workouts", id })));
+				}
+				return tags;
+			},
+		}),
 	}),
 });
 
@@ -109,4 +128,5 @@ export const {
 	useLogInMutation,
 	useLogOutMutation,
 	useSignUpMutation,
+	useGetWorkoutsQuery,
 } = apiSlice;
