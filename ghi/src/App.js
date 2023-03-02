@@ -34,6 +34,10 @@ function App() {
             <Route path="workouts">
               <Route path="" element={<WorkoutsList />} />
               <Route path=":id" element={<WorkoutView />} />
+              {/* <Route
+                path=":workout_id/exercises/:exercise_id"
+                element={<WorkoutView />}
+              /> */}
             </Route>
           </Routes>
         </div>

@@ -15,7 +15,6 @@ function WorkoutCard(props) {
 
   function handleRedirect(id) {
     navigate(`${id}`);
-    console.log("itworked");
   }
 
   function firstToUpper(string) {

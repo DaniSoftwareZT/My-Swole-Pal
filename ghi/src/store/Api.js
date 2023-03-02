@@ -14,7 +14,7 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
-  tagTypes: ["Account", "Exercises"],
+  tagTypes: ["Account", "Exercises", "Workouts"],
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (data) => ({
@@ -144,10 +144,19 @@ export const apiSlice = createApi({
         return [{ type: "workouts", id: id }];
       },
     }),
+    deleteExercise: builder.mutation({
+      query: (workout_id, exercise_id) => ({
+        url: `/api/workouts/${workout_id}/exercises/${exercise_id}`,
+        method: "delete",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Exercises", "Workouts"],
+    }),
   }),
 });
 
 export const {
+  useDeleteExerciseMutation,
   useGetWorkoutExercisesQuery,
 	useGetExercisesQuery,
 	useLazyGetExercisesQuery,
