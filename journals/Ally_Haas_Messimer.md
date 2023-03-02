@@ -45,3 +45,6 @@
 
 ## March 1st 2023
     Today we were able to get our exercise serch page working on the front end. Now, we are able to have a dropdown with filters and a submit button that will show exercises that matched that search. Edwin was our coder on this day.
+
+## March 2nd 2023
+    Today we got our workouts showing on a page. We also added the exercises to the workout page. We were working on a delete button for the individual exercises on the workout page. I was our coder on this day.
