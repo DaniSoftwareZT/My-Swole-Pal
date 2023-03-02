@@ -46,10 +46,12 @@ async def get_one_workout(
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: WorkoutQueries = Depends()
 ) -> WorkoutOut:
+    print(id)
     workout = repo.get_one_workout(account_id=account_data['id'], id=id)
+    print("workout", workout)
     if workout is None:
         response.status_code = 404
-        return workout
+    return workout
 
 
 @router.put(

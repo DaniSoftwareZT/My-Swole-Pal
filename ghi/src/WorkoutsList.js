@@ -1,33 +1,34 @@
-import React, { useState, useEffect } from "react";
-import WorkoutCard from "./WorkoutCard";
+import React, { useEffect } from "react";
 import { useGetWorkoutsQuery, useGetTokenQuery } from "./store/api";
+import WorkoutCard from "./WorkoutCard";
+import "./App.css";
 
 function WorkoutsList() {
-	const { data } = useGetWorkoutsQuery();
-	const { data: tokenData } = useGetTokenQuery();
-	// const [workouts, setWorkouts] = useState([]);
-	const accountId = tokenData && tokenData.account && tokenData.account.id;
+  const { data } = useGetWorkoutsQuery();
+  const { data: tokenData } = useGetTokenQuery();
+  const accountId = tokenData && tokenData.account && tokenData.account.id;
+  console.log(data);
+  console.log(accountId)
 
-	// useEffect(() => {
-	// 	setWorkouts(data);
-	// }, [data]);
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
-	return (
-		<div>
-			<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
-				{console.log(data.workouts)}
-				{data.workouts.map((workout) => (
-					<div key={workout.id} className="col">
-						<WorkoutCard
-							workout={workout}
-							key={workout.id}
-							accountId={accountId}
-						/>
-					</div>
-				))}
-			</div>
-		</div>
-	);
+  return (
+    <div className="container my-4">
+      {
+        <div className="workout-grid">
+          {data?.map((workout) => (
+            <WorkoutCard
+              key={workout.id}
+              workout={workout}
+              accountId={accountId}
+            />
+          ))}
+        </div>
+      }
+    </div>
+  );
 }
 
 export default WorkoutsList;

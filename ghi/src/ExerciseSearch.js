@@ -80,5 +80,3 @@ function ExerciseSearch() {
 }
 
 export default ExerciseSearch;
-
-
