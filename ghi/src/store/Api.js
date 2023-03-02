@@ -120,10 +120,23 @@ export const apiSlice = createApi({
     }),
     getWorkout: builder.query({
       query: (id) => {
-        console.log(id)
+        console.log(id);
         return {
           method: "get",
           url: `/api/workouts/${id}`,
+          credentials: "include",
+        };
+      },
+      providesTags: (result, error, id) => {
+        return [{ type: "workouts", id: id }];
+      },
+    }),
+    getWorkoutExercises: builder.query({
+      query: (id) => {
+        console.log(id);
+        return {
+          method: "get",
+          url: `/api/workouts/${id}/exercises`,
           credentials: "include",
         };
       },
@@ -135,6 +148,7 @@ export const apiSlice = createApi({
 });
 
 export const {
+  useGetWorkoutExercisesQuery,
 	useGetExercisesQuery,
 	useLazyGetExercisesQuery,
 	useGetTokenQuery,
