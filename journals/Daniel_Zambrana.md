@@ -34,3 +34,6 @@ So we abandoned the Modal idea, and we just finished the signup, login and logou
 
 ## Wednesday, March 1, 2023
 So we got the modal working and Instructor Candace helped us A LOT!! We were stuck the past two days and now everything is good and we got the workout list working! Everything is good and now on to the next step and make it look nice!
+
+## Thursday, March 2, 2023
+Frontend looking better each day, we still need to properly style it but functionality wise its good for now. We got some workout cards working and looking good as well as the workout search in the web page. We finished the day by adding some nice designs to the list page. 
