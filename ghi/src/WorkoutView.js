@@ -1,8 +1,12 @@
-import { useGetWorkoutQuery, useGetExercisesQuery, useGetWorkoutExercisesQuery } from "./store/api";
+import {
+  useGetWorkoutQuery,
+  useGetExercisesQuery,
+  useGetWorkoutExercisesQuery,
+} from "./store/api";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 function useWorkout(id) {
   const { data: workout, isLoading } = useGetWorkoutQuery(id);
@@ -21,22 +25,47 @@ function WorkoutView(props) {
   const { workout, isLoading, exercises } = useWorkout(id);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <Container className="d-flex justify-content-center align-items-center">
+        <Spinner animation="border" variant="primary" />
+      </Container>
+    );
   }
 
   return (
-    <div>
-      <h1>{workout.name}</h1>
-      {/* Display workout data */}
-      <h2>Exercises</h2>
-      {exercises.map((exercise) => (
-        <div key={exercise.id}>
-          <h3>{exercise.name}</h3>
-          <h4>{exercise.muscle}</h4>
-          {/* Display exercise data */}
-        </div>
-      ))}
-    </div>
+    <Container>
+      <Row className="mb-3">
+        <Col>
+          <h1>{workout.name}</h1>
+          <p>{workout.description}</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={8}>
+          <h2>Exercises</h2>
+          <ul className="list-group">
+            {exercises.map((exercise) => (
+              <li className="list-group-item" key={exercise.id}>
+                <h4>{exercise.name}</h4>
+                <p>
+                  <strong>Type:</strong> {exercise.type}
+                </p>
+                <p>
+                  <strong>Muscle:</strong> {exercise.muscle}
+                </p>
+                <p>
+                  <strong>Difficulty:</strong> {exercise.difficulty}
+                </p>
+                <p>
+                  <strong>Instructions:</strong>
+                </p>
+                <p>{exercise.instructions}</p>
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
