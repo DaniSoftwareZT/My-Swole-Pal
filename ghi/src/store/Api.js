@@ -153,6 +153,15 @@ export const apiSlice = createApi({
       }},
       invalidatesTags: ["Exercises", "Workouts"],
     }),
+    addExercise: builder.mutation({
+      query: (params) => {
+        return {
+          url: `/api/workouts/${params.workout_id}/exercises`,
+          method: "post",
+          credentials: "include",
+        }},
+      invalidatesTags: ["Exercises", "Workouts"],
+    }),
   }),
 });
 
@@ -167,4 +176,5 @@ export const {
 	useSignUpMutation,
 	useGetWorkoutsQuery,
 	useGetWorkoutQuery,
+  useAddExerciseMutation,
 } = apiSlice;
