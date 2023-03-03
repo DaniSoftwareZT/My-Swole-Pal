@@ -1,3 +1,6 @@
+## March 2, 2023
+We were working on the workout detail page. We successfully displayed exercise details in a workout and added a delete button. The coder for the day is Ally.
+
 ## March 1, 2023
 Edwin was the driver and we got the modal working. We also finally got the search page to work after two days' struggles -- We had some help from Candice.
 
