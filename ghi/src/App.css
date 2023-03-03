@@ -21,3 +21,15 @@
   font-weight: bold;
   color: #007bff;
 }
+
+.button1 {
+  background-color: #91b8e2;
+  font: black;
+  border: #91b8e2;
+}
+
+.button1:hover{
+  background-color: black;
+  font: white;
+  border:  #91b8e2;
+}

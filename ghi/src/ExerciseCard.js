@@ -13,8 +13,12 @@ function ExerciseCard(props) {
     function firstToUpper(string){
         let first = string[0].toUpperCase()
         let new_string = first+ string.slice(1)
-        return new_string
+        return new_string.split("_").join(" ")
     }
+
+	function handleAdd() {
+		
+	}
 
 	return (
 		<Card className="my-3 shadow-sm">
@@ -36,9 +40,13 @@ function ExerciseCard(props) {
 						<strong>Difficulty:</strong> {firstToUpper(exercise.difficulty)}
 					</li>
 				</ul>
-				<Button variant="primary" onClick={handleShow}>
+				<Button className="mb-2 button1" onClick={handleShow}>
 					View Exercise
 				</Button>
+				<Button className="mb-2 button1" onClick={handleAdd}>
+					Add Exercises
+				</Button>
+
 			</Card.Body>
 			<Modal show={showModal} onHide={() => setShowModal(false)}>
 				<Modal.Header closeButton>

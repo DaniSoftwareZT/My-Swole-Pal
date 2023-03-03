@@ -4,10 +4,11 @@ import {
   useGetWorkoutExercisesQuery,
   useDeleteExerciseMutation,
 } from "./store/Api";
-import { useEffect } from "react";
+import ExerciseModal from "./ExerciseModal"
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Button, Modal, Card} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function useWorkout(id) {
@@ -29,7 +30,11 @@ function WorkoutView(props) {
   const [deleteExerciseMutation, { isLoading: isDeleteExerciseLoading }] =
     useDeleteExerciseMutation();
 
+  const [showModal, setShowModal] = useState(false);
 
+  function handleShow() {
+    setShowModal(true);
+  }
 
   const deleteExercise = (workout_id, exercise_id) => {
     console.log("workout_id:", workout_id);
@@ -45,7 +50,32 @@ function WorkoutView(props) {
     );
   }
 
+  function firstToUpper(string) {
+    let first = string[0].toUpperCase();
+    let new_string = first + string.slice(1);
+    return new_string;
+  }
+
   return (
+    <>
+    <div className="mt-3">
+      <Button onClick={handleShow}>
+        Add Exercise
+      </Button>
+      {showModal && (
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>{workout.name}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <ExerciseModal>
+              
+            </ExerciseModal>
+          </Modal.Body>
+        </Modal>
+      )}
+    </div>
+
     <Container>
       <Row className="mb-3">
         <Col>
@@ -88,6 +118,8 @@ function WorkoutView(props) {
         </Col>
       </Row>
     </Container>
+    </>
+
   );
 }
 

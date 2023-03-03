@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import ExerciseCard from "./ExerciseCard";
+import { Modal, Button, Card } from "react-bootstrap";
 import { useLazyGetExercisesQuery, useGetExercisesQuery } from "./store/Api";
+import { Link } from "react-router-dom";
 
-function ExerciseSearch() {
+function ExerciseModal() {
+    //const navigate = useNavigate();
 	const [getExercises, { data }] = useLazyGetExercisesQuery();
 	const [exercises, setExercises] = useState([]);
 	const [searched, setSearched] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
@@ -17,9 +24,12 @@ function ExerciseSearch() {
 		};
 
 		getExercises(exerciseData);
-		// setExercises(data || []);
 		setSearched(true);
 	};
+
+    function handleShow() {
+    setShowModal(true);
+  }
 
 	useEffect(() => {
 		setExercises(data);
@@ -70,7 +80,7 @@ function ExerciseSearch() {
 				</button>
 			</form>
 			{searched && ( // only render exercises if search has been performed
-			<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+			<div className="row row-cols-2">
 			{exercises && exercises.length > 0 ? (
 				exercises.map((exercise) => (
 				<div key={exercise.id} className="col">
@@ -86,4 +96,4 @@ function ExerciseSearch() {
 	);
 }
 
-export default ExerciseSearch;
+export default ExerciseModal;
