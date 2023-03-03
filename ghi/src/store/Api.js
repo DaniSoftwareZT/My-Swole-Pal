@@ -93,7 +93,7 @@ export const apiSlice = createApi({
         const { exercises } = data;
         if (exercises) {
           tags.concat(
-            ...exercises.map(({ id }) => ({ type: "exercises", id }))
+            ...exercises.map(({ id }) => ({ type: "Exercises", id }))
           );
         }
         return tags;
@@ -108,12 +108,12 @@ export const apiSlice = createApi({
         };
       },
       providesTags: (data) => {
-        const tags = [{ type: "workouts", id: "LIST" }];
+        const tags = [{ type: "Workouts", id: "LIST" }];
         if (!data || !data.workouts) return tags;
 
         const { workouts } = data;
         if (workouts) {
-          tags.push(...workouts.map(({ id }) => ({ type: "workouts", id })));
+          tags.push(...workouts.map(({ id }) => ({ type: "Workouts", id })));
         }
         return tags;
       },
@@ -128,7 +128,7 @@ export const apiSlice = createApi({
         };
       },
       providesTags: (result, error, id) => {
-        return [{ type: "workouts", id: id }];
+        return [{ type: "Workouts", id: id }];
       },
     }),
     getWorkoutExercises: builder.query({
@@ -141,15 +141,16 @@ export const apiSlice = createApi({
         };
       },
       providesTags: (result, error, id) => {
-        return [{ type: "workouts", id: id }];
+        return [{ type: "Workouts", id: id }];
       },
     }),
     deleteExercise: builder.mutation({
-      query: (workout_id, exercise_id) => ({
-        url: `/api/workouts/${workout_id}/exercises/${exercise_id}`,
+      query: (params) => {
+        return {
+        url: `/api/workouts/${params.workout_id}/exercises/${params.exercise_id}`,
         method: "delete",
         credentials: "include",
-      }),
+      }},
       invalidatesTags: ["Exercises", "Workouts"],
     }),
   }),

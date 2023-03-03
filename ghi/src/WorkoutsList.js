@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useGetWorkoutsQuery, useGetTokenQuery } from "./store/api";
+import { useGetWorkoutsQuery, useGetTokenQuery } from "./store/Api";
 import WorkoutCard from "./WorkoutCard";
 import "./App.css";
 

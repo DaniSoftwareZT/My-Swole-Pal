@@ -3,7 +3,7 @@ import {
   useGetExercisesQuery,
   useGetWorkoutExercisesQuery,
   useDeleteExerciseMutation,
-} from "./store/api";
+} from "./store/Api";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -34,7 +34,7 @@ function WorkoutView(props) {
   const deleteExercise = (workout_id, exercise_id) => {
     console.log("workout_id:", workout_id);
     console.log("exercise_id:", exercise_id);
-    deleteExerciseMutation({ workout_id, exercise_id });
+    deleteExerciseMutation( {workout_id, exercise_id} );
   };
 
   if (isLoading || isDeleteExerciseLoading) {

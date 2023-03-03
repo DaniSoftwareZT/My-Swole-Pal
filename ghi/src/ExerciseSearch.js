@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ExerciseCard from "./ExerciseCard";
-import { useLazyGetExercisesQuery, useGetExercisesQuery } from "./store/api";
+import { useLazyGetExercisesQuery, useGetExercisesQuery } from "./store/Api";
 
 function ExerciseSearch() {
 	const [getExercises, { data }] = useLazyGetExercisesQuery();

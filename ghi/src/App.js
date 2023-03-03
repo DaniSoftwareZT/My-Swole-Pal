@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGetTokenQuery } from "./store/api";
+import { useGetTokenQuery } from "./store/Api";
 import Notification from "./Notification";
 import Nav from "./Nav";
 import "./App.css";

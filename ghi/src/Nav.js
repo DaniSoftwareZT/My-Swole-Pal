@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useGetTokenQuery, useLogOutMutation } from "./store/api";
+import { useGetTokenQuery, useLogOutMutation } from "./store/Api";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from "./store/accountSlice";

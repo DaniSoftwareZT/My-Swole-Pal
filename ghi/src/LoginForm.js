@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import ErrorNotification from '../../ErrorNotification';
-import { useLogInMutation } from "./store/api.js";
+import { useLogInMutation } from "./store/Api.js";
 
 function LoginForm() {
 	const navigate = useNavigate();
