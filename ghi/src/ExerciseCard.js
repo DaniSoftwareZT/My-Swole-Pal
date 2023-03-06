@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Modal, Button, Card } from "react-bootstrap";
 import "./App.css"; // Import custom CSS
+import { useAddExerciseMutation } from "./store/Api";
 
 function ExerciseCard(props) {
 	const { exercise, accountId } = props;
 	const [showModal, setShowModal] = useState(false);
+	const [ addExercise, { data } ] = useAddExerciseMutation();
 
 	function handleShow() {
 		setShowModal(true);
@@ -16,9 +18,24 @@ function ExerciseCard(props) {
         return new_string.split("_").join(" ")
     }
 
-	function handleAdd() {
-		
-	}
+
+	const handleAddExercise = () => {
+    const exerciseData = {
+	  workout_id: workout.id,
+      name: exercise.name,
+      type: exercise.type,
+      muscle: exercise.muscle,
+      equipment: exercise.equipment,
+      difficulty: exercise.difficulty,
+      instructions: exercise.instructions,
+    };
+
+    addExercise({
+      workout_id,
+      ...exerciseData,
+    });
+  };
+
 
 	return (
 		<Card className="my-3 shadow-sm">
@@ -43,7 +60,9 @@ function ExerciseCard(props) {
 				<Button className="mb-2 button1" onClick={handleShow}>
 					View Exercise
 				</Button>
-				<Button className="mb-2 button1" onClick={handleAdd}>
+				<Button className="mb-2 button1" onClick={() =>
+                    handleAddExercise(exercise.name, workout.id, exercise.type, exercise.muscle,
+					exercise.equipment, exercise.difficulty, exercise.instructions)}>
 					Add Exercises
 				</Button>
 
