@@ -41,4 +41,10 @@
     Today we continued working on redux/react. We were able to get our sign up page working with authentication. Then we worked on a login/sign up modal but did not get it working yet. Our coder on this day was Daniel.
 
 ## Februrary 28th 2023
-    Today we got all of our frontend authentication done. Now our login, logout, and sign up forms work. When someone is logged in the "logout" button appears. Then, we got started on the page to show exercises and to search. Jessica was our coder on this day. 
+    Today we got all of our frontend authentication done. Now our login, logout, and sign up forms work. When someone is logged in the "logout" button appears. Then, we got started on the page to show exercises and to search. Jessica was our coder on this day.
+
+## March 1st 2023
+    Today we were able to get our exercise serch page working on the front end. Now, we are able to have a dropdown with filters and a submit button that will show exercises that matched that search. Edwin was our coder on this day.
+
+## March 2nd 2023
+    Today we got our workouts showing on a page. We also added the exercises to the workout page. We were working on a delete button for the individual exercises on the workout page. I was our coder on this day.
