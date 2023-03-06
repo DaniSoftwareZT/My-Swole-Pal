@@ -1,3 +1,6 @@
+## March 3, 2023
+I was the driver today. We were working on add and deleting exercises and the worklist page. We managed to finish all the functionalities. In addition, we experimented with some styling and css. Got a lot of done today.
+
 ## March 2, 2023
 We were working on the workout detail page. We successfully displayed exercise details in a workout and added a delete button. The coder for the day is Ally.
 
