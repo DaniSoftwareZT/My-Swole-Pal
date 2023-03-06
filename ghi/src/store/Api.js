@@ -68,7 +68,7 @@ export const apiSlice = createApi({
 				method: "delete",
 				credentials: "include",
 			}),
-			invalidatesTags: ["Account", "Token"],
+			invalidatesTags: ["Account", "Token","Workouts"],
 		}),
 		getToken: builder.query({
 			query: () => ({
@@ -107,16 +107,7 @@ export const apiSlice = createApi({
 					credentials: "include",
 				};
 			},
-			providesTags: (data) => {
-				const tags = [{ type: "Workouts", id: "LIST" }];
-				if (!data || !data.workouts) return tags;
-
-				const { workouts } = data;
-				if (workouts) {
-					tags.push(...workouts.map(({ id }) => ({ type: "Workouts", id })));
-				}
-				return tags;
-			},
+			providesTags: ["Workouts"]
 		}),
 		getWorkout: builder.query({
 			query: (id) => {
@@ -127,9 +118,7 @@ export const apiSlice = createApi({
 					credentials: "include",
 				};
 			},
-			providesTags: (result, error, id) => {
-				return [{ type: "Workouts", id: id }];
-			},
+			providesTags: ["Workouts"]
 		}),
 		createWorkout: builder.mutation({
 			query: (data) => ({
@@ -138,7 +127,7 @@ export const apiSlice = createApi({
 				method: "post",
 				credentials: "include",
 			}),
-			InvalidateTags: ["Workouts"],
+			invalidatesTags: ["Workouts"],
 		}),
 		getWorkoutExercises: builder.query({
 			query: (id) => {

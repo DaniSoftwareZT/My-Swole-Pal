@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Container, Col, Row, Modal, Form } from "react-bootstrap";
 import {
 	useGetWorkoutsQuery,
@@ -10,12 +10,12 @@ import WorkoutCard from "./WorkoutCard";
 import "./App.css";
 
 function WorkoutsList() {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 	const { data } = useGetWorkoutsQuery();
 	const { data: tokenData } = useGetTokenQuery();
-  const [name, setName]=useState("");
-  const [image_url, setPictureUrl]= useState("");
-  const [error, setError] = useState("");
+	const [name, setName] = useState("");
+	const [image_url, setPictureUrl] = useState("");
+	const [error, setError] = useState("");
 	const account_id = tokenData && tokenData.account && tokenData.account.id;
 	const [createWorkout, result] = useCreateWorkoutMutation();
 	const [showModal, setShowModal] = useState(false);
@@ -25,19 +25,20 @@ function WorkoutsList() {
 	}
 
 	function handleShow() {
-    setShowModal(true);
+		setShowModal(true);
 	}
 
-  function handleCreateWorkout(e) {
-    e.preventDefault();
-		createWorkout({ "name":name , "image_url": image_url});
+	function handleCreateWorkout(e) {
+		e.preventDefault();
+		createWorkout({ name: name, image_url: image_url });
 	}
 
-  // if (result.isSuccess){
-  //   pass
-  // } else if (result.isError){
-  //   setError(result.error)
-  // }
+	if (result.isSuccess) {
+		console.log(result);
+		navigate(`${result.data.id}`);
+	} else if (result.isError) {
+		setError(result.error);
+	}
 
 	return (
 		<>
@@ -88,12 +89,8 @@ function WorkoutsList() {
 				{data?.length ? (
 					<div className="row row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
 						{data.map((workout) => (
-							<div className="col workout-card">
-								<WorkoutCard
-									key={workout.id}
-									workout={workout}
-									accountId={account_id}
-								/>
+							<div className="col workout-card" key={workout.id}>
+								<WorkoutCard workout={workout} accountId={account_id} />
 							</div>
 						))}
 					</div>
