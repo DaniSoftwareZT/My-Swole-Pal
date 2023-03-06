@@ -33,11 +33,11 @@ function WorkoutsList() {
 		createWorkout({ "name":name , "image_url": image_url});
 	}
 
-  if (result.isSuccess){
-    navigate(`/workouts`)
-  } else if (result.isError){
-    setError(result.error)
-  }
+  // if (result.isSuccess){
+  //   pass
+  // } else if (result.isError){
+  //   setError(result.error)
+  // }
 
 	return (
 		<>

@@ -7,12 +7,11 @@ import { useLazyGetExercisesQuery, useGetExercisesQuery } from "./store/Api";
 import { Link } from "react-router-dom";
 
 function ExerciseModal() {
-    //const navigate = useNavigate();
+	//const navigate = useNavigate();
 	const [getExercises, { data }] = useLazyGetExercisesQuery();
 	const [exercises, setExercises] = useState([]);
 	const [searched, setSearched] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-
+	const [showModal, setShowModal] = useState(false);
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
@@ -27,9 +26,9 @@ function ExerciseModal() {
 		setSearched(true);
 	};
 
-    function handleShow() {
-    setShowModal(true);
-  }
+	function handleShow() {
+		setShowModal(true);
+	}
 
 	useEffect(() => {
 		setExercises(data);
@@ -80,18 +79,18 @@ function ExerciseModal() {
 				</button>
 			</form>
 			{searched && ( // only render exercises if search has been performed
-			<div className="row row-cols-2">
-			{exercises && exercises.length > 0 ? (
-				exercises.map((exercise) => (
-				<div key={exercise.id} className="col">
-					<ExerciseCard exercise={exercise} workout={workout} />
+				<div className="row row-cols-2">
+					{exercises && exercises.length > 0 ? (
+						exercises.map((exercise) => (
+							<div key={exercise.id} className="col">
+								<ExerciseCard exercise={exercise} workout={workout} />
+							</div>
+						))
+					) : (
+						<p>No exercises found.</p>
+					)}
 				</div>
-				))
-			) : (
-				<p>No exercises found.</p>
 			)}
-			</div>
-            )}
 		</div>
 	);
 }
