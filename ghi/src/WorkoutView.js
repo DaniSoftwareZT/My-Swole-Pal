@@ -68,8 +68,8 @@ function WorkoutView(props) {
             <Modal.Title>{workout.name}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <ExerciseModal>
-              
+            <ExerciseModal workout={workout}>
+
             </ExerciseModal>
           </Modal.Body>
         </Modal>

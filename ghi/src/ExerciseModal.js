@@ -84,7 +84,7 @@ function ExerciseModal() {
 			{exercises && exercises.length > 0 ? (
 				exercises.map((exercise) => (
 				<div key={exercise.id} className="col">
-					<ExerciseCard exercise={exercise} />
+					<ExerciseCard exercise={exercise} workout={workout} />
 				</div>
 				))
 			) : (
