@@ -70,18 +70,18 @@ function ExerciseSearch() {
 				</button>
 			</form>
 			{searched && ( // only render exercises if search has been performed
-			<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
-			{exercises && exercises.length > 0 ? (
-				exercises.map((exercise) => (
-				<div key={exercise.id} className="col">
-					<ExerciseCard exercise={exercise} />
+				<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+					{exercises && exercises.length > 0 ? (
+						exercises.map((exercise) => (
+							<div key={exercise.id} className="col">
+								<ExerciseCard exercise={exercise} />
+							</div>
+						))
+					) : (
+						<p>No exercises found.</p>
+					)}
 				</div>
-				))
-			) : (
-				<p>No exercises found.</p>
 			)}
-			</div>
-            )}
 		</div>
 	);
 }

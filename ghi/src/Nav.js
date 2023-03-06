@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 function LoginButton(props) {
 	const dispatch = useDispatch();
-	const classNames = `btn btn-primary bg-info gradient ${
+	const classNames = `btn btn-primary bg-info gradient m-1 ${
 		props.show ? "" : "is-hidden"
 	}`;
 	let navigate = useNavigate();
@@ -48,7 +48,10 @@ function LogoutButton() {
 
 	return (
 		<div className="buttons">
-			<button onClick={logOut} className="button is-light">
+			<button
+				onClick={logOut}
+				className="btn btn-primary bg-info gradient mr-1"
+			>
 				Log out
 			</button>
 		</div>
@@ -60,7 +63,7 @@ function Nav() {
 
 	return (
 		<>
-			<nav className="navbar navbar-expand-lg navbar-dark gradient">
+			<nav className="navbar navbar-hide-on-scroll navbar-expand-lg navbar-dark gradient">
 				<div className="container-fluid">
 					<NavLink className="navbar-brand" to="/">
 						MySwolePal

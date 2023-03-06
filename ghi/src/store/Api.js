@@ -131,6 +131,15 @@ export const apiSlice = createApi({
         return [{ type: "Workouts", id: id }];
       },
     }),
+    createWorkout: builder.mutation({
+      query: data =>({
+        url: "/api/workouts",
+        body: data,
+        method: "post",
+        credentials: "include",
+      }),
+      InvalidateTags: ["Workouts"]
+    }),
     getWorkoutExercises: builder.query({
       query: (id) => {
         console.log(id);
@@ -166,6 +175,7 @@ export const apiSlice = createApi({
 });
 
 export const {
+  useCreateWorkoutMutation,
   useDeleteExerciseMutation,
   useGetWorkoutExercisesQuery,
 	useGetExercisesQuery,

@@ -33,3 +33,19 @@
   font: white;
   border:  #91b8e2;
 }
+
+.no-workout {
+  background: #f8d7da;
+  border-radius: 0.25rem;
+}
+
+.workout-card {
+  /* max-width: 50%; */
+  margin: 0 auto;
+  height: 20%;
+}
+
+.workout-card:hover {
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}

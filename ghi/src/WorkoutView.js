@@ -7,9 +7,8 @@ import {
 import ExerciseModal from "./ExerciseModal"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams , Link} from "react-router-dom";
 import { Container, Row, Col, Spinner, Button, Modal, Card} from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 function useWorkout(id) {
   const { data: workout, isLoading } = useGetWorkoutQuery(id);
@@ -69,7 +68,6 @@ function WorkoutView(props) {
           </Modal.Header>
           <Modal.Body>
             <ExerciseModal>
-              
             </ExerciseModal>
           </Modal.Body>
         </Modal>
