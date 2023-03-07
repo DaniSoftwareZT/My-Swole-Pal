@@ -19,6 +19,9 @@ class FakeWorkoutQueries:
     def delete_workout(self, account_id: int, id:int) -> bool:
         return True
 
+    def update_workout(self, account_id: int, id:int, workout: WorkoutIn) -> WorkoutOut:
+        workout_dict = workout.dict()
+        return WorkoutOut(id=56, account_id=account_id, **workout_dict)
 
 def get_fake_account_data():
     return {"id": 1, "username": "test", "email": "test@email.com"}
@@ -66,3 +69,27 @@ def test_delete():
     res = client.delete(f"/api/workouts/{workout_id}")
     assert res.status_code == 200
     assert res.json() == True
+
+
+def test_update_workout():
+    # Arrange
+    app.dependency_overrides[authenticator.get_current_account_data] = get_fake_account_data
+    app.dependency_overrides[WorkoutQueries] = FakeWorkoutQueries
+    workout_id = 56
+
+    new_workout_dict = {
+        "account_id": 1,
+        "name": "Pull",
+        "image_url": "pull.jpg",
+    }
+    # Act
+    res = client.put(f"/api/workouts/{workout_id}", json.dumps(new_workout_dict))
+
+    # Assert
+    assert res.status_code == 200
+    assert res.json() == {
+        "account_id": 1,
+        "name": "Pull",
+        "image_url": "pull.jpg",
+        "id": 56,
+    }
