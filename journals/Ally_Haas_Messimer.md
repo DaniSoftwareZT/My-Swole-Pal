@@ -48,3 +48,9 @@
 
 ## March 2nd 2023
     Today we got our workouts showing on a page. We also added the exercises to the workout page. We were working on a delete button for the individual exercises on the workout page. I was our coder on this day.
+
+## March 3rd 2023
+    Today we finished the page that displays workouts. We also added the delete workout and add exercise buttons/functionality.
+
+## March 6th 2023
+    Today we got the funtionality to add an exercise to a workout. Daniel was our coder on this day.
