@@ -54,3 +54,6 @@
 
 ## March 6th 2023
     Today we got the funtionality to add an exercise to a workout. Daniel was our coder on this day.
+
+## March 7th 2023
+    Today we wrote unit tests and worked on some styling. The unit tests are all working. The styling has been really difficult because CSS is not fresh on any of our minds. All the functionality is working. Edwin was our coder today and then we switched for each person writting one unit test each.
