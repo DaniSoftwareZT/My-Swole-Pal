@@ -68,7 +68,7 @@ export const apiSlice = createApi({
 				method: "delete",
 				credentials: "include",
 			}),
-			invalidatesTags: ["Account", "Token","Workouts"],
+			invalidatesTags: ["Account", "Token","Workouts", "Workout"],
 		}),
 		getToken: builder.query({
 			query: () => ({
@@ -127,7 +127,15 @@ export const apiSlice = createApi({
 				method: "post",
 				credentials: "include",
 			}),
-			invalidatesTags: ["Workouts"],
+			invalidatesTags: ["Workouts","Workout"],
+		}),
+		deleteWorkout: builder.mutation({
+			query: (id) => ({
+				url: `/api/workouts/${id}`,
+				method: "delete",
+				credentials: "include",
+			}),
+			invalidatesTags: ["Workouts","Workout"],
 		}),
 		getWorkoutExercises: builder.query({
 			query: (id) => {
@@ -167,6 +175,7 @@ export const apiSlice = createApi({
 });
 
 export const {
+	useDeleteWorkoutMutation,
 	useCreateWorkoutMutation,
 	useDeleteExerciseMutation,
 	useGetWorkoutExercisesQuery,

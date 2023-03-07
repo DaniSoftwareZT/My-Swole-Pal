@@ -3,20 +3,12 @@ import {
 	useGetExercisesQuery,
 	useGetWorkoutExercisesQuery,
 	useDeleteExerciseMutation,
+	useDeleteWorkoutMutation,
 } from "./store/Api";
 import ExerciseModal from "./ExerciseModal";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
-import {
-	Container,
-	Row,
-	Col,
-	Spinner,
-	Button,
-	Modal,
-	Card,
-} from "react-bootstrap";
+import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Container, Row, Col, Spinner, Button, Modal } from "react-bootstrap";
 
 function useWorkout(id) {
 	const { data: workout, isLoading } = useGetWorkoutQuery(id);
@@ -32,21 +24,30 @@ function useWorkout(id) {
 
 function WorkoutView(props) {
 	const { id } = useParams();
-	const dispatch = useDispatch();
 	const { workout, isLoading, exercises } = useWorkout(id);
 	const [deleteExerciseMutation, { isLoading: isDeleteExerciseLoading }] =
 		useDeleteExerciseMutation();
-
+	const [deleteWorkoutMutation, { isLoading: isDeleteWorkoutLoading }] =
+		useDeleteWorkoutMutation();
 	const [showModal, setShowModal] = useState(false);
+	const [showDeleteModal, setShowDeleteModal] = useState(false);
+	const navigate = useNavigate();
 
 	function handleShow() {
 		setShowModal(true);
 	}
 
+	function handleShowDelete() {
+		setShowDeleteModal(true);
+	}
+
 	const deleteExercise = (workout_id, exercise_id) => {
-		console.log("workout_id:", workout_id);
-		console.log("exercise_id:", exercise_id);
 		deleteExerciseMutation({ workout_id, exercise_id });
+	};
+
+	const deleteWorkout = () => {
+		deleteWorkoutMutation(workout.id);
+		navigate(`/`);
 	};
 
 	if (isLoading || isDeleteExerciseLoading) {
@@ -57,10 +58,12 @@ function WorkoutView(props) {
 		);
 	}
 
-	function firstToUpper(string) {
-		let first = string[0].toUpperCase();
-		let new_string = first + string.slice(1);
-		return new_string;
+	if (isLoading || isDeleteWorkoutLoading) {
+		return (
+			<Container className="d-flex justify-content-center align-items-center">
+				<Spinner animation="border" variant="primary" />
+			</Container>
+		);
 	}
 
 	return (
@@ -119,6 +122,28 @@ function WorkoutView(props) {
 						</ul>
 					</Col>
 				</Row>
+				<div className="mt-3">
+					<Button onClick={handleShowDelete}>Delete Workout</Button>
+					{showDeleteModal && (
+						<Modal
+							show={showDeleteModal}
+							onHide={() => setShowDeleteModal(false)}
+						>
+							<Modal.Header closeButton>
+								<Modal.Title>Are you sure?</Modal.Title>
+							</Modal.Header>
+							<Modal.Body>
+								<p>Are you sure you want to delete this workout?</p>
+								<button
+									className="btn btn-danger"
+									onClick={deleteWorkout}
+								>
+									Delete
+								</button>
+							</Modal.Body>
+						</Modal>
+					)}
+				</div>
 			</Container>
 		</>
 	);

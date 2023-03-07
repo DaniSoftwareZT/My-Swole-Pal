@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import ExerciseCard from "./ExerciseCard";
-import { Modal, Button, Card } from "react-bootstrap";
-import { useLazyGetExercisesQuery, useGetExercisesQuery } from "./store/Api";
-import { Link } from "react-router-dom";
+import { useLazyGetExercisesQuery} from "./store/Api";
 
 function ExerciseModal() {
 	//const navigate = useNavigate();

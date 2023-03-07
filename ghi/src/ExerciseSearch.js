@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ExerciseCard from "./ExerciseCard";
-import { useLazyGetExercisesQuery, useGetExercisesQuery } from "./store/Api";
+import { useLazyGetExercisesQuery} from "./store/Api";
 
 function ExerciseSearch() {
 	const [getExercises, { data }] = useLazyGetExercisesQuery();
@@ -17,7 +17,6 @@ function ExerciseSearch() {
 		};
 
 		getExercises(exerciseData);
-		// setExercises(data || []);
 		setSearched(true);
 	};
 
@@ -73,7 +72,7 @@ function ExerciseSearch() {
 				<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
 					{exercises && exercises.length > 0 ? (
 						exercises.map((exercise) => (
-							<div key={exercise.id} className="col">
+							<div key={exercise.name} className="col">
 								<ExerciseCard exercise={exercise} />
 							</div>
 						))

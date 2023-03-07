@@ -79,4 +79,5 @@ def delete_workout(
   account_data: dict = Depends(authenticator.get_current_account_data),
   repo: WorkoutQueries = Depends(),
 ) -> bool:
+    print("HELLO BACKEND")
     return repo.delete_workout(account_id=account_data['id'], id=id)
