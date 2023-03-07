@@ -1,3 +1,6 @@
+## March 6, 2023
+Daniel was the coder for today. We finished adding exercises to a workout after several hours of debugging with Tyler. 
+
 ## March 3, 2023
 I was the driver today. We were working on add and deleting exercises and the worklist page. We managed to finish all the functionalities. In addition, we experimented with some styling and css. Got a lot of done today.
 
