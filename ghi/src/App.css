@@ -1,51 +1,86 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
-.gradient{
-  background: linear-gradient(to right, #000 0%, #211694 100%)
+.gradient {
+	/* background: linear-gradient(to right, #000 0%, #FC4646 100%); */
+  background: transparent;
 }
 
 .ExerciseCard-Modal li strong {
-  font-weight: bold;
-  color: #007bff;
+	font-weight: bold;
+	color: #007bff;
 }
 
 .button1 {
-  background-color: #91b8e2;
-  font: black;
-  border: #91b8e2;
+	background-color: #91b8e2;
+	font: black;
+	border: #91b8e2;
 }
 
-.button1:hover{
-  background-color: black;
-  font: white;
-  border:  #91b8e2;
+.button1:hover {
+	background-color: black;
+	font: white;
+	border: #91b8e2;
 }
 
 .no-workout {
-  background: #f8d7da;
-  border-radius: 0.25rem;
+	background: #f8d7da;
+	border-radius: 0.25rem;
 }
 
 .workout-card {
-  /* max-width: 50%; */
-  margin: 0 auto;
-  height: 20%;
+	/* max-width: 50%; */
+	margin: 0 auto;
+	height: 20%;
 }
 
 .workout-card:hover {
-  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease-in-out;
+	box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.3);
+	transition: box-shadow 0.3s ease-in-out;
+}
+
+.image {
+	position: relative;
+	height: 50vh;
+	width: 100%;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+}
+
+.content span.img-txt {
+	background-color: #333;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 1rem;
+	font-size: 1.5rem;
+	letter-spacing: 10px;
+}
+
+.blck {
+  background-color: black;
+  height: 25vh;
+
+}
+
+body {
+  background-color: black;
 }

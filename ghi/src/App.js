@@ -14,6 +14,7 @@ import Logout from "./Logout";
 import ExerciseSearch from "./ExerciseSearch";
 import WorkoutsList from "./WorkoutsList"
 import WorkoutView from "./WorkoutView";
+import { Background } from "react-parallax";
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
     <BrowserRouter>
       <Provider store={store}>
         <Nav />
-        <div className="container">
+        <span className="container" >
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="signup">
@@ -34,44 +35,12 @@ function App() {
             <Route path="workouts">
               <Route path="" element={<WorkoutsList />} />
               <Route path=":id" element={<WorkoutView />} />
-              {/* <Route
-                path=":workout_id/exercises/:exercise_id"
-                element={<WorkoutView />}
-              /> */}
             </Route>
           </Routes>
-        </div>
+        </span>
       </Provider>
     </BrowserRouter>
   );
 }
-
-// function App() {
-//   const { data: tokenData } = useGetTokenQuery();
-// const isPatron = tokenData && tokenData.account && tokenData.account.roles.includes('patron');
-// const accountId = tokenData && tokenData.account && tokenData.account.id;
-
-//   return (
-//     <div className="container my-4">
-//       {isLoading
-//         ? <Notification>Loading data</Notification>
-//         : isError
-//           ? <Notification type="danger">
-//             Could not load book list.
-//             Please try again later.
-//           </Notification>
-//           : <div className="book-grid">
-//             {data.books.map(book => (
-//               <BookCard
-//                 key={book.id}
-//                 book={book}
-//                 isPatron={isPatron}
-//                 accountId={accountId} />
-//             ))}
-//           </div>
-//       }
-//     </div>
-//   );
-// }
 
 export default App;
