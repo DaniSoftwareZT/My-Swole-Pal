@@ -10,9 +10,7 @@ import { useEffect } from "react";
 
 function LoginButton(props) {
 	const dispatch = useDispatch();
-	const classNames = `btn btn-primary bg-info gradient m-1 ${
-		props.show ? "" : "is-hidden"
-	}`;
+	const classNames = `btn button1 m-1 ${props.show ? "" : "is-hidden"}`;
 	let navigate = useNavigate();
 	const SignupRoute = () => {
 		let path = "/signup/new";
@@ -30,7 +28,7 @@ function LoginButton(props) {
 			</button>
 
 			<button onClick={LoginRoute} className={classNames}>
-				Log in
+				<strong>Log in</strong>
 			</button>
 		</div>
 	);
@@ -48,10 +46,7 @@ function LogoutButton() {
 
 	return (
 		<div className="buttons">
-			<button
-				onClick={logOut}
-				className="btn btn-primary bg-info gradient mr-1"
-			>
+			<button onClick={logOut} className="btn button1 mr-1">
 				Log out
 			</button>
 		</div>
@@ -65,7 +60,7 @@ function Nav() {
 		<>
 			<nav className="navbar navbar-hide-on-scroll navbar-expand-lg navbar-dark gradient">
 				<div className="container-fluid">
-					<NavLink className="navbar-brand" to="/">
+					<NavLink className="navbar-brand nav-hover" to="/">
 						MySwolePal
 					</NavLink>
 					<button
@@ -82,17 +77,21 @@ function Nav() {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 							<li className="nav-item">
-								<NavLink className="nav-link active" aria-current="page" to="/">
+								<NavLink
+									className="nav-link active nav-hover"
+									aria-current="page"
+									to="/"
+								>
 									Home
 								</NavLink>
 							</li>
 							<li className="nav-item">
-								<NavLink className="nav-link" to="/exercises">
+								<NavLink className="nav-link nav-hover" to="/exercises">
 									Exercises
 								</NavLink>
 							</li>
 							<li className="nav-item">
-								<NavLink className="nav-link" to="/workouts">
+								<NavLink className="nav-link nav-hover" to="/workouts">
 									Workouts
 								</NavLink>
 							</li>
