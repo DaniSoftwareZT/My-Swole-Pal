@@ -111,7 +111,7 @@ body {
 }
 
 .eBTN2 {
-	background-color: orange;
+	background-color: #ff5631;
 	color: black;
 	font: black;
 	border: 2px solid orange;
@@ -132,7 +132,7 @@ body {
 }
 
 .eBTN3:hover {
-	border: 2px solid rgb(11, 11, 115);
+	border: 2px solid rgb(15, 15, 100);
 	background-color: black;
 	color:rgb(17, 17, 146)
 	/* font: white; */
