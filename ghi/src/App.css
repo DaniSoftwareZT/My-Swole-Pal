@@ -13,15 +13,16 @@
 	color: white;
 }
 
+:root {
+  --primary: #ff5631;
+  --secondary: #011024;
+}
+
 .gradient {
 	/* background: linear-gradient(to right, #000 0%, #FC4646 100%); */
   background: transparent;
 }
 
-.ExerciseCard-Modal li strong {
-	font-weight: bold;
-	color: #007bff;
-}
 
 .button1 {
 	background-color: #91b8e2;
@@ -83,4 +84,203 @@
 
 body {
   background-color: black;
+}
+
+.navbar {
+	background-color: rgba(0, 0, 0, 0.9);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80px;
+	display: flex;
+	align-items: center;
+}
+
+.nav-link {
+	display: flex;
+	list-style: none;
+	width: 20%;
+	margin-right: 20px;
+	font-size: 20px;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 50px;
+	padding-right: 100px;
+}
+.navbar-brand {
+	font-size: 30px;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 50px;
+	padding-right: 20px;
+}
+
+.navbar-brand:hover {
+	color: var(--primary) !important;
+	transition: all 0.6s ease;
+}
+.nav-link li a {
+	color: white;
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	margin: 80 10px;
+	line-height: 50px;
+	margin-left: auto;
+	padding-right: 100px;
+}
+
+.nav-main {
+	color: white;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+	font-size: x-large;
+	text-decoration: none;
+	line-height: 50px;
+	padding-right: 90px;
+
+}
+
+img {
+ /* Set the opacity to 50% */
+}
+
+.nav-links li a:hover {
+  color: #ff5631 ;
+}
+
+.nav-main:hover{
+	color: #ff5631 ;
+
+}
+
+.logout-btn {
+  background-color: #ff5631 ;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.logout-btn:hover {
+  background-color: darkred;
+}
+
+.button1 {
+  background-color: #011024;
+  color: white;
+  border: 2px solid white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+.button1:hover {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  transition: all 0.6s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+  transition: all 0.6s ease;
+}
+
+
+.workout-card-wrapper {
+  height: 100%; /* Set the height of the wrapper to take up the height of the card */
+}
+
+.workout-card {
+  height: 300px; /* Set the desired height of the cards */
+  width: 100%; /* Set the desired width of the cards */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  overflow: hidden;
+  background-color:  rgba(241, 237, 237, 0.247);
+  border-radius: 10px;
+
+}
+.workout-card-body {
+	background-color:  rgba(241, 237, 237, 0.247);
+}
+
+.workout-card:hover {
+  background-color: rgb(185, 180, 180);
+}
+
+.workout-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Set the number of columns */
+  grid-gap: 20px; /* Set the padding between the cards */
+}
+
+.workout-card img {
+  width: 100%; /* Set the width of the image to fill the container */
+  max-height: 150px; /* Set the maximum height of the image to fit within the card */
+  object-fit: cover; /* Scale the image while maintaining its aspect ratio */
+}
+
+.workout-card-body {
+  position: relative; /* Set the position of the card body to relative */
+}
+
+.view-workout-btn {
+  position: absolute; /* Set the position of the button to absolute */
+  bottom: 40px; /* Set the distance from the bottom of the card */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Center the button horizontally */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 3px 5px;
+  background-color: black ;
+  outline-color:var(--primary);
+  border-color: var(--primary);
+
+}
+.view-workout-btn:hover{
+  background-color: var(--primary);
+}
+
+.create-workout-btn {
+  position: sticky;
+  width: 200px; /* adjust to your desired width */
+  height: 50px;
+  background-color: #ff5631 ;
+  outline-color: #ff5631;
+  border-color: #ff5631;
+  font-size: 20px;
+}
+
+.create-workout-btn:hover {
+	background-color: darkred;
+	border-color: #ff5631;
+}
+
+.modal-container {
+  display: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.98);
+  z-index: 9999;
+  display: none;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, .9);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: white;
 }
