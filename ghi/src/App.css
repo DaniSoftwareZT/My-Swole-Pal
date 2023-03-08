@@ -14,8 +14,8 @@
 }
 
 :root {
-  --primary: #ff5631;
-  --secondary: #011024;
+  --primary: #ff6a49;
+  --secondary:#000914;
 }
 
 .gradient {
@@ -24,17 +24,7 @@
 }
 
 
-.button1 {
-	background-color: #91b8e2;
-	font: black;
-	border: #91b8e2;
-}
 
-.button1:hover {
-	background-color: black;
-	font: white;
-	border: #91b8e2;
-}
 
 .no-workout {
 	background: #f8d7da;
@@ -77,17 +67,17 @@
 }
 
 .blck {
-  background-color: black;
+  background-color: var(--secondary);
   height: 25vh;
 
 }
 
 body {
-  background-color: black;
+  background-color: var(--secondary);
 }
 
 .navbar {
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: var(--secondary);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 80px;
@@ -230,7 +220,7 @@ img {
   font-weight: bold;
   font-size: 14px;
   padding: 3px 5px;
-  background-color: black ;
+  background-color: var(--secondary) ;
   outline-color:var(--primary);
   border-color: var(--primary);
 
@@ -283,4 +273,62 @@ img {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: white;
+}
+
+.eBTN {
+	border: 3px solid var(--primary);
+	background-color: var(--secondary);
+	color: var(--primary);
+	/* font: ; */
+}
+
+.eText {
+	background-color: rgb(255, 255, 255);
+	color: white;
+	font: white;
+	border: white;
+}
+
+.white {
+	color:white;
+}
+
+.form-search {
+	padding: 20px;
+}
+
+.eCard {
+	border: 1px solid var(--primary);
+	box-shadow: 2px 2px 2px 2px var(--primary);
+	background-color:#211f4c;
+	color: white;
+	/* font: ; */
+}
+
+.eBTN2 {
+	background-color: var(--primary);
+	color: var(--secondary);
+	font: var(--secondary);
+	border: 2px solid var(--primary);
+}
+
+.eBTN2:hover {
+	border: 2px solid var(--primary);
+	background-color: var(--secondary);
+	color: white
+	/* font: white; */
+}
+
+.eBTN3 {
+	background-color: var(--secondary);
+	color: var(--primary);
+	font: var(--secondary);
+	border: 2px solid ;
+}
+
+.eBTN3:hover {
+	border: 2px solid white;
+	background-color: var(--secondary);
+	color:white;
+	/* font: white; */
 }

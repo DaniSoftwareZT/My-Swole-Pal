@@ -26,10 +26,11 @@ function ExerciseSearch() {
 
 	return (
 		<div>
-			<form onSubmit={handleFormSubmit} className="mt-4">
+			<div className="form-search">
+				<form onSubmit={handleFormSubmit} className="mt-4">
 				<div className="row">
 					<div className="col-sm">
-						<label htmlFor="type">Type</label>
+						<label htmlFor="type" className="white">Type</label>
 						<select id="type" name="type" className="form-select mb-3">
 							<option value="">Select type</option>
 							<option value="cardio">Cardio</option>
@@ -38,7 +39,7 @@ function ExerciseSearch() {
 						</select>
 					</div>
 					<div className="col-sm">
-						<label htmlFor="muscle">Muscle</label>
+						<label htmlFor="muscle" className="white">Muscle</label>
 						<select id="muscle" name="muscle" className="form-select mb-3">
 							<option value="">Select muscle</option>
 							<option value="abdominals">Abdominals</option>
@@ -51,7 +52,7 @@ function ExerciseSearch() {
 						</select>
 					</div>
 					<div className="col-sm">
-						<label htmlFor="difficulty">Difficulty</label>
+						<label htmlFor="difficulty" className="white">Difficulty</label>
 						<select
 							id="difficulty"
 							name="difficulty"
@@ -64,12 +65,13 @@ function ExerciseSearch() {
 						</select>
 					</div>
 				</div>
-				<button type="submit" className="btn btn-primary">
+				<button type="submit" className="btn eBTN2">
 					Search
 				</button>
 			</form>
+			</div>
 			{searched && ( // only render exercises if search has been performed
-				<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+				<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3 form-search">
 					{exercises && exercises.length > 0 ? (
 						exercises.map((exercise) => (
 							<div key={exercise.name} className="col">

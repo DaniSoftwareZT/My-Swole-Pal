@@ -39,7 +39,7 @@ function ExerciseCard(props) {
     setSelectedWorkout(workout);
   };
   return (
-    <Card className="my-3 shadow-sm">
+    <Card className="my-3 shadow-sm eCard">
       <Card.Header className="text-center flex-grow-1">
         <h4>{exercise.name}</h4>
       </Card.Header>
@@ -58,11 +58,11 @@ function ExerciseCard(props) {
             <strong>Difficulty:</strong> {firstToUpper(exercise.difficulty)}
           </li>
         </ul>
-        <Button className="mb-2 button1" onClick={handleShow}>
+        <Button className="mb-2 eBTN3" onClick={handleShow}>
           View Exercise
         </Button>
         <Dropdown className="mb-2">
-          <Dropdown.Toggle variant="primary" id="dropdown-basic">
+          <Dropdown.Toggle className="eBTN3" id="dropdown-basic">
             {selectedWorkout ? selectedWorkout.name : "Select Workout"}
           </Dropdown.Toggle>
           <Dropdown.Menu>
@@ -76,7 +76,7 @@ function ExerciseCard(props) {
             ))}
           </Dropdown.Menu>
         </Dropdown>
-        <Button className="mb-2 button1" onClick={handleAddExercise}>
+        <Button className="mb-2 eBTN3" onClick={handleAddExercise}>
           Add Exercise
         </Button>
       </Card.Body>
