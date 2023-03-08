@@ -7,6 +7,7 @@ import LoginFormModal from "./LoginFormModal";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import { useEffect } from "react";
+import nav_logo from "./nav_logo.png"
 
 function LoginButton(props) {
 	const dispatch = useDispatch();
@@ -50,7 +51,7 @@ function LogoutButton() {
 		<div className="buttons">
 			<button
 				onClick={logOut}
-				className="btn btn-primary bg-info gradient mr-1"
+				className="logout-btn"
 			>
 				Log out
 			</button>
@@ -62,59 +63,62 @@ function Nav() {
 	const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
 	return (
-		<>
-			<nav className="navbar navbar-hide-on-scroll navbar-expand-lg navbar-dark gradient">
-				<div className="container-fluid">
-					<NavLink className="navbar-brand" to="/">
-						MySwolePal
-					</NavLink>
-					<button
-						className="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					>
-						<span className="navbar-toggler-icon"></span>
-					</button>
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-							<li className="nav-item">
-								<NavLink className="nav-link active" aria-current="page" to="/">
-									Home
-								</NavLink>
-							</li>
-							<li className="nav-item">
-								<NavLink className="nav-link" to="/exercises">
-									Exercises
-								</NavLink>
-							</li>
-							<li className="nav-item">
-								<NavLink className="nav-link" to="/workouts">
-									Workouts
-								</NavLink>
-							</li>
-						</ul>
-					</div>
-					<div id="navbarBasicExample" className="navbar-menu">
-						<div className="navbar-end">
-							<div className="navbar-item">
-								{tokenLoading ? (
-									<LoginButton show={false} />
-								) : token ? (
-									<LogoutButton />
-								) : (
-									<LoginButton show={true} />
-								)}
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</>
-	);
+    <>
+      <nav className="navbar navbar-hide-on-scroll navbar-expand-lg">
+        <div className="container-fluid">
+          <a href="#home">
+            <img src={nav_logo} alt="Logo" />
+          </a>
+          <NavLink className="nav-main" to="/">
+            MySwolePal
+          </NavLink>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="nav-links">
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/exercises">
+                  Exercises
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/workouts">
+                  Workouts
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div id="navbarBasicExample" className="navbar-menu">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                {tokenLoading ? (
+                  <LoginButton show={false} />
+                ) : token ? (
+                  <LogoutButton />
+                ) : (
+                  <LoginButton show={true} />
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
 }
 
 export default Nav;
