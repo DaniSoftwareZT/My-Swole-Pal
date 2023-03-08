@@ -84,3 +84,56 @@
 body {
   background-color: black;
 }
+
+.eBTN {
+	border: 3px solid orange;
+	background-color: black;
+	color: orange;
+	/* font: ; */
+}
+
+.eText {
+	background-color: rgb(2, 2, 80);
+	color: white;
+	font: white;
+	border: white;
+}
+
+.white {
+	color:white;
+}
+
+.eCard {
+	border: 1px solid orange;
+	background-color: black;
+	color: white;
+	/* font: ; */
+}
+
+.eBTN2 {
+	background-color: orange;
+	color: black;
+	font: black;
+	border: 2px solid orange;
+}
+
+.eBTN2:hover {
+	border: 2px solid orange;
+	background-color: black;
+	color: white
+	/* font: white; */
+}
+
+.eBTN3 {
+	background-color: black;
+	color: orange;
+	font: black;
+	border: 2px solid ;
+}
+
+.eBTN3:hover {
+	border: 2px solid rgb(11, 11, 115);
+	background-color: black;
+	color:rgb(17, 17, 146)
+	/* font: white; */
+}

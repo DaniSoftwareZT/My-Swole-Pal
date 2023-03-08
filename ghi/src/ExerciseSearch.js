@@ -29,17 +29,17 @@ function ExerciseSearch() {
 			<form onSubmit={handleFormSubmit} className="mt-4">
 				<div className="row">
 					<div className="col-sm">
-						<label htmlFor="type">Type</label>
-						<select id="type" name="type" className="form-select mb-3">
-							<option value="">Select type</option>
+						<label className="white" htmlFor="type">Type</label>
+						<select id="type" name="type" className="form-select mb-3 eText">
+							<option value="">Select Type</option>
 							<option value="cardio">Cardio</option>
 							<option value="strength">Strength</option>
 							<option value="powerlifting">Powerlifting</option>
 						</select>
 					</div>
 					<div className="col-sm">
-						<label htmlFor="muscle">Muscle</label>
-						<select id="muscle" name="muscle" className="form-select mb-3">
+						<label className="white" htmlFor="muscle">Muscle</label>
+						<select id="muscle" name="muscle" className="form-select mb-3 eText">
 							<option value="">Select muscle</option>
 							<option value="abdominals">Abdominals</option>
 							<option value="biceps">Biceps</option>
@@ -50,12 +50,12 @@ function ExerciseSearch() {
 							<option value="triceps">Triceps</option>
 						</select>
 					</div>
-					<div className="col-sm">
-						<label htmlFor="difficulty">Difficulty</label>
+					<div className="col-sm ">
+						<label className="white" htmlFor="difficulty">Difficulty</label>
 						<select
 							id="difficulty"
 							name="difficulty"
-							className="form-select mb-3"
+							className="form-select mb-3 eText"
 						>
 							<option value="">Select difficulty</option>
 							<option value="beginner">Beginner</option>
@@ -64,7 +64,7 @@ function ExerciseSearch() {
 						</select>
 					</div>
 				</div>
-				<button type="submit" className="btn btn-primary">
+				<button type="submit" className="eBTN2">
 					Search
 				</button>
 			</form>
