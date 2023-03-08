@@ -70,7 +70,7 @@ function ExerciseModal() {
 						</select>
 					</div>
 				</div>
-				<button type="submit" className="btn btn-primary">
+				<button type="submit" className="btn button1">
 					Search
 				</button>
 			</form>
