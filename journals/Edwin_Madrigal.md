@@ -35,3 +35,19 @@ Ally was the coder for today and we completed all of our routes for accounts, wo
 ## Februrary 23 2023
 
 I was our coder for today. We began working on the front end by creating the layout for the landing page, and a sign up form. We created the sign up form in React, and then we worked on updating it to work with Redux toolkit. We did get the front end to sucessfully create a user, and now we will work on having the user sign in using their authentication token and ensuring that all necessary endpoints are protected.
+
+## February 27 2023
+
+With Daniel as our coder for the day we completed the sign up page for the front end with authentication. Afterwards we worked on completing the login/signup modal. We did not complete the modal before the day ended.
+
+## February 28 2023
+
+Jessica was our coder for the day and we were able to complete all of the frontned authentication for logging in, logging out, and signing up. After we finished the user porion we started to work on incorporating the exercise API we found for our exercise search page.
+
+## March 1 2023
+
+I was the coder for today. We were able to complete the exercise search functionality with the user choosing which filters to use for an exercise. This form is then sent out to the API and we show the results on our page with each exercise being in its own card
+
+## March 2 2023
+
+Ally was the coder for today and we worked on creating a workout page for the user. We were able to have the exercises associated with an account appear for a specific workout. We also implemented a delete button for the workouts where the user can delete an exercise from a workout.

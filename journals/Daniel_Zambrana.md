@@ -34,3 +34,15 @@ So we abandoned the Modal idea, and we just finished the signup, login and logou
 
 ## Wednesday, March 1, 2023
 So we got the modal working and Instructor Candace helped us A LOT!! We were stuck the past two days and now everything is good and we got the workout list working! Everything is good and now on to the next step and make it look nice!
+
+## Thursday, March 2, 2023
+Frontend looking better each day, we still need to properly style it but functionality wise its good for now. We got some workout cards working and looking good as well as the workout search in the web page. We finished the day by adding some nice designs to the list page.
+
+## Friday, March 3, 2023
+The progress to day was amazing! We finished the workout list page and also finished adding the delete workout and add exercise working properly! We also did minimum design changes since we want to finish the whole proyect before fully making it look nice!
+
+## Monday, March 6, 2023
+We finished the add exercise modal functionality and everything is working good! We are only missing the delete workout function and then we are done in terms of functionality!
+
+## Tuesday, March 7, 2023
+Delete workout function has been made with the help of some SEIRS, all we have to do is format and add some designs but the website is done and everything is working so far. 

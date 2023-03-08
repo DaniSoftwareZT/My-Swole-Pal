@@ -35,3 +35,15 @@ We struggled a lot with redux, we're not sure if we'll continue working with it.
 
 ## Monday, February 27, 2023
 Today our team got the signup form to work with redux. We were trying to format things with modals but were having a lot of issues with it. Daniel was our typer for the day.
+
+## Tuesday, February 28, 2023
+I coded for the team today. We were able to finish the front end authentication, sing-up and login forms are working now. We started creating the exercise search page including exercise cards so users can search based on difficulty, muscle, and type.
+
+## Wednesday, March 1, 2023
+We were stuck on getting the exercise searches to work with redux but Candice helped us with bugs, Edwin coded for the team.
+
+## Thursday, March 2, 2023
+Ally coded for the team today. We were working on creating workouts and including exercises, we got stuck at the end of the day.
+
+## Friday, March 3, 2023
+Adrian coded for the team today. We were able to getting the view for the workouts working but only by creating them in the backend. We tried to get the add workout button to work on the front end but got stuck at the end of the day and by the time we asked for help Candice was no longer available so we decided to continue working on this on Monday.
