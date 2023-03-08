@@ -49,6 +49,7 @@ def test_create():
         "name": "Test",
         "image_url": "test.jpg",
     }
+    
     # Act
     res = client.post("/api/workouts", json.dumps(workout_dict))
 
@@ -57,6 +58,7 @@ def test_create():
     assert res.json()["id"] == 2
 
 def test_delete():
+    # Arrange
     app.dependency_overrides[authenticator.get_current_account_data] = get_fake_account_data
     app.dependency_overrides[WorkoutQueries] = FakeWorkoutQueries
     workout_dict = {
@@ -65,8 +67,11 @@ def test_delete():
         "image_url": "test.jpg",
     }
 
+    # Act
     workout_id=3
     res = client.delete(f"/api/workouts/{workout_id}")
+
+    # Assert
     assert res.status_code == 200
     assert res.json() == True
 
