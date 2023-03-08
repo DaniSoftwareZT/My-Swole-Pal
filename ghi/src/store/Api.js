@@ -14,7 +14,7 @@ export const apiSlice = createApi({
 			return headers;
 		},
 	}),
-	tagTypes: ["Account", "Exercises"],
+	tagTypes: ["Account", "Exercises", "Workouts"],
 	endpoints: (builder) => ({
 		signUp: builder.mutation({
 			query: (data) => ({
@@ -68,7 +68,7 @@ export const apiSlice = createApi({
 				method: "delete",
 				credentials: "include",
 			}),
-			invalidatesTags: ["Account", "Token"],
+			invalidatesTags: ["Account", "Token","Workouts", "Workout"],
 		}),
 		getToken: builder.query({
 			query: () => ({
@@ -93,20 +93,99 @@ export const apiSlice = createApi({
 				const { exercises } = data;
 				if (exercises) {
 					tags.concat(
-						...exercises.map(({ id }) => ({ type: "exercises", id }))
+						...exercises.map(({ id }) => ({ type: "Exercises", id }))
 					);
 				}
 				return tags;
 			},
 		}),
+		getWorkouts: builder.query({
+			query: () => {
+				return {
+					method: "get",
+					url: "/api/workouts",
+					credentials: "include",
+				};
+			},
+			providesTags: ["Workouts"]
+		}),
+		getWorkout: builder.query({
+			query: (id) => {
+				console.log(id);
+				return {
+					method: "get",
+					url: `/api/workouts/${id}`,
+					credentials: "include",
+				};
+			},
+			providesTags: ["Workouts"]
+		}),
+		createWorkout: builder.mutation({
+			query: (data) => ({
+				url: "/api/workouts",
+				body: data,
+				method: "post",
+				credentials: "include",
+			}),
+			invalidatesTags: ["Workouts","Workout"],
+		}),
+		deleteWorkout: builder.mutation({
+			query: (id) => ({
+				url: `/api/workouts/${id}`,
+				method: "delete",
+				credentials: "include",
+			}),
+			invalidatesTags: ["Workouts","Workout"],
+		}),
+		getWorkoutExercises: builder.query({
+			query: (id) => {
+				console.log(id);
+				return {
+					method: "get",
+					url: `/api/workouts/${id}/exercises`,
+					credentials: "include",
+				};
+			},
+			providesTags: (result, error, id) => {
+				return [{ type: "Workouts", id: id }];
+			},
+		}),
+		deleteExercise: builder.mutation({
+			query: (params) => {
+				return {
+					url: `/api/workouts/${params.workout_id}/exercises/${params.exercise_id}`,
+					method: "delete",
+					credentials: "include",
+				};
+			},
+			invalidatesTags: ["Exercises", "Workouts"],
+		}),
+		addExercise: builder.mutation({
+			query: (params) => {
+				return {
+					url: `/api/workouts/${params.workout_id}/exercises`,
+					method: "post",
+					body: params,
+					credentials: "include",
+				};
+			},
+			invalidatesTags: ["Exercises", "Workouts"],
+		}),
 	}),
 });
 
 export const {
+	useDeleteWorkoutMutation,
+	useCreateWorkoutMutation,
+	useDeleteExerciseMutation,
+	useGetWorkoutExercisesQuery,
 	useGetExercisesQuery,
 	useLazyGetExercisesQuery,
 	useGetTokenQuery,
 	useLogInMutation,
 	useLogOutMutation,
 	useSignUpMutation,
+	useGetWorkoutsQuery,
+	useGetWorkoutQuery,
+	useAddExerciseMutation,
 } = apiSlice;

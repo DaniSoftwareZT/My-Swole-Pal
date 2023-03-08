@@ -1,5 +1,8 @@
+## March 7, 2023
+Edwin is the coder for today. We finished the delete workout with the help of Sean. Learnt more about passing in functions in the on-click on react JSX. We continued to work on the styling -- mostly the parallex effect on the main page. 
+
 ## March 6, 2023
-Daniel was the coder for today. We finished adding exercises to a workout after several hours of debugging with Tyler. 
+Daniel was the coder for today. We finished adding exercises to a workout after several hours of debugging with Tyler. We are only missing the delete button.
 
 ## March 3, 2023
 I was the driver today. We were working on add and deleting exercises and the worklist page. We managed to finish all the functionalities. In addition, we experimented with some styling and css. Got a lot of done today.

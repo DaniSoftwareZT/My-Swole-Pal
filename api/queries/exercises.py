@@ -16,11 +16,15 @@ from queries.accounts import Error
 
 class ExerciseIn(BaseModel):
     name: str
+    type: str
+    muscle: str
+    equipment: str
+    difficulty: str
+    instructions: str
 
 
-class ExerciseOut(BaseModel):
+class ExerciseOut(ExerciseIn):
     id: int
-    name: str
     workout_id: int
 
 
@@ -35,14 +39,19 @@ class ExerciseQueries:
                 result = db.execute(
                     """
                     INSERT INTO exercises
-                    (name, workout_id)
+                    (name, workout_id, type, muscle, equipment, difficulty, instructions)
                     VALUES
-                    (%s, %s)
+                    (%s, %s, %s, %s, %s, %s, %s)
                     RETURNING id;
                     """,
                     [
                         exercise.name,
                         workout_id,
+                        exercise.type,
+                        exercise.muscle,
+                        exercise.equipment,
+                        exercise.difficulty,
+                        exercise.instructions
                     ]
                 )
                 id = result.fetchone()[0]
@@ -58,7 +67,7 @@ class ExerciseQueries:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT e.id, e.name, e.workout_id
+                        SELECT e.id, e.name, e.workout_id, e.type, e.muscle, e.equipment, e.difficulty, e.instructions
                         FROM exercises AS e
                         INNER JOIN workouts w ON e.workout_id = w.id
                         WHERE e.workout_id = %s AND w.account_id = %s
@@ -106,4 +115,9 @@ class ExerciseQueries:
             id=record[0],
             name=record[1],
             workout_id=record[2],
+            type=record[3],
+            muscle=record[4],
+            equipment=record[5],
+            difficulty=record[6],
+            instructions=record[7],
             )

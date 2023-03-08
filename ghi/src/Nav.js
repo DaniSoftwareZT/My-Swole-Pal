@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useGetTokenQuery, useLogOutMutation } from "./store/api";
+import { useGetTokenQuery, useLogOutMutation } from "./store/Api";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from "./store/accountSlice";
@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 function LoginButton(props) {
 	const dispatch = useDispatch();
-	const classNames = `btn btn-primary bg-info ${
+	const classNames = `btn btn-primary bg-info gradient m-1 ${
 		props.show ? "" : "is-hidden"
 	}`;
 	let navigate = useNavigate();
@@ -48,7 +48,10 @@ function LogoutButton() {
 
 	return (
 		<div className="buttons">
-			<button onClick={logOut} className="button is-light">
+			<button
+				onClick={logOut}
+				className="btn btn-primary bg-info gradient mr-1"
+			>
 				Log out
 			</button>
 		</div>
@@ -60,7 +63,7 @@ function Nav() {
 
 	return (
 		<>
-			<nav className="navbar navbar-expand-lg navbar-dark bg-info">
+			<nav className="navbar navbar-hide-on-scroll navbar-expand-lg navbar-dark gradient">
 				<div className="container-fluid">
 					<NavLink className="navbar-brand" to="/">
 						MySwolePal
@@ -86,6 +89,11 @@ function Nav() {
 							<li className="nav-item">
 								<NavLink className="nav-link" to="/exercises">
 									Exercises
+								</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/workouts">
+									Workouts
 								</NavLink>
 							</li>
 						</ul>
