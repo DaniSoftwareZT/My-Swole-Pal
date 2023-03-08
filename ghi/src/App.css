@@ -14,7 +14,6 @@
 }
 
 .gradient {
-	/* background: linear-gradient(to right, #000 0%, #FC4646 100%); */
   background: transparent;
 }
 
@@ -41,7 +40,6 @@
 }
 
 .workout-card {
-	/* max-width: 50%; */
 	margin: 0 auto;
 	height: 20%;
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import ErrorNotification from '../../ErrorNotification';
 import { useLogInMutation } from "./store/Api.js";
+import "./Login.css";
 
 function LoginForm() {
 	const navigate = useNavigate();
@@ -18,7 +18,8 @@ function LoginForm() {
 	}
 
 	return (
-		<div className="row">
+		<div className="row LoginForm">
+			<div className="side-image"></div>
 			<div className="offset-3 col-6">
 				<div className="shadow p-4 mt-4">
 					<h1>Login</h1>
@@ -49,7 +50,7 @@ function LoginForm() {
 							/>
 							<label htmlFor="password">Password</label>
 						</div>
-						<button className="btn btn-primary">GET SWOLE!!!</button>
+						<button className="btn btn-primary">GET SWOLE</button>
 					</form>
 				</div>
 			</div>

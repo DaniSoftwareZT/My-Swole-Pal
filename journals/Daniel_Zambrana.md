@@ -45,4 +45,6 @@ The progress to day was amazing! We finished the workout list page and also fini
 We finished the add exercise modal functionality and everything is working good! We are only missing the delete workout function and then we are done in terms of functionality!
 
 ## Tuesday, March 7, 2023
-Delete workout function has been made with the help of some SEIRS, all we have to do is format and add some designs but the website is done and everything is working so far. 
+Delete workout function has been made with the help of some SEIRS, all we have to do is format and add some designs but the website is done and everything is working so far.
+
+
