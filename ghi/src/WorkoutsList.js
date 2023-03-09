@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Col, Row, Modal, Form } from "react-bootstrap";
+import { Container, Col, Row, Modal, Form } from "react-bootstrap";
 import {
 	useGetWorkoutsQuery,
 	useGetTokenQuery,
@@ -66,7 +66,7 @@ function WorkoutsList() {
                     onChange={(e) => setName(e.target.value)}
                   />
                 </Form.Group>
-                <Form.Group controlId="pictureUrl">
+                <Form.Group className="mt-2" controlId="pictureUrl">
                   <Form.Label>Picture URL</Form.Label>
                   <Form.Control
                     type="text"
@@ -78,10 +78,10 @@ function WorkoutsList() {
               </Form>
             </Modal.Body>
             <Modal.Footer>
-              <button className="btn button1" onClick={() => setShowModal(false)}>
+              <button className="btn eBTN3" onClick={() => setShowModal(false)}>
                 Cancel
               </button>
-              <button className="btn button1" onClick={handleCreateWorkout}>
+              <button className="btn eBTN3" onClick={handleCreateWorkout}>
                 Create Workout
               </button>
             </Modal.Footer>

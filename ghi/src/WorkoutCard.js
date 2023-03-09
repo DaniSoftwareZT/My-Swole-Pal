@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Modal, Button, Card } from "react-bootstrap";
+import { Modal, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import "./App.css"; 
-import { Link } from "react-router-dom";
+import "./App.css";
+import DefaultImage from "./swole_pal.png"
 
 function WorkoutCard(props) {
 	const navigate = useNavigate();
@@ -25,10 +25,14 @@ function WorkoutCard(props) {
 
 	return (
 		<Card className="my-3 shadow-sm workout-card">
-			<Card.Img variant="top" src={workout.image_url} />
+			{workout.image_url ? (
+                <Card.Img variant="top" src={workout.image_url} />
+            ) : (
+                <Card.Img variant="top" src={DefaultImage} />
+            )}
 			<Card.Body className=" workout-card-body text-center flex-grow-1">
 				<Card.Title>{workout.name}</Card.Title>
-				{accountId && <Button className="button1" onClick={handleShow}>View Workout</Button>}
+				{accountId && <button className="btn eBTN4" onClick={handleShow}>View Workout</button>}
 			</Card.Body>
 			{showModal && (
 				<Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -43,7 +47,7 @@ function WorkoutCard(props) {
 						</ul>
 						<div className="text-center">
 							<button
-								className="btn btn-primary"
+								className="btn eBTN4"
 								onClick={() => handleRedirect(workout.id)}
 							>
 								Edit Workout

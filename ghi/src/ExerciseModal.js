@@ -81,7 +81,7 @@ function ExerciseModal() {
                 <div className="row row-cols-2">
                     {exercises && exercises.length > 0 ? (
                         exercises.map((exercise) => (
-                            <div key={exercise.id} className="col">
+                            <div key={exercise.name} className="col">
                                 <ExerciseCard exercise={exercise} />
                             </div>
                         ))

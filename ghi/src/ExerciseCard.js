@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, Button, Card, Dropdown } from "react-bootstrap";
+import { Modal, Card, Dropdown } from "react-bootstrap";
 import "./App.css";
 import { useAddExerciseMutation, useGetWorkoutsQuery } from "./store/Api";
 function ExerciseCard(props) {
@@ -60,11 +60,11 @@ function ExerciseCard(props) {
                         {firstToUpper(exercise.difficulty)}
                     </li>
                 </ul>
-                <Button className="mb-2 eBTN3" onClick={handleShow}>
+                <button className="mb-2 btn eBTN3" onClick={handleShow}>
                     View Exercise
-                </Button>
+                </button>
                 <Dropdown className="mb-2">
-                    <Dropdown.Toggle className="eBTN3" id="dropdown-basic">
+                    <Dropdown.Toggle className="btn eBTN3" id="dropdown-basic">
                         {selectedWorkout
                             ? selectedWorkout.name
                             : "Select Workout"}
@@ -80,9 +80,9 @@ function ExerciseCard(props) {
                         ))}
                     </Dropdown.Menu>
                 </Dropdown>
-                <Button className="mb-2 eBTN3" onClick={handleAddExercise}>
+                <button className="mb-2 btn eBTN4" onClick={handleAddExercise}>
                     Add Exercise
-                </Button>
+                </button>
             </Card.Body>
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>

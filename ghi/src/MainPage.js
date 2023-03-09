@@ -22,11 +22,14 @@ function MainPage() {
 				</div>
 				<div className="right-side half2">
 					<div>
-						<h3>Search from hundreds of exercises</h3>
-						<h5>
-							Get instant results for exercises to add to your workout plan
-						</h5>
-						<button onClick={handleSearch} className="btn search-exercise">Search Now!</button>
+						<h3 className="mt-4" style={{ fontSize: "3rem" }}>Sweat Now</h3>
+						<h3 style={{ fontSize: "3rem" }}>
+							Shine Later
+						</h3>
+						<h5 className="mt-3">Get swole and stay organized with <strong style={{ fontSize: "2rem" }}>My Swole Pal™</strong></h5>
+						<div className="mt-4">
+							<button onClick={handleSearch} className="btn search-exercise">Search Now!</button>
+						</div>
 					</div>
 				</div>
 			</span>

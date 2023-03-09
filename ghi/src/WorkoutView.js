@@ -7,7 +7,7 @@ import {
 import ExerciseModal from "./ExerciseModal";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Spinner, Button, Modal } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Modal } from "react-bootstrap";
 import "./App.css";
 
 function firstToUpper(string) {
@@ -76,9 +76,9 @@ function WorkoutView(props) {
         <>
             <div className="d-flex justify-content-center">
                 <div style={{ marginRight: "15px" }}>
-                    <Button className="btn eBTN2" onClick={handleShow}>
+                    <button className="btn eBTN2" onClick={handleShow}>
                         Add Exercise
-                    </Button>
+                    </button>
                     {showModal && (
                         <Modal
                             show={showModal}
@@ -94,9 +94,9 @@ function WorkoutView(props) {
                     )}
                 </div>
                 <div>
-                    <Button className="btn eBTN3" onClick={handleShowDelete}>
+                    <button className="btn eBTN4" onClick={handleShowDelete}>
                         Delete Workout
-                    </Button>
+                    </button>
                     {showDeleteModal && (
                         <Modal
                             show={showDeleteModal}
