@@ -2,14 +2,6 @@ from pydantic import BaseModel
 from typing import List, Union, Optional
 from queries.pool import pool
 from queries.accounts import Error
-# from fastapi import (
-#     Depends,
-#     HTTPException,
-#     status,
-#     Response,
-#     APIRouter,
-#     Request,
-# )
 
 
 class WorkoutIn(BaseModel):
@@ -64,7 +56,6 @@ class WorkoutQueries:
                         for record in result
                     ]
         except Exception as e:
-            print(e)
             return {"message": "Could not get all accounts"}
 
     def get_one_workout(
@@ -84,12 +75,10 @@ class WorkoutQueries:
                         [account_id, id],
                         )
                     record = result.fetchone()
-                    print("record", record)
                     if record is None:
                         return None
                     return self.record_to_workout_out(record)
         except Exception as e:
-            print(e)
             return {"message": "Could not get workout"}
 
     def update_workout(
@@ -118,7 +107,6 @@ class WorkoutQueries:
                     )
                 return self.workout_in_to_out(id, workout, account_id)
         except Exception as e:
-            print(e)
             return {"message": "Could not update workout"}
 
     def workout_in_to_out(self, id: int, workout: WorkoutIn, account_id: int):
@@ -146,5 +134,4 @@ class WorkoutQueries:
                     )
                 return True
         except Exception as e:
-            print(e)
             return False

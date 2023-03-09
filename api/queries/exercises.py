@@ -2,16 +2,7 @@ from pydantic import BaseModel
 from typing import List, Union
 from queries.pool import pool
 from queries.accounts import Error
-# from fastapi import (
-#     Depends,
-#     HTTPException,
-#     status,
-#     Response,
-#     APIRouter,
-#     Request,
-# )
-# import requests
-# import os
+
 
 
 class ExerciseIn(BaseModel):
@@ -81,7 +72,6 @@ class ExerciseQueries:
                         for record in result
                     ]
         except Exception as e:
-            print(e)
             return {"message": "Could not get all exercises"}
 
     def delete_exercise(
@@ -107,7 +97,6 @@ class ExerciseQueries:
                     )
                 return True
         except Exception as e:
-            print(e)
             return False
 
     def record_to_exercise_out(self, record):

@@ -1,15 +1,10 @@
 import {
   useGetWorkoutQuery,
-  useGetExercisesQuery,
   useGetWorkoutExercisesQuery,
-  useAddExerciseMutation,
 } from "./store/Api";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import ExerciseSearch from "./ExerciseSearch.js";
+import { Container, Row, Col } from "react-bootstrap";
+
 
 function useWorkout(id) {
   const { data: workout, isLoading } = useGetWorkoutQuery(id);
@@ -25,10 +20,8 @@ function useWorkout(id) {
 
 function AddExercise(props) {
   const { id } = useParams();
-  const dispatch = useDispatch();
   const { workout, isLoading, exercises } = useWorkout(id);
-  const [addExerciseMutation, { isLoading: isAddExerciseLoading }] =
-    useAddExerciseMutation();
+
 
 
   return (

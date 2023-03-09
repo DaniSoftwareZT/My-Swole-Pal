@@ -111,7 +111,6 @@ export const apiSlice = createApi({
 		}),
 		getWorkout: builder.query({
 			query: (id) => {
-				console.log(id);
 				return {
 					method: "get",
 					url: `/api/workouts/${id}`,
@@ -139,7 +138,6 @@ export const apiSlice = createApi({
 		}),
 		getWorkoutExercises: builder.query({
 			query: (id) => {
-				console.log(id);
 				return {
 					method: "get",
 					url: `/api/workouts/${id}/exercises`,
