@@ -45,4 +45,7 @@ The progress to day was amazing! We finished the workout list page and also fini
 We finished the add exercise modal functionality and everything is working good! We are only missing the delete workout function and then we are done in terms of functionality!
 
 ## Tuesday, March 7, 2023
-Delete workout function has been made with the help of some SEIRS, all we have to do is format and add some designs but the website is done and everything is working so far. 
+Delete workout function has been made with the help of some SEIRS, all we have to do is format and add some designs but the website is done and everything is working so far.
+
+## Thursday, March 9, 2023
+All of the test are done, styling is almost done and we are now focusing on the ReadMe so we can finish that quickly and continue on making the project looking nice!
