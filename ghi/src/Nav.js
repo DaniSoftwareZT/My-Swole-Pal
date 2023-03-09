@@ -21,11 +21,11 @@ function LoginButton(props) {
 	return (
 		<div>
 			<button onClick={SignupRoute} className={classNames}>
-				<strong>Sign up</strong>
+				<strong>Sign Up</strong>
 			</button>
 
 			<button onClick={LoginRoute} className={classNames}>
-				Log in
+				Log In
 			</button>
 		</div>
 	);
@@ -47,7 +47,7 @@ function LogoutButton() {
 				onClick={logOut}
 				className="btn button1 m-1"
 			>
-				Log out
+				Log Out
 			</button>
 		</div>
 	);
