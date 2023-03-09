@@ -1,10 +1,6 @@
 .App {
 	text-align: center;
-}
-
-:root {
-  --primary: #364cb3;
-  --secondary: #011024;
+	font-family: "Montserrat", sans-serif;
 }
 
 
@@ -19,26 +15,17 @@
 	color: white;
 }
 
+:root {
+	--primary: #ff6a49;
+	--secondary: #000914;
+	--third-color: gray;
+	--button-width: 150px;
+  --card-height: 450px;
+}
+
 .gradient {
 	/* background: linear-gradient(to right, #000 0%, #FC4646 100%); */
 	background: transparent;
-}
-
-.ExerciseCard-Modal li strong {
-	font-weight: bold;
-	color: #007bff;
-}
-
-.button1 {
-	background-color: #011024;
-	color: white;
-	border: 2px solid white;
-}
-
-.button1:hover {
-	color: var(--primary);
-	border: 2px solid var(--primary);
-	transition: all 0.6s ease;
 }
 
 .no-workout {
@@ -63,38 +50,6 @@
 	width: 100%;
 }
 
-.content {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	height: 100vh;
-	width: 100%;
-}
-
-.content span.img-txt {
-	background-color: #333;
-	text-transform: uppercase;
-	color: #fff;
-	padding: 1rem;
-	font-size: 1.5rem;
-	letter-spacing: 10px;
-}
-
-.blck {
-	background-color: #011024;
-	height: 25vh;
-}
-
-body {
-	background-color: #011024;
-}
-
-.nav-hover:hover {
-	color: var(--primary) !important;
-	transition: all 0.6s ease;
-}
-
 .split-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -115,16 +70,15 @@ body {
 	padding: 10px;
 	color: white;
 	text-align: center;
-  justify-content: center;
-
+	justify-content: center;
 }
 
-.gray {
-	background-color: #312f2f;
+.half1 {
+	background-color: var(--secondary);
 }
 
-.blue {
-  background-color: #011024;
+.half2 {
+	background-color: var(--third-color);
 }
 
 .search-exercise {
@@ -137,4 +91,325 @@ body {
 	background-color: #011024;
 	border: solid;
 	color: white;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+}
+
+.content span.img-txt {
+	background-color: #333;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 1rem;
+	font-size: 1.5rem;
+	letter-spacing: 10px;
+}
+
+.blck {
+	background-color: var(--secondary);
+	height: 25vh;
+}
+
+body {
+	background-color: var(--secondary);
+	font-family: "Montserrat", sans-serif;
+}
+
+.navbar {
+	background-color: var(--secondary);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80px;
+	display: flex;
+	align-items: center;
+}
+
+.nav-link {
+	display: flex;
+	list-style: none;
+	width: 20%;
+	margin-right: 20px;
+	font-size: 20px;
+	font-family: "Montserrat", sans-serif;
+	line-height: 50px;
+	padding-right: 100px;
+}
+
+.navbar-brand {
+	font-size: 30px;
+	font-family: "Montserrat", sans-serif;
+	line-height: 50px;
+	padding-right: 20px;
+}
+
+.navbar-brand:hover {
+	color: var(--primary) !important;
+	transition: all 0.6s ease;
+}
+.nav-link li a {
+	color: white;
+	text-decoration: none;
+	font-family: "Montserrat", sans-serif;
+	margin: 80 10px;
+	line-height: 50px;
+	margin-left: auto;
+	padding-right: 100px;
+}
+
+.nav-main {
+	color: white;
+	font-weight: bold;
+	font-family: "Montserrat", sans-serif;
+	font-size: x-large;
+	text-decoration: none;
+	line-height: 50px;
+	padding-right: 90px;
+}
+
+img {
+	/* Set the opacity to 50% */
+}
+
+.nav-links li a:hover {
+	color: #ff5631;
+}
+
+.nav-main:hover {
+	color: #ff5631;
+}
+
+.logout-btn {
+	background-color: #ff5631;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.logout-btn:hover {
+	background-color: darkred;
+}
+
+.button1 {
+	background-color: #011024;
+	color: white;
+	border: 2px solid white;
+	font-family: "Montserrat", sans-serif;
+	font-size: 20px;
+	width: var(--button-width);
+}
+.button1:hover {
+	color: var(--primary);
+	border: 2px solid var(--primary);
+	transition: all 0.6s ease;
+	font-family: "Montserrat", sans-serif;
+	font-size: 20px;
+}
+
+.button1:active {
+	color: var(--primary);
+	border: 2px solid var(--primary);
+	transition: all 0.6s ease;
+	font-family: "Montserrat", sans-serif;
+	font-size: 20px;
+}
+
+.nav-link:hover {
+	color: var(--primary) !important;
+	transition: all 0.6s ease;
+}
+
+.workout-card-wrapper {
+	height: 100%; /* Set the height of the wrapper to take up the height of the card */
+}
+
+.workout-card {
+	height: var(--card-height); /* Set the desired height of the cards */
+	width: 100%; /* Set the desired width of the cards */
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+	overflow: hidden;
+	background-color: rgba(241, 237, 237, 0.247);
+	border-radius: 10px;
+}
+.workout-card-body {
+	background-color: rgba(241, 237, 237, 0.247);
+  position: relative; /* Set the position of the card body to relative */
+
+}
+
+.workout-card:hover {
+	background-color: rgb(185, 180, 180);
+}
+
+.workout-row {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr); /* Set the number of columns */
+	grid-gap: 20px; /* Set the padding between the cards */
+}
+
+.workout-card img {
+	width: 100%; /* Set the width of the image to fill the container */
+	max-height: 150px; /* Set the maximum height of the image to fit within the card */
+	object-fit: cover; /* Scale the image while maintaining its aspect ratio */
+}
+
+
+.view-workout-btn {
+	position: absolute; /* Set the position of the button to absolute */
+	bottom: 40px; /* Set the distance from the bottom of the card */
+	left: 50%; /* Center the button horizontally */
+	transform: translateX(-50%); /* Center the button horizontally */
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 3px 5px;
+	background-color: var(--secondary);
+	outline-color: var(--primary);
+	border-color: var(--primary);
+}
+.view-workout-btn:hover {
+	background-color: var(--primary);
+}
+
+.create-workout-btn {
+	position: sticky;
+	width: 200px; /* adjust to your desired width */
+	height: 50px;
+	background-color: #ff5631;
+	outline-color: #ff5631;
+	border-color: #ff5631;
+	font-size: 20px;
+}
+
+.create-workout-btn:hover {
+	background-color: darkred;
+	border-color: #ff5631;
+}
+
+.modal-container {
+	display: none;
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.98);
+	z-index: 9999;
+	display: none;
+}
+
+.modal-header .btn-close {
+	padding: 0.5rem 0.5rem;
+	margin: -0.5rem -0.5rem -0.5rem auto;
+	color: white;
+	background-color: red;
+}
+
+.modal-content {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	max-width: 800px;
+	background-color: rgba(0, 0, 0, 0.9);
+	padding: 20px;
+	border-radius: 10px;
+	z-index: 2;
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+	color: white;
+}
+
+.eBTN {
+	border: 3px solid var(--primary);
+	background-color: var(--secondary);
+	color: var(--primary);
+	/* font: ; */
+}
+
+.eText {
+	background-color: rgb(255, 255, 255);
+	color: white;
+	font: white;
+	border: white;
+}
+
+.white {
+	color: white;
+}
+
+.form-search {
+	padding: 20px;
+}
+
+.eCard {
+	border: 1px solid var(--primary);
+	box-shadow: 2px 2px 2px 2px var(--primary);
+	background-color: #011024;
+	color: white;
+  height: var(--card-height)
+	/* font: ; */
+}
+
+.eBTN2 {
+	background-color: var(--primary);
+	color: var(--secondary);
+	font: var(--secondary);
+	border: 2px solid var(--primary);
+	width: var(--button-width);
+}
+
+.eBTN2:hover {
+	border: 2px solid var(--primary);
+	background-color: var(--secondary);
+	color: white;
+	/* font: white; */
+}
+
+.eBTN2:active {
+	border: 2px solid var(--primary);
+	background-color: var(--secondary);
+	color: white;
+	/* font: white; */
+}
+
+.eBTN3 {
+	background-color: var(--secondary);
+	color: var(--primary);
+	font: var(--secondary);
+	border: 2px solid;
+	width: var(--button-width);
+}
+
+.eBTN3:hover {
+	border: 2px solid white;
+	background-color: var(--secondary);
+	color: white;
+	/* font: white; */
+}
+
+.eBTN3:active {
+	border: 2px solid white;
+	background-color: var(--secondary);
+	color: white;
+	/* font: white; */
+}
+
+#workout-exercise {
+	background-color: #011024;
+	color: white;
+	border-style: solid;
+	border-color: #ff5631;
+	font-family: "Montserrat", sans-serif;
 }

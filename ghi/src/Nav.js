@@ -7,6 +7,7 @@ import LoginFormModal from "./LoginFormModal";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import { useEffect } from "react";
+import nav_logo from "./nav_logo.png";
 
 function LoginButton(props) {
 	const dispatch = useDispatch();
@@ -46,7 +47,10 @@ function LogoutButton() {
 
 	return (
 		<div className="buttons">
-			<button onClick={logOut} className="btn button1 mr-1">
+			<button
+				onClick={logOut}
+				className="btn button1 m-1"
+			>
 				Log out
 			</button>
 		</div>
@@ -60,7 +64,11 @@ function Nav() {
 		<>
 			<nav className="navbar navbar-hide-on-scroll navbar-expand-lg navbar-dark gradient">
 				<div className="container-fluid">
-					<NavLink className="navbar-brand nav-hover" to="/">
+					<a href="#home">
+						<img src={nav_logo} alt="Logo" />
+					</a>
+
+					<NavLink className="navbar-brand" to="/">
 						MySwolePal
 					</NavLink>
 					<button
@@ -77,21 +85,17 @@ function Nav() {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 							<li className="nav-item">
-								<NavLink
-									className="nav-link active nav-hover"
-									aria-current="page"
-									to="/"
-								>
+								<NavLink className="nav-link active" aria-current="page" to="/">
 									Home
 								</NavLink>
 							</li>
 							<li className="nav-item">
-								<NavLink className="nav-link nav-hover" to="/exercises">
+								<NavLink className="nav-link" to="/exercises">
 									Exercises
 								</NavLink>
 							</li>
 							<li className="nav-item">
-								<NavLink className="nav-link nav-hover" to="/workouts">
+								<NavLink className="nav-link" to="/workouts">
 									Workouts
 								</NavLink>
 							</li>
