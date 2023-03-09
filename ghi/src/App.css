@@ -320,7 +320,7 @@ body {
     color: white;
 }
 .form-search {
-    padding: 20px;
+    padding: 50px;
 }
 .eCard {
     min-width: 100px;
@@ -467,3 +467,108 @@ textarea {
 .centered {
     position: center;
 }
+
+
+
+/* new code */
+
+
+/* Main container styles */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--secondary);
+}
+
+/* Centered container styles */
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Exercise GIF styles */
+.exercise-gif {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* Slogan styles */
+.slogan {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: rgb(179, 176, 176);
+}
+
+.slogan span {
+  color: var(--primary);
+}
+
+/* Search button styles */
+.search-button {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    color: var(--primary);
+  background-color: var(--secondary);
+  border: 3px solid var(--primary)
+}
+
+/* Exercise component styles */
+.split-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.left-side,
+.right-side {
+  width: 45%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.half1 {
+  order: 1;
+}
+
+.half2 {
+  order: 2;
+}
+
+/* Exercise component headings styles
+.left-side h3 */
