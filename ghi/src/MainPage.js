@@ -103,7 +103,7 @@ function MainPage() {
           Search Exercises
         </button>
       </div>
-      <Rope />
+      <Rope />g
 		<span className="split-container">
  			<div className="left-side half2">
 				<div>Here is the left side with an image</div>
