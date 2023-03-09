@@ -16,7 +16,7 @@ function LoginForm() {
 	}
 
 	return (
-		<div className="row">
+		<div className="row LoginForm">
 			<div className="offset-3 col-6">
 				<div className="shadow p-4 mt-4">
 					<h1>Login</h1>
@@ -47,7 +47,7 @@ function LoginForm() {
 							/>
 							<label htmlFor="password">Password</label>
 						</div>
-						<button className="btn btn-primary">GET SWOLE!!!</button>
+						<button className="btn eBTN3">GET SWOLE!!!</button>
 					</form>
 				</div>
 			</div>
