@@ -13,7 +13,7 @@
     color: white;
 }
 :root {
-    --primary: #0094C6;
+    --primary: #E32652;
     --secondary: #001242;
     --third-color: #000022;
     --fourth-color: #121113;
@@ -268,9 +268,11 @@ body {
 }
 .modal-container {
     display: none;
+	min-width: 400px;
 }
 .modal-overlay {
     /* position: fixed; */
+	min-width: 400px;
     top: 0;
     left: 0;
     width: 100%;
@@ -286,10 +288,11 @@ body {
     background-color: red;
 }
 .modal-content {
-    position: fixed;
+    /* position: fixed; */
+    min-width: 600px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     width: 80%;
     max-width: 800px;
     background-color: rgba(0, 0, 0, 0.9);
@@ -319,6 +322,7 @@ body {
     padding: 20px;
 }
 .eCard {
+    min-width: 100px;
     border: 1px solid var(--primary);
     box-shadow: 2px 2px 2px 2px var(--primary);
     background-color: #011024;
