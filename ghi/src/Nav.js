@@ -2,15 +2,10 @@ import { NavLink } from "react-router-dom";
 import { useGetTokenQuery, useLogOutMutation } from "./store/Api";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from "./store/accountSlice";
-import LoginFormModal from "./LoginFormModal";
-import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
 import { useEffect } from "react";
 import nav_logo from "./nav_logo.png";
 
 function LoginButton(props) {
-	const dispatch = useDispatch();
 	const classNames = `btn button1 m-1 ${
 		props.show ? "" : "is-hidden"
 	}`;

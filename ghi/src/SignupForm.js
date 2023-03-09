@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import ErrorNotification from '../../ErrorNotification';
 import { useSignUpMutation } from "./store/Api.js";
 
 function SignupForm() {
@@ -14,7 +13,6 @@ function SignupForm() {
 		e.preventDefault();
 		signUp({ username, email, password });
 		navigate("/");
-		console.log("Signup Successful");
 	}
 
 	return (

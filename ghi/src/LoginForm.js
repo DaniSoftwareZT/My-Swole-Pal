@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import ErrorNotification from '../../ErrorNotification';
 import { useLogInMutation } from "./store/Api.js";
 
 function LoginForm() {
@@ -14,7 +13,6 @@ function LoginForm() {
 		e.preventDefault();
 		logIn({ email, password });
 		navigate("/");
-		console.log("Login Successful");
 	}
 
 	return (

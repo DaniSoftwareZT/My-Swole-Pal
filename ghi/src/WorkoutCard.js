@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal, Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import "./App.css"; // Import custom CSS
+import "./App.css"; 
 import { Link } from "react-router-dom";
 
 function WorkoutCard(props) {
