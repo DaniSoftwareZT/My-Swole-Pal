@@ -63,7 +63,7 @@
 
 ### Exercises List
 
-* Endpoint path: /exercises
+* Endpoint path: api/workouts/{workout_id}/exercises
 * Endpoint method: GET
 
 * Headers:
@@ -91,7 +91,7 @@
 
 ### Workout List
 
-* Endpoint path: /workouts
+* Endpoint path: /api/workouts
 * Endpoint method: GET
 
 * Headers:
@@ -120,7 +120,7 @@
 
 ### Workout Create
 
-* Endpoint path: /workouts
+* Endpoint path: /api/workouts
 * Endpoint method: POST
 
 * Headers:
@@ -155,7 +155,7 @@
 
 ### Exercise details
 
-* Endpoint path: /exercises/{id}
+* Endpoint path: /api/exercises
 * Endpoint method: GET
 * Query parameters:
   * q: the exercise(s) to search for
@@ -168,22 +168,21 @@
 * Response shape (JSON):
     ```json
     {
-        "exercises": [
             {
+            "name": "",
             "difficulty level": "",
             "muscle group": "",
             "type": "",
             "equipment": "",
             "instructions": "",
             }
-        ]
     }
     ```
 
 
 ### Workout instance get
 
-* Endpoint path: /workouts/{id}
+* Endpoint path: /api/workouts/{id}
 * Endpoint method: GET
 
 
@@ -195,19 +194,16 @@
 * Response shape (JSON):
     ```json
     {
+        "id": "",
         "name": "",
         "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        }
+        "account_id": "",
     }
 
 
 ### Workout instance create
 
-* Endpoint path: /workouts/{id}/exercises
+* Endpoint path: /api/workouts/
 * Endpoint method: POST
 
 
@@ -219,11 +215,6 @@
     {
         "name": "",
         "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        }
     }
 
 * Response: Add exercise to workout
@@ -231,19 +222,16 @@
 * Response shape (JSON):
     ```json
     {
+        "id": "",
         "name": "",
         "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        }
+        "account_id": "",
     }
 
 
 ### Workout instance put
 
-* Endpoint path: /workouts/{id}
+* Endpoint path: /api/workouts/{id}
 * Endpoint method: PUT
 
 
@@ -255,11 +243,6 @@
     {
         "name": "",
         "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        }
     }
 
 * Response: Change details to workout
@@ -267,18 +250,15 @@
 * Response shape (JSON):
     ```json
     {
+        "id": "",
         "name": "",
         "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        }
+        "account_id": "",
     }`
 
 ### Workout instance delete
 
-* Endpoint path: /workouts/{id}/exercises
+* Endpoint path: /api/workouts/{id}
 * Endpoint method: DELETE
 
 
@@ -287,16 +267,10 @@
 
 * Response: Workout instance
 
-* Response shape (JSON):
+* Request shape (JSON):
     ```json
     {
-        "name": "",
-        "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        },
+        "id": "",
     }
     ```
 
@@ -305,19 +279,12 @@
 * Response shape (JSON):
     ```json
     {
-        "name": "",
-        "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        }
+        "bool": true,
     }
 
+### Exercise instance delete
 
-### Workout instance delete
-
-* Endpoint path: /workouts/{id}
+* Endpoint path: /api/workouts/{workout_id}/exercises/{exercise_id}
 * Endpoint method: DELETE
 
 
@@ -326,15 +293,17 @@
 
 * Response: Workout instance
 
+* Request shape (JSON):
+    ```json
+    {
+        "id": "",
+    }
+    ```
+
+* Response: Remove exercise from workout
+
 * Response shape (JSON):
     ```json
     {
-        "name": "",
-        "image_url": "", //optional
-        "exercises": {
-            "difficulty level": "",
-            "muscle group": "",
-            "type": "",
-        },
+        "bool": true,
     }
-    ```
