@@ -28,7 +28,11 @@ function WorkoutCard(props) {
 			<Card.Img variant="top" src={workout.image_url} />
 			<Card.Body className=" workout-card-body text-center flex-grow-1">
 				<Card.Title>{workout.name}</Card.Title>
-				{accountId && <Button className="button1" onClick={handleShow}>View Workout</Button>}
+				{accountId && (
+					<button className="btn button1" onClick={handleShow}>
+						View Workout
+					</button>
+				)}
 			</Card.Body>
 			{showModal && (
 				<Modal show={showModal} onHide={() => setShowModal(false)}>

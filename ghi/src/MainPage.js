@@ -4,19 +4,9 @@ import Squat from "./Squat";
 import Plank from "./Plank";
 import ExerciseGIF from "./exercise_search.gif";
 import { useNavigate } from "react-router-dom";
-import Squat from "./Squat";
-import Plank from "./Plank";
-import ExerciseGIF from "./exercise_search.gif";
-import { useNavigate } from "react-router-dom";
+
 
 function MainPage() {
-	const navigate = useNavigate();
-
-	function handleSearch(e){
-		e.preventDefault();
-		navigate("/exercises")
-	}
-
 	const navigate = useNavigate();
 
 	function handleSearch(e){
