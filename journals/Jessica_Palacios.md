@@ -47,3 +47,12 @@ Ally coded for the team today. We were working on creating workouts and includin
 
 ## Friday, March 3, 2023
 Adrian coded for the team today. We were able to getting the view for the workouts working but only by creating them in the backend. We tried to get the add workout button to work on the front end but got stuck at the end of the day and by the time we asked for help Candice was no longer available so we decided to continue working on this on Monday.
+
+## Monday, March 6,2023
+Daniel coded for the team today. We worked on fixing bugs and the add exercise functionality to a workout.
+
+## Tuesday, March 7, 2023
+Edwin coded for the team in the morning to finish up the front end workout delete feature, we were able to get it done with the help of some SEIRS. In the afternoon we all took turns working through unit tests together.
+
+## Wednesday, March 8, 2023
+Today our team divided up the pages for styling. I worked on the workout view page to give it a dark theme, I moved around the buttons to the top so that the user could have easy access to add exercises to their workouts and delete the workout all together.

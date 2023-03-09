@@ -57,3 +57,6 @@
 
 ## March 7th 2023
     Today we wrote unit tests and worked on some styling. The unit tests are all working. The styling has been really difficult because CSS is not fresh on any of our minds. All the functionality is working. Edwin was our coder today and then we switched for each person writting one unit test each.
+
+## March 8th 2023
+    Today we merged our frontend functionality with the main branch. Then we created a new branch for styling. This is the first time our group broke up and worked individually. We all decided on a theme, colors, and font. We each worked on styling one page. Then, after lunch, we came together as a group and shared what we did. After that, we gradually styled together to make all of our pages look cohesive. 
