@@ -3,7 +3,6 @@
 	font-family: "Montserrat", sans-serif;
 }
 
-
 .App-header {
 	background-color: #282c34;
 	min-height: 100vh;
@@ -15,12 +14,24 @@
 	color: white;
 }
 
+
+/* :root {
+	--primary: #0094c6;
+	--secondary: #001242;
+	--third-color: #000022;
+	--fourth-color: #121113;
+	--button-width: 150px;
+	--card-height: 450px;
+} */
+
+/* these are the default colors */
 :root {
 	--primary: #ff6a49;
 	--secondary: #000914;
 	--third-color: gray;
+	--fourth-color: #121113;
 	--button-width: 150px;
-  --card-height: 450px;
+	--card-height: 450px;
 }
 
 .gradient {
@@ -62,7 +73,7 @@
 	color: white;
 	padding: 10px;
 	text-align: center;
-	background-color: #011024;
+	background-color: var(--secondary);
 }
 
 .right-side {
@@ -74,7 +85,7 @@
 }
 
 .half1 {
-	background-color: var(--secondary);
+	background-color: var(--primary);
 }
 
 .half2 {
@@ -82,13 +93,14 @@
 }
 
 .search-exercise {
-	background-color: #ff5631;
+	background-color: var(--primary);
+	color: var(--secondary);
 	border-radius: 1rem;
 	font-size: 1.5rem;
 }
 
 .search-exercise:hover {
-	background-color: #011024;
+	background-color: var(--third-color);
 	border: solid;
 	color: white;
 }
@@ -172,10 +184,6 @@ body {
 	padding-right: 90px;
 }
 
-img {
-	/* Set the opacity to 50% */
-}
-
 .nav-links li a:hover {
 	color: #ff5631;
 }
@@ -197,7 +205,7 @@ img {
 }
 
 .button1 {
-	background-color: #011024;
+	background-color: var(--secondary);
 	color: white;
 	border: 2px solid white;
 	font-family: "Montserrat", sans-serif;
@@ -230,22 +238,26 @@ img {
 }
 
 .workout-card {
-	height: var(--card-height); /* Set the desired height of the cards */
+	/* height: var(--card-height); Set the desired height of the cards */
+	height: 275px; /* Set the desired height of the cards */
 	width: 100%; /* Set the desired width of the cards */
 	font-family: "Montserrat", sans-serif;
 	font-weight: bold;
 	overflow: hidden;
-	background-color: rgba(241, 237, 237, 0.247);
+	/* background-color: rgba(241, 237, 237, 0.247); */
+	background-color: var(--third-color);
 	border-radius: 10px;
+	min-width: 200px;
 }
 .workout-card-body {
-	background-color: rgba(241, 237, 237, 0.247);
-  position: relative; /* Set the position of the card body to relative */
-
+	/* background-color: rgba(241, 237, 237, 0.247); */
+	background-color: var(--primary);
+	position: relative; /* Set the position of the card body to relative */
 }
 
 .workout-card:hover {
-	background-color: rgb(185, 180, 180);
+	/* background-color: rgb(185, 180, 180); */
+	background-color: var(--primary);
 }
 
 .workout-row {
@@ -259,7 +271,6 @@ img {
 	max-height: 150px; /* Set the maximum height of the image to fit within the card */
 	object-fit: cover; /* Scale the image while maintaining its aspect ratio */
 }
-
 
 .view-workout-btn {
 	position: absolute; /* Set the position of the button to absolute */
@@ -282,15 +293,18 @@ img {
 	position: sticky;
 	width: 200px; /* adjust to your desired width */
 	height: 50px;
-	background-color: #ff5631;
+	background-color: var(--primary);
+	/* background-color: #ff5631;
 	outline-color: #ff5631;
-	border-color: #ff5631;
+	border-color: #ff5631; */
 	font-size: 20px;
 }
 
 .create-workout-btn:hover {
-	background-color: darkred;
-	border-color: #ff5631;
+	background-color: var(--secondary);
+	color: var(--primary);
+	/* background-color: darkred;
+	border-color: #ff5631; */
 }
 
 .modal-container {
@@ -298,7 +312,7 @@ img {
 }
 
 .modal-overlay {
-	position: fixed;
+	/* position: fixed; */
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -316,10 +330,11 @@ img {
 }
 
 .modal-content {
-	position: fixed;
+	/* position: fixed; */
+	min-width: 600px;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 0%);
 	width: 80%;
 	max-width: 800px;
 	background-color: rgba(0, 0, 0, 0.9);
@@ -354,11 +369,12 @@ img {
 }
 
 .eCard {
+	min-width: 100px;
 	border: 1px solid var(--primary);
 	box-shadow: 2px 2px 2px 2px var(--primary);
 	background-color: #011024;
 	color: white;
-  height: var(--card-height)
+	height: var(--card-height);
 	/* font: ; */
 }
 

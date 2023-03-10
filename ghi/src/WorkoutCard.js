@@ -3,6 +3,7 @@ import { Modal, Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./App.css"; // Import custom CSS
 import { Link } from "react-router-dom";
+import DefaultImage from "./swole_pal.png"
 
 function WorkoutCard(props) {
 	const navigate = useNavigate();
@@ -25,7 +26,12 @@ function WorkoutCard(props) {
 
 	return (
 		<Card className="my-3 shadow-sm workout-card">
-			<Card.Img variant="top" src={workout.image_url} />
+			{workout.image_url ? (
+				<Card.Img variant="top" src={workout.image_url} />
+			) : (
+				<Card.Img variant="top" src={DefaultImage} />
+			)}
+			{/* // <Card.Img variant="top" src={workout.image_url} /> */}
 			<Card.Body className=" workout-card-body text-center flex-grow-1">
 				<Card.Title>{workout.name}</Card.Title>
 				{accountId && (

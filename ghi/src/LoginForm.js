@@ -20,7 +20,7 @@ function LoginForm() {
 	return (
 		<div className="row">
 			<div className="offset-3 col-6">
-				<div className="shadow p-4 mt-4">
+				<div className="shadow p-4 mt-4 white">
 					<h1>Login</h1>
 					<form onSubmit={handleSubmit} id="create-location-form">
 						<div className="form-floating mb-3">
@@ -49,7 +49,7 @@ function LoginForm() {
 							/>
 							<label htmlFor="password">Password</label>
 						</div>
-						<button className="btn btn-primary">GET SWOLE!!!</button>
+						<button className="btn btn-primary button1">GET SWOLE!!!</button>
 					</form>
 				</div>
 			</div>
