@@ -56,3 +56,9 @@ Edwin coded for the team in the morning to finish up the front end workout delet
 
 ## Wednesday, March 8, 2023
 Today our team divided up the pages for styling. I worked on the workout view page to give it a dark theme, I moved around the buttons to the top so that the user could have easy access to add exercises to their workouts and delete the workout all together.
+
+## Thursday, March 9, 2023
+I drove for the team part of the day while we created our Readme file and details. I independently worked on the color scheme and logo for the project and the team liked it so we applied it to the styling we each did for our respective pages. In the afternoon Adrian coded for the team and we all worked on fine tuning the design and structure of the pages, we got rid of all the bugs and brainstormed ideas for the home page.
+
+## Friday, March 10, 2023
+We wrapped up the styling with some changes Edwin worked on and he was able to merge everything to the main branch without any conflicts. Edwin presented for the team and the presentation went great, we'll probably work on stretch goals and deployment next week.
