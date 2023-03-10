@@ -41,10 +41,10 @@ async def create_exercise(
         response_model=bool,
         tags=["exercises"])
 def delete_exercise(
-  workout_id: int,
-  exercise_id: int,
-  account_data: dict = Depends(authenticator.get_current_account_data),
-  repo: ExerciseQueries = Depends(),
+    workout_id: int,
+    exercise_id: int,
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    repo: ExerciseQueries = Depends(),
 ) -> bool:
     return repo.delete_exercise(
         account_id=account_data['id'],

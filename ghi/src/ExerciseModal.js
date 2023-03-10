@@ -86,7 +86,7 @@ function ExerciseModal() {
                             </div>
                         ))
                     ) : (
-                        <p>No exercises found.</p>
+                        <p hidden={true}>No exercises found.</p>
                     )}
                 </div>
             )}

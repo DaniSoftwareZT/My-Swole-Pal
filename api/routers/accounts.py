@@ -38,7 +38,7 @@ router = APIRouter()
 
 @router.get("/api/protected", response_model=bool, tags=["accounts"])
 async def get_protected(
-  account_data: dict = Depends(authenticator.get_current_account_data),
+account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     return True
 
@@ -57,9 +57,9 @@ async def get_token(
 
 
 @router.post(
-      "/accounts",
-      response_model=AccountToken | HttpError,
-      tags=["accounts"])
+    "/accounts",
+    response_model=AccountToken | HttpError,
+    tags=["accounts"])
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -80,23 +80,23 @@ async def create_account(
 
 
 @router.get(
-      "/accounts",
-      response_model=Union[List[AccountOut], Error],
-      tags=["accounts"])
+    "/accounts",
+    response_model=Union[List[AccountOut], Error],
+    tags=["accounts"])
 def get_all(
-  repo: AccountQueries = Depends(),
+repo: AccountQueries = Depends(),
 ):
     return repo.get_all()
 
 
 @router.put(
-      "/accounts/{account_id}",
-      response_model=Union[AccountOut, Error],
-      tags=["accounts"])
+    "/accounts/{account_id}",
+    response_model=Union[AccountOut, Error],
+    tags=["accounts"])
 def update_account(
-  account_id: int,
-  account: AccountIn,
-  repo: AccountQueries = Depends(),
+    account_id: int,
+    account: AccountIn,
+    repo: AccountQueries = Depends(),
 ) -> Union[AccountOut, Error]:
     return repo.update(account_id, account)
 
@@ -106,8 +106,8 @@ def update_account(
         response_model=bool,
         tags=["accounts"])
 def delete_account(
-  account_id: int,
-  repo: AccountQueries = Depends(),
+    account_id: int,
+    repo: AccountQueries = Depends(),
 ) -> bool:
     return repo.delete(account_id)
 
@@ -117,9 +117,9 @@ def delete_account(
         response_model=Optional[AccountOut],
         tags=["accounts"])
 def get_one_account(
-  account_email: str,
-  response: Response,
-  repo: AccountQueries = Depends(),
+    account_email: str,
+    response: Response,
+    repo: AccountQueries = Depends(),
 ) -> AccountOut:
     account = repo.get_one(account_email)
     if account is None:

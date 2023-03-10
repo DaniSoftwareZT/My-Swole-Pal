@@ -26,84 +26,72 @@ function ExerciseSearch() {
     }, [data]);
 
     return (
-        <div>
-            <div className="form-search">
-                <form onSubmit={handleFormSubmit} className="mt-4">
-                    <div className="row">
-                        <div className="col-sm">
-                            <label htmlFor="type" className="white">
-                                Type
-                            </label>
-                            <select
-                                id="type"
-                                name="type"
-                                className="form-select mb-3"
-                            >
-                                <option value="">Select type</option>
-                                <option value="cardio">Cardio</option>
-                                <option value="strength">Strength</option>
-                                <option value="powerlifting">
-                                    Powerlifting
-                                </option>
-                            </select>
-                        </div>
-                        <div className="col-sm">
-                            <label htmlFor="muscle" className="white">
-                                Muscle
-                            </label>
-                            <select
-                                id="muscle"
-                                name="muscle"
-                                className="form-select mb-3"
-                            >
-                                <option value="">Select muscle</option>
-                                <option value="abdominals">Abdominals</option>
-                                <option value="biceps">Biceps</option>
-                                <option value="chest">Chest</option>
-                                <option value="lats">Lats</option>
-                                <option value="hamstrings">Hamstrings</option>
-                                <option value="quadriceps">Quadriceps</option>
-                                <option value="triceps">Triceps</option>
-                            </select>
-                        </div>
-                        <div className="col-sm">
-                            <label htmlFor="difficulty" className="white">
-                                Difficulty
-                            </label>
-                            <select
-                                id="difficulty"
-                                name="difficulty"
-                                className="form-select mb-3"
-                            >
-                                <option value="">Select difficulty</option>
-                                <option value="beginner">Beginner</option>
-                                <option value="intermediate">
-                                    Intermediate
-                                </option>
-                                <option value="expert">Expert</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" className="btn eBTN2">
-                        Search
-                    </button>
-                </form>
-            </div>
-            {searched && (
-                <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3 form-search">
-                    {exercises && exercises.length > 0 ? (
-                        exercises.map((exercise) => (
-                            <div key={exercise.name} className="col">
-                                <ExerciseCard exercise={exercise} />
-                            </div>
-                        ))
-                    ) : (
-                        <p>No exercises found.</p>
-                    )}
-                </div>
-            )}
-        </div>
-    );
+			<div>
+				<div className="form-search">
+					<form onSubmit={handleFormSubmit} className="mt-4">
+						<div className="row">
+							<div className="col-sm">
+								<label htmlFor="type" className="white">
+									Type
+								</label>
+								<select id="type" name="type" className="form-select mb-3">
+									<option value="">Select type</option>
+									<option value="cardio">Cardio</option>
+									<option value="strength">Strength</option>
+									<option value="powerlifting">Powerlifting</option>
+								</select>
+							</div>
+							<div className="col-sm">
+								<label htmlFor="muscle" className="white">
+									Muscle
+								</label>
+								<select id="muscle" name="muscle" className="form-select mb-3">
+									<option value="">Select muscle</option>
+									<option value="abdominals">Abdominals</option>
+									<option value="biceps">Biceps</option>
+									<option value="chest">Chest</option>
+									<option value="lats">Lats</option>
+									<option value="hamstrings">Hamstrings</option>
+									<option value="quadriceps">Quadriceps</option>
+									<option value="triceps">Triceps</option>
+								</select>
+							</div>
+							<div className="col-sm">
+								<label htmlFor="difficulty" className="white">
+									Difficulty
+								</label>
+								<select
+									id="difficulty"
+									name="difficulty"
+									className="form-select mb-3"
+								>
+									<option value="">Select difficulty</option>
+									<option value="beginner">Beginner</option>
+									<option value="intermediate">Intermediate</option>
+									<option value="expert">Expert</option>
+								</select>
+							</div>
+						</div>
+						<button type="submit" className="btn eBTN2">
+							Search
+						</button>
+					</form>
+				</div>
+				{searched && (
+					<div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3 form-search">
+						{exercises && exercises.length > 0 ? (
+							exercises.map((exercise) => (
+								<div key={exercise.name} className="col">
+									<ExerciseCard exercise={exercise} />
+								</div>
+							))
+						) : (
+							<p hidden={true}>No exercises found.</p>
+						)}
+					</div>
+				)}
+			</div>
+		);
 }
 
 export default ExerciseSearch;

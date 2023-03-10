@@ -85,7 +85,7 @@ function Nav() {
 									Exercises
 								</NavLink>
 							</li>
-							<li className="nav-item">
+							<li className="nav-item" hidden={!token}>
 								<NavLink className="nav-link" to="/workouts">
 									Workouts
 								</NavLink>
