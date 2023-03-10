@@ -1,5 +1,5 @@
 ## March 8, 2023
-Our group first worked on our own page separately and then took turns to code today. I worked on the styling of the exercise page, including the modals and stuff. We decided on the color scheme and other details, like the shape of the button and the home page.
+We changed a lot of styling today and we are very close to finishing and ready to present tomorrow. We all contributed a lot to the project -- we ended up doing a overhaul of the color scheme and I reformatted the front page including the parallex effect.
 
 ## March 7, 2023
 Edwin is the coder for today. We finished the delete workout with the help of Sean. Learnt more about passing in functions in the on-click on react JSX. We continued to work on the styling -- mostly the parallex effect on the main page.
