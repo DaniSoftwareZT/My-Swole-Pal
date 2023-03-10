@@ -49,3 +49,6 @@ Delete workout function has been made with the help of some SEIRS, all we have t
 
 ## Thursday, March 9, 2023
 All of the test are done, styling is almost done and we are now focusing on the ReadMe so we can finish that quickly and continue on making the project looking nice!
+
+## Friday, March 10,, 2023
+Proyect is officially done! Everything looks amazing and Instructor Candace can hop in at any moment to see everything! Excited to showcase it! 
