@@ -14,7 +14,7 @@ export const apiSlice = createApi({
 			return headers;
 		},
 	}),
-	tagTypes: ["Account", "Exercises", "Workouts"],
+	tagTypes: ["Account", "Exercises", "Workouts","Token","Workout"],
 	endpoints: (builder) => ({
 		signUp: builder.mutation({
 			query: (data) => ({
@@ -25,7 +25,7 @@ export const apiSlice = createApi({
 			}),
 			providesTags: ["Account"],
 			invalidatesTags: (result) => {
-				return (result && ["Token", "Workouts", "Workout"]) || [];
+				return (result && ["Token","Workouts"]) || [];
 			},
 			async onQueryStarted(arg, { dispatch, queryFulfilled }) {
 				try {
@@ -53,7 +53,7 @@ export const apiSlice = createApi({
 			},
 			providesTags: ["Account"],
 			invalidatesTags: (result) => {
-				return (result && ["Token"]) || [];
+				return (result && ["Token", "Workouts"]) || [];
 			},
 			async onQueryStarted(arg, { dispatch, queryFulfilled }) {
 				try {
@@ -68,7 +68,7 @@ export const apiSlice = createApi({
 				method: "delete",
 				credentials: "include",
 			}),
-			invalidatesTags: ["Account", "Token","Workouts", "Workout"],
+			invalidatesTags: ["Account", "Token"],
 		}),
 		getToken: builder.query({
 			query: () => ({
@@ -117,7 +117,7 @@ export const apiSlice = createApi({
 					credentials: "include",
 				};
 			},
-			providesTags: ["Workouts", "Workout"]
+			providesTags: ["Workouts"]
 		}),
 		createWorkout: builder.mutation({
 			query: (data) => ({
@@ -126,7 +126,7 @@ export const apiSlice = createApi({
 				method: "post",
 				credentials: "include",
 			}),
-			invalidatesTags: ["Workouts","Workout"],
+			invalidatesTags: ["Workouts"],
 		}),
 		deleteWorkout: builder.mutation({
 			query: (id) => ({
@@ -134,7 +134,7 @@ export const apiSlice = createApi({
 				method: "delete",
 				credentials: "include",
 			}),
-			invalidatesTags: ["Workouts","Workout"],
+			invalidatesTags: ["Workouts"],
 		}),
 		getWorkoutExercises: builder.query({
 			query: (id) => {
