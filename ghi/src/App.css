@@ -366,7 +366,7 @@ body {
 	font: var(--secondary);
 	border: 2px solid white;
 	width: var(--button-width);
-	box-shadow: none !important;
+	/* box-shadow: none !important; */
 }
 .eBTN3:hover {
 	border: 2px solid var(--primary);
@@ -559,6 +559,7 @@ textarea {
 .left-side,
 .right-side {
 	width: 50%;
+	min-width: 500px;
 	padding: 20px;
 	background-color: var(--primary);
 	border-radius: 10px;
@@ -576,6 +577,11 @@ textarea {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.quotes {
+	font-size: 20px;
+	min-width: 400px;
 }
 
 /* .half1 {

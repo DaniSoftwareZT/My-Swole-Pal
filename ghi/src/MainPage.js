@@ -54,7 +54,7 @@ function MainPage() {
 				<div className="right-side half1">
 					<div>
 						<div>
-							<h4>
+							<h4 className="quotes">
 								“I’ve been using MySwolePal for a few weeks now and I’m already
 								seeing results. The ability to search for exercises based on
 								muscle group and difficulty level has really helped me tailor my
@@ -65,7 +65,7 @@ function MainPage() {
 							<h5>- Sarah P.</h5>
 						</div>
 						<div>
-							<h4>
+							<h4 className="quotes">
 								“MySwolePal has been a game-changer for me. I used to struggle
 								to come up with new exercises to target specific muscle groups,
 								but with this app, it’s so easy. I love that I can switch up my
@@ -76,7 +76,7 @@ function MainPage() {
 							<h5>- Tom K</h5>
 						</div>
 						<div>
-							<h4>
+							<h4 className="quotes">
 								“I’m not the most tech-savvy person, but MySwolePal is so easy
 								to use. I appreciate the different workout types available and
 								the ability to customize my own routine. It’s also great that I
@@ -89,15 +89,6 @@ function MainPage() {
 				</div>
 			</span>
 			<Squat />
-			<span className="split-container">
-				<div className="left-side half2">
-					<div>Here is the left side with an image</div>
-				</div>
-				<div className="right-side half1">
-					<div>Here is the left side with inspirational text</div>
-				</div>
-			</span>
-			<Pushup />
 		</div>
 	);
 }
