@@ -1,15 +1,4 @@
 from pydantic import BaseModel
-# from typing import List, Union, Optional
-# from queries.pool import pool
-# from queries.accounts import Error
-# from fastapi import (
-#     Depends,
-#     HTTPException,
-#     status,
-#     Response,
-#     APIRouter,
-#     Request,
-# )
 import requests
 import os
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Col, Row, Modal, Form } from "react-bootstrap";
+import { Container, Col, Row, Modal, Form } from "react-bootstrap";
 import {
 	useGetWorkoutsQuery,
 	useGetTokenQuery,
@@ -34,7 +34,6 @@ function WorkoutsList() {
 	}
 
 	if (result.isSuccess) {
-		console.log(result);
 		navigate(`${result.data.id}`);
 	} else if (result.isError) {
 		setError(result.error);
@@ -44,12 +43,12 @@ function WorkoutsList() {
     <>
       <Container className="d-flex justify-content-center my-4">
         <div className="mb-4">
-          <Button
+          <button
             onClick={handleShow}
             className="rounded-pill create-workout-btn"
           >
             Create Workout
-          </Button>
+          </button>
         </div>
         {showModal && (
           <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -67,7 +66,7 @@ function WorkoutsList() {
                     onChange={(e) => setName(e.target.value)}
                   />
                 </Form.Group>
-                <Form.Group controlId="pictureUrl">
+                <Form.Group className="mt-2" controlId="pictureUrl">
                   <Form.Label>Picture URL</Form.Label>
                   <Form.Control
                     type="text"
@@ -79,12 +78,12 @@ function WorkoutsList() {
               </Form>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShowModal(false)}>
+              <button className="btn eBTN3" onClick={() => setShowModal(false)}>
                 Cancel
-              </Button>
-              <Button className="button1" onClick={handleCreateWorkout}>
+              </button>
+              <button className="btn eBTN3" onClick={handleCreateWorkout}>
                 Create Workout
-              </Button>
+              </button>
             </Modal.Footer>
           </Modal>
         )}

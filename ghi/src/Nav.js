@@ -1,16 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useGetTokenQuery, useLogOutMutation } from "./store/Api";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from "./store/accountSlice";
-import LoginFormModal from "./LoginFormModal";
-import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
 import { useEffect } from "react";
 import nav_logo from "./nav_logo.png";
 
 function LoginButton(props) {
-	const dispatch = useDispatch();
 	const classNames = `btn button1 m-1 ${props.show ? "" : "is-hidden"}`;
 	let navigate = useNavigate();
 	const SignupRoute = () => {
@@ -25,11 +19,11 @@ function LoginButton(props) {
 	return (
 		<div>
 			<button onClick={SignupRoute} className={classNames}>
-				<strong>Sign up</strong>
+				<strong>Sign Up</strong>
 			</button>
 
 			<button onClick={LoginRoute} className={classNames}>
-				<strong>Log in</strong>
+				Log In
 			</button>
 		</div>
 	);
@@ -47,11 +41,8 @@ function LogoutButton() {
 
 	return (
 		<div className="buttons">
-			<button
-				onClick={logOut}
-				className="btn button1 m-1"
-			>
-				Log out
+			<button onClick={logOut} className="btn button1 m-1">
+				Log Out
 			</button>
 		</div>
 	);
@@ -85,7 +76,7 @@ function Nav() {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 							<li className="nav-item">
-								<NavLink className="nav-link active" aria-current="page" to="/">
+								<NavLink className="nav-link" aria-current="page" to="/">
 									Home
 								</NavLink>
 							</li>

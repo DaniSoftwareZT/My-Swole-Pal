@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import ErrorNotification from '../../ErrorNotification';
 import { useLogInMutation } from "./store/Api.js";
 
 function LoginForm() {
@@ -14,14 +13,13 @@ function LoginForm() {
 		e.preventDefault();
 		logIn({ email, password });
 		navigate("/");
-		console.log("Login Successful");
 	}
 
 	return (
-		<div className="row">
+		<div className="row LoginForm">
 			<div className="offset-3 col-6">
-				<div className="shadow p-4 mt-4 white">
-					<h1>Login</h1>
+				<div className="shadow p-4 mt-4">
+					<h1>Log In</h1>
 					<form onSubmit={handleSubmit} id="create-location-form">
 						<div className="form-floating mb-3">
 							<input
@@ -49,7 +47,7 @@ function LoginForm() {
 							/>
 							<label htmlFor="password">Password</label>
 						</div>
-						<button className="btn btn-primary button1">GET SWOLE!!!</button>
+						<button className="btn eBTN3">GET SWOLE!!!</button>
 					</form>
 				</div>
 			</div>

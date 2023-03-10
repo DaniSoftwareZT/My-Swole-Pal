@@ -16,12 +16,13 @@ class FakeWorkoutQueries:
         workout_dict = workout.dict()
         return WorkoutOut(id=2, account_id=account_id, **workout_dict)
 
-    def delete_workout(self, account_id: int, id:int) -> bool:
+    def delete_workout(self, account_id: int, id: int) -> bool:
         return True
 
-    def update_workout(self, account_id: int, id:int, workout: WorkoutIn) -> WorkoutOut:
+    def update_workout(self, account_id: int, id: int, workout: WorkoutIn) -> WorkoutOut:
         workout_dict = workout.dict()
         return WorkoutOut(id=56, account_id=account_id, **workout_dict)
+
 
 def get_fake_account_data():
     return {"id": 1, "username": "test", "email": "test@email.com"}
@@ -49,13 +50,14 @@ def test_create():
         "name": "Test",
         "image_url": "test.jpg",
     }
-    
+
     # Act
     res = client.post("/api/workouts", json.dumps(workout_dict))
 
     # Assert
     assert res.status_code == 200
     assert res.json()["id"] == 2
+
 
 def test_delete():
     # Arrange

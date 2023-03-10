@@ -41,13 +41,10 @@ class AccountQueries:
                         [account_email],
                     )
                     record = result.fetchone()
-                    print("record", record)
                     if record is None:
                         return None
-                    # print("self.record", self.record_to_account_out(record))
                     return self.record_to_account_out(record)
         except Exception as e:
-            print(e)
             return {"message": "Could not get account"}
 
     def delete(self, account_id: int) -> bool:
@@ -63,7 +60,6 @@ class AccountQueries:
                     )
                     return True
         except Exception as e:
-            print(e)
             return False
 
     def update(
@@ -89,7 +85,6 @@ class AccountQueries:
                     )
                     return self.account_in_to_out(account_id, account)
         except Exception as e:
-            print(e)
             return {"message": "Could not update account"}
 
     def get_all(self) -> Union[Error, List[AccountOutWithPassword]]:
@@ -106,7 +101,6 @@ class AccountQueries:
                     results = db.fetchall()
                     return [self.record_to_account_out(record) for record in results]
         except Exception as e:
-            print(e)
             return {"message": "Could not get all accounts"}
 
     def create(
@@ -131,8 +125,7 @@ class AccountQueries:
                     email=account.email,
                     username=account.username,
                 )
-                # return new data
-                # return self.account_in_to_out(id, account)
+
 
     def account_in_to_out(self, id: int, account: AccountIn):
         old_data = account.dict()
@@ -152,10 +145,3 @@ class AccountQueries:
                 username=record[1],
                 email=record[2],
             )
-
-
-# class AccountQueries(Queries):
-
-#   def get(self,email:str) ->
-
-#   def create(self, info:AccountIn, hashed_password:str) -> AccountOut:

@@ -1,17 +1,10 @@
-# from pydantic import BaseModel
 from fastapi import (
     Depends,
-    # HTTPException,
-    # status,
-    # Response,
     APIRouter,
-    # Request,
 )
-# from typing import Union, List, Optional
 from authenticator import authenticator
 from queries.exercises import (
     ExerciseIn,
-    # ExerciseOut,
     ExerciseQueries,
 )
 
