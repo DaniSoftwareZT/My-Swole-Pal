@@ -210,18 +210,15 @@ body {
 	font-family: "Montserrat", sans-serif;
 	font-weight: bold;
 	overflow: hidden;
-	/* background-color: rgba(241, 237, 237, 0.247); */
 	background-color: var(--third-color);
 	border-radius: 10px;
 	min-width: 200px;
 }
 .workout-card-body {
-	/* background-color: rgba(241, 237, 237, 0.247); */
 	background-color: var(--primary);
 	position: relative; /* Set the position of the card body to relative */
 }
 .workout-card:hover {
-	/* background-color: rgb(185, 180, 180); */
 	background-color: var(--primary);
 }
 .workout-row {
