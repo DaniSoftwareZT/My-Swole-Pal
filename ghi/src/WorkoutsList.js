@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 import WorkoutCard from "./WorkoutCard";
 import "./App.css";
 
+
+
+
 function WorkoutsList() {
 	const navigate = useNavigate();
 	const { data } = useGetWorkoutsQuery();

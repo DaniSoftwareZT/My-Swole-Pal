@@ -25,7 +25,7 @@ export const apiSlice = createApi({
 			}),
 			providesTags: ["Account"],
 			invalidatesTags: (result) => {
-				return (result && ["Token"]) || [];
+				return (result && ["Token", "Workouts", "Workout"]) || [];
 			},
 			async onQueryStarted(arg, { dispatch, queryFulfilled }) {
 				try {
@@ -117,7 +117,7 @@ export const apiSlice = createApi({
 					credentials: "include",
 				};
 			},
-			providesTags: ["Workouts"]
+			providesTags: ["Workouts", "Workout"]
 		}),
 		createWorkout: builder.mutation({
 			query: (data) => ({

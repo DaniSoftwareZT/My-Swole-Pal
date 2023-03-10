@@ -53,7 +53,7 @@ function WorkoutView(props) {
 
     const deleteWorkout = () => {
         deleteWorkoutMutation(workout.id);
-        navigate(`/`);
+        navigate(`/workouts`);
     };
 
     if (isLoading || isDeleteExerciseLoading) {
