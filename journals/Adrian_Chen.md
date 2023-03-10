@@ -1,3 +1,6 @@
+## March 9, 2023
+The last day, we were trying to fix the router dom bug that appears on our console with sean. Basically we were finishing up the last bit and had our presentation with candice. What a journey.
+
 ## March 8, 2023
 We changed a lot of styling today and we are very close to finishing and ready to present tomorrow. We all contributed a lot to the project -- we ended up doing a overhaul of the color scheme and I reformatted the front page including the parallex effect.
 
