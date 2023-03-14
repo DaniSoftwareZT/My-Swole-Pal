@@ -44,7 +44,7 @@ class AccountQueries:
                     if record is None:
                         return None
                     return self.record_to_account_out(record)
-        except Exception as e:
+        except Exception:
             return {"message": "Could not get account"}
 
     def delete(self, account_id: int) -> bool:
@@ -59,7 +59,7 @@ class AccountQueries:
                         [account_id],
                     )
                     return True
-        except Exception as e:
+        except Exception:
             return False
 
     def update(
@@ -72,8 +72,8 @@ class AccountQueries:
                         """
             UPDATE accounts
             SET username=%s
-              , email=%s
-              , hashed_password=%s
+                , email=%s
+                , hashed_password=%s
             WHERE id=%s
             """,
                         [
@@ -84,7 +84,7 @@ class AccountQueries:
                         ],
                     )
                     return self.account_in_to_out(account_id, account)
-        except Exception as e:
+        except Exception:
             return {"message": "Could not update account"}
 
     def get_all(self) -> Union[Error, List[AccountOutWithPassword]]:
@@ -99,8 +99,11 @@ class AccountQueries:
                         """
                     )
                     results = db.fetchall()
-                    return [self.record_to_account_out(record) for record in results]
-        except Exception as e:
+                    return [
+                        self.record_to_account_out(record)
+                        for record in results
+                    ]
+        except Exception:
             return {"message": "Could not get all accounts"}
 
     def create(
@@ -125,7 +128,6 @@ class AccountQueries:
                     email=account.email,
                     username=account.username,
                 )
-
 
     def account_in_to_out(self, id: int, account: AccountIn):
         old_data = account.dict()

@@ -38,7 +38,7 @@ router = APIRouter()
 
 @router.get("/api/protected", response_model=bool, tags=["accounts"])
 async def get_protected(
-account_data: dict = Depends(authenticator.get_current_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     return True
 
@@ -46,7 +46,7 @@ account_data: dict = Depends(authenticator.get_current_account_data),
 @router.get("/token", response_model=AccountToken | None, tags=["accounts"])
 async def get_token(
     request: Request,
-    account: AccountOut = Depends(authenticator.try_get_current_account_data)
+    account: AccountOut = Depends(authenticator.try_get_current_account_data),
 ) -> AccountToken | None:
     if account and authenticator.cookie_name in request.cookies:
         return {
@@ -57,9 +57,8 @@ async def get_token(
 
 
 @router.post(
-    "/accounts",
-    response_model=AccountToken | HttpError,
-    tags=["accounts"])
+    "/accounts", response_model=AccountToken | HttpError, tags=["accounts"]
+)
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -82,9 +81,10 @@ async def create_account(
 @router.get(
     "/accounts",
     response_model=Union[List[AccountOut], Error],
-    tags=["accounts"])
+    tags=["accounts"],
+)
 def get_all(
-repo: AccountQueries = Depends(),
+    repo: AccountQueries = Depends(),
 ):
     return repo.get_all()
 
@@ -92,7 +92,8 @@ repo: AccountQueries = Depends(),
 @router.put(
     "/accounts/{account_id}",
     response_model=Union[AccountOut, Error],
-    tags=["accounts"])
+    tags=["accounts"],
+)
 def update_account(
     account_id: int,
     account: AccountIn,
@@ -102,9 +103,8 @@ def update_account(
 
 
 @router.delete(
-        "/accounts/{account_id}",
-        response_model=bool,
-        tags=["accounts"])
+    "/accounts/{account_id}", response_model=bool, tags=["accounts"]
+)
 def delete_account(
     account_id: int,
     repo: AccountQueries = Depends(),
@@ -113,9 +113,10 @@ def delete_account(
 
 
 @router.get(
-        "/accounts/{account_id}",
-        response_model=Optional[AccountOut],
-        tags=["accounts"])
+    "/accounts/{account_id}",
+    response_model=Optional[AccountOut],
+    tags=["accounts"],
+)
 def get_one_account(
     account_email: str,
     response: Response,

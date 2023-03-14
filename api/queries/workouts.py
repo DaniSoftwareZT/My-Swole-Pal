@@ -28,11 +28,7 @@ class WorkoutQueries:
                     (%s, %s, %s)
                     RETURNING id;
                     """,
-                    [
-                        workout.name,
-                        workout.image_url,
-                        account_id
-                    ]
+                    [workout.name, workout.image_url, account_id],
                 )
                 id = result.fetchone()[0]
                 old_data = workout.dict()
@@ -52,16 +48,14 @@ class WorkoutQueries:
                         [account_id],
                     )
                     return [
-                        self.record_to_workout_out(record)
-                        for record in result
+                        self.record_to_workout_out(record) for record in result
                     ]
-        except Exception as e:
+        except Exception:
             return {"message": "Could not get all accounts"}
 
     def get_one_workout(
-            self,
-            account_id: int,
-            id: int) -> Optional[WorkoutOut]:
+        self, account_id: int, id: int
+    ) -> Optional[WorkoutOut]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -73,19 +67,17 @@ class WorkoutQueries:
                         ORDER BY name
                         """,
                         [account_id, id],
-                        )
+                    )
                     record = result.fetchone()
                     if record is None:
                         return None
                     return self.record_to_workout_out(record)
-        except Exception as e:
+        except Exception:
             return {"message": "Could not get workout"}
 
     def update_workout(
-            self,
-            account_id: int,
-            id: int,
-            workout: WorkoutIn) -> Optional[WorkoutOut]:
+        self, account_id: int, id: int, workout: WorkoutIn
+    ) -> Optional[WorkoutOut]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -102,11 +94,11 @@ class WorkoutQueries:
                             workout.image_url,
                             account_id,
                             id,
-                            account_id
-                        ]
+                            account_id,
+                        ],
                     )
                 return self.workout_in_to_out(id, workout, account_id)
-        except Exception as e:
+        except Exception:
             return {"message": "Could not update workout"}
 
     def workout_in_to_out(self, id: int, workout: WorkoutIn, account_id: int):
@@ -130,8 +122,8 @@ class WorkoutQueries:
                         DELETE FROM workouts
                         WHERE id=%s AND account_id=%s
                         """,
-                        [id, account_id]
+                        [id, account_id],
                     )
                 return True
-        except Exception as e:
+        except Exception:
             return False

@@ -6,7 +6,6 @@ from fastapi import (
 from queries.searches import (
     SearchIn,
     SearchQueries,
-
 )
 
 router = APIRouter()
@@ -18,7 +17,9 @@ async def get_search(
     type: str | None = None,
     muscle: str | None = None,
     difficulty: str | None = None,
-    repo: SearchQueries = Depends()
+    repo: SearchQueries = Depends(),
 ):
-    search = SearchIn(name=name, type=type,muscle=muscle, difficulty=difficulty)
+    search = SearchIn(
+        name=name, type=type, muscle=muscle, difficulty=difficulty
+    )
     return repo.search_exercises(search=search)

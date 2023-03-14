@@ -2,8 +2,6 @@ from fastapi.testclient import TestClient
 from main import app
 from queries.exercises import ExerciseQueries
 from authenticator import authenticator
-from queries.exercises import ExerciseIn, ExerciseOut
-import json
 
 client = TestClient(app)
 
@@ -19,7 +17,9 @@ def get_fake_account_data():
 
 def test_get_all_exercises():
     # Arrange
-    app.dependency_overrides[authenticator.get_current_account_data] = get_fake_account_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = get_fake_account_data
     app.dependency_overrides[ExerciseQueries] = FakeExerciseQueries
 
     # Act
