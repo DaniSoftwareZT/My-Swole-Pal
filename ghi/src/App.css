@@ -581,13 +581,30 @@ textarea {
 	min-width: 400px;
 }
 
-/* .half1 {
-	order: 1;
+.date-card {
+	border:2px solid var(--primary);
+	background-color: var(--secondary);
+	color: white;
+	border-radius: 15px;
+
 }
 
-.half2 {
-	order: 2;
-} */
+.chart {
+	padding: 30px;
+	position: center !important;
+	width: 80% !important;
+	height: 80% !important;
+}
 
-/* Exercise component headings styles
-.left-side h3 */
+.chart-button {
+
+}
+
+.loading-message {
+	height: 20%;
+	color: var(--primary);
+}
+
+.chart-title {
+	color: var(--primary)
+}

@@ -14,7 +14,7 @@ export const apiSlice = createApi({
 			return headers;
 		},
 	}),
-	tagTypes: ["Account", "Exercises", "Workouts","Token","Workout"],
+	tagTypes: ["Account", "Exercises", "Workouts", "Token", "Workout","Prgoress"],
 	endpoints: (builder) => ({
 		signUp: builder.mutation({
 			query: (data) => ({
@@ -25,7 +25,7 @@ export const apiSlice = createApi({
 			}),
 			providesTags: ["Account"],
 			invalidatesTags: (result) => {
-				return (result && ["Token","Workouts"]) || [];
+				return (result && ["Token", "Workouts"]) || [];
 			},
 			async onQueryStarted(arg, { dispatch, queryFulfilled }) {
 				try {
@@ -107,7 +107,7 @@ export const apiSlice = createApi({
 					credentials: "include",
 				};
 			},
-			providesTags: ["Workouts"]
+			providesTags: ["Workouts"],
 		}),
 		getWorkout: builder.query({
 			query: (id) => {
@@ -117,7 +117,7 @@ export const apiSlice = createApi({
 					credentials: "include",
 				};
 			},
-			providesTags: ["Workouts"]
+			providesTags: ["Workouts"],
 		}),
 		createWorkout: builder.mutation({
 			query: (data) => ({
@@ -169,21 +169,62 @@ export const apiSlice = createApi({
 			},
 			invalidatesTags: ["Exercises", "Workouts"],
 		}),
+		getProgressRecords: builder.query({
+			query: () => {
+				return {
+					method: "get",
+					url: "/api/progress",
+					credentials: "include",
+				};
+			},
+			providesTags: ["Progress"],
+		}),
+		getProgressRecord: builder.query({
+			query: (id) => {
+				return {
+					method: "get",
+					url: `/api/progress/${id}`,
+					credentials: "include",
+				};
+			},
+			providesTags: ["Progress"],
+		}),
+		createProgressRecord: builder.mutation({
+			query: (data) => ({
+				url: "/api/progress",
+				body: data,
+				method: "post",
+				credentials: "include",
+			}),
+			invalidatesTags: ["Progress"],
+		}),
+		deleteProgressRecord: builder.mutation({
+			query: (id) => ({
+				url: `/api/progress/${id}`,
+				method: "delete",
+				credentials: "include",
+			}),
+			invalidatesTags: ["Progress"],
+		}),
 	}),
 });
 
 export const {
+	useCreateProgressRecordMutation,
+	useGetProgressRecordQuery,
+	useGetProgressRecordsQuery,
+	useDeleteProgressRecordMutation,
 	useDeleteWorkoutMutation,
 	useCreateWorkoutMutation,
 	useDeleteExerciseMutation,
 	useGetWorkoutExercisesQuery,
+	useGetWorkoutQuery,
+	useGetWorkoutsQuery,
 	useGetExercisesQuery,
 	useLazyGetExercisesQuery,
 	useGetTokenQuery,
 	useLogInMutation,
 	useLogOutMutation,
 	useSignUpMutation,
-	useGetWorkoutsQuery,
-	useGetWorkoutQuery,
 	useAddExerciseMutation,
 } = apiSlice;
