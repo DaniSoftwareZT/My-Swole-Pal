@@ -12,7 +12,7 @@ class FakeWorkoutQueries:
     def get_all(self, account_id: int):
         return []
 
-    def create(self, account_id:int, workout: WorkoutIn) -> WorkoutOut:
+    def create(self, account_id: int, workout: WorkoutIn) -> WorkoutOut:
         workout_dict = workout.dict()
         return WorkoutOut(id=2, account_id=account_id, **workout_dict)
 
