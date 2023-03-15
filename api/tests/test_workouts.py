@@ -12,7 +12,7 @@ class FakeWorkoutQueries:
     def get_all(self, account_id: int):
         return []
 
-    def create(self, account_id, workout: WorkoutIn) -> WorkoutOut:
+    def create(self, account_id:int, workout: WorkoutIn) -> WorkoutOut:
         workout_dict = workout.dict()
         return WorkoutOut(id=2, account_id=account_id, **workout_dict)
 
@@ -58,7 +58,7 @@ def test_create():
     }
 
     # Act
-    res = client.post("/api/workouts", json.dumps(workout_dict))
+    res = client.post("/api/workouts", json=json.dumps(workout_dict))
 
     # Assert
     assert res.status_code == 200
@@ -96,7 +96,7 @@ def test_update_workout():
     }
     # Act
     res = client.put(
-        f"/api/workouts/{workout_id}", json.dumps(new_workout_dict)
+        f"/api/workouts/{workout_id}", json=json.dumps(new_workout_dict)
     )
 
     # Assert
