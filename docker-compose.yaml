@@ -26,6 +26,7 @@ services:
       - ./api:/app
     environment:
       DATABASE_URL: postgresql://postgres:03e2985523cc432c@srv-captain--swole-db
+      # DATABASE_URL: postgresql://swole:swole@postgres/swole
       WAIT_HOSTS: postgres:5432
       SIGNING_KEY: ${SIGNING_KEY}
       WAIT_BEFORE: 5
