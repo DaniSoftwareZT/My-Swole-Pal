@@ -26,4 +26,4 @@ class SwoleAuthenticator(Authenticator):
         return account.username, AccountOut(**account.dict())
 
 
-authenticator = SwoleAuthenticator(os.environ["SIGNING_KEY"])
+authenticator = SwoleAuthenticator(os.getenv("SIGNING_KEY", ""))
