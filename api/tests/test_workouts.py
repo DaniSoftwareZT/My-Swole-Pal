@@ -3,7 +3,6 @@ from main import app
 from queries.workouts import WorkoutQueries
 from authenticator import authenticator
 from queries.workouts import WorkoutIn, WorkoutOut
-import json
 
 client = TestClient(app)
 
@@ -60,8 +59,9 @@ def test_get_workouts():
 #     account_id=get_fake_account_data()["id"]
 
 #     # Act
-#     res = client.post("/api/workouts", json=json.dumps(workout_dict), params={account_id:account_id})
-
+#     res = client.post("/api/workouts",
+#     json=json.dumps(workout_dict),
+#     params={account_id:account_id})
 #     # Assert
 #     assert res.status_code == 200
 #     assert res.json()["id"] == 1
@@ -97,7 +97,8 @@ def test_delete():
 #     }
 #     # Act
 #     res = client.put(
-#         f"/api/workouts/{workout_id}", json=json.dumps(new_workout_dict),
+#         f"/api/workouts/{workout_id}",
+#         json=json.dumps(new_workout_dict),
 #         account_id=id
 #     )
 

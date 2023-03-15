@@ -1,6 +1,6 @@
 steps = [
-  [
-    """
+    [
+        """
     CREATE TABLE exercises(
         id SERIAL PRIMARY KEY NOT NULL,
         name VARCHAR(100) NOT NULL,
@@ -13,8 +13,8 @@ steps = [
         instructions TEXT NOT NULL
     );
     """,
-    """
+        """
     DROP TABLE exercises;
-    """
-  ]
+    """,
+    ]
 ]
