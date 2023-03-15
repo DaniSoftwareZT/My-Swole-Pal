@@ -7,12 +7,12 @@ import {
 	useGetTokenQuery,
 } from "./store/Api";
 function ExerciseCard(props) {
-	const { exercise, accountId } = props;
+	const { exercise } = props;
 	const { data: workouts = [] } = useGetWorkoutsQuery();
 	const [showModal, setShowModal] = useState(false);
 	const [selectedWorkout, setSelectedWorkout] = useState(null);
-	const [addExercise, { data }] = useAddExerciseMutation();
-	const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
+	const [addExercise] = useAddExerciseMutation();
+	const { data: token } = useGetTokenQuery();
 
 	function handleShow() {
 		setShowModal(true);
@@ -23,14 +23,14 @@ function ExerciseCard(props) {
 		return new_string.split("_").join(" ");
 	}
 
-	function allFirstToUpper(string){
-		let wordList = string.split(" ")
-		let newWordList = []
-		for (let word of wordList){
-			let newWordFirst=word[0].toUpperCase();
-			let newWord= newWordFirst + word.slice(1)
+	function allFirstToUpper(string) {
+		let wordList = string.split(" ");
+		let newWordList = [];
+		for (let word of wordList) {
+			let newWordFirst = word[0].toUpperCase();
+			let newWord = newWordFirst + word.slice(1);
 
-			newWordList.push(newWord)
+			newWordList.push(newWord);
 		}
 
 		return newWordList.join(" ");

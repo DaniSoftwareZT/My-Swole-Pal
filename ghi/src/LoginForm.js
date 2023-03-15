@@ -7,7 +7,7 @@ function LoginForm() {
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [logIn, result] = useLogInMutation();
+	const [logIn] = useLogInMutation();
 
 	function handleSubmit(e) {
 		e.preventDefault();

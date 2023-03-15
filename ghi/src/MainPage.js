@@ -6,7 +6,6 @@ import ExerciseVideo from "./exercise_search.mp4";
 import WorkoutVideo from "./workout_updating.mp4";
 import { useNavigate } from "react-router-dom";
 import SwolePal from "./swole_pal.png";
-import Pushup from "./Pushup";
 
 function MainPage() {
 	const navigate = useNavigate();
@@ -19,7 +18,7 @@ function MainPage() {
 	return (
 		<div className="main-container">
 			<div className="centered-container">
-				<img src={SwolePal} />
+				<img src={SwolePal} alt="The swole pal awesome logo" />
 				<h4 className="slogan">Sweat Now, Shine Later</h4>
 				<h5 className="slogan mb-4">
 					Get swole and stay organized with <span>My Swole Pal™</span>
