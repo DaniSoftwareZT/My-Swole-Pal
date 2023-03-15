@@ -58,11 +58,11 @@ def test_create():
     }
 
     # Act
-    res = client.post("/api/workouts", json=json.dumps(workout_dict), account_id=get_fake_account_data()["id"])
+    res = client.post("/api/workouts", json=json.dumps(workout_dict))
 
     # Assert
     assert res.status_code == 200
-    assert res.json()["id"] == 2
+    assert res.json()["id"] == 1
 
 
 def test_delete():
@@ -87,7 +87,7 @@ def test_update_workout():
         authenticator.get_current_account_data
     ] = get_fake_account_data
     app.dependency_overrides[WorkoutQueries] = FakeWorkoutQueries
-    workout_id = 56
+    workout_id = 1
 
     new_workout_dict = {
         "account_id": 1,
@@ -96,7 +96,8 @@ def test_update_workout():
     }
     # Act
     res = client.put(
-        f"/api/workouts/{workout_id}", json=json.dumps(new_workout_dict)
+        f"/api/workouts/{workout_id}", json=json.dumps(new_workout_dict),
+        account_id=id
     )
 
     # Assert
