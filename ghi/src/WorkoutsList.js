@@ -39,7 +39,8 @@ function WorkoutsList() {
 	if (result.isSuccess) {
 		navigate(`${result.data.id}`);
 	} else if (result.isError) {
-		setError(result.error);
+    error = result.error
+		setError(error);
 	}
 
 	return (
