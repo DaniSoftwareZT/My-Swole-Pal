@@ -58,7 +58,7 @@ def test_create():
     }
 
     # Act
-    res = client.post("/api/workouts", json=json.dumps(workout_dict))
+    res = client.post("/api/workouts", json=json.dumps(workout_dict), account_id=get_fake_account_data()["id"])
 
     # Assert
     assert res.status_code == 200
